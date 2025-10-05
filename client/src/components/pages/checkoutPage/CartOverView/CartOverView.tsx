@@ -102,7 +102,7 @@ const CartOverView: React.FC<Props> = ({ products, shipping }) => {
             <div className="flex justify-between font-bold text-[20px] py-3 border-t border-black/20">
               <p>Payable:</p>
               <p className="text-[#D4A373]">
-                ৳{subTotalPrice - (products?.couponDiscount ?? 0)}
+                ৳{subTotalPrice}
               </p>
             </div>
           </motion.div>

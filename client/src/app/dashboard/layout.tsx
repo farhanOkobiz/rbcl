@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import logo from "@/assets/logo/Noha.png";
+import logo from "@/assets/logo/rbcl.jpg";
 import { usePathname, useRouter } from "next/navigation";
 import { FaHome, FaSignOutAlt, FaBars, FaTimes } from "react-icons/fa";
 import { toast } from "react-toastify";
@@ -70,7 +70,7 @@ export default function Layout({
               <div className="w-[120px] mx-auto">
                 <Image
                   src={logo}
-                  alt="NoHasan | Best E-commerce platform in BD"
+                  alt="ROYEL BUSINESS COMPANY LIMITED | Best E-commerce platform in BD"
                   width={120}
                   height={60}
                   className="w-full h-full"

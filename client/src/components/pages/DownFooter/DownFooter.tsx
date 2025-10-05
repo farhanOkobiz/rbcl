@@ -17,7 +17,6 @@ interface FooterProps {
 const DownFooter: React.FC<FooterProps> = ({ userCartProducts }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [usersId, setUsersId] = useState<TUser | null>(null);
-  console.log("userCartProducts", userCartProducts);
 
   const router = useRouter();
 
@@ -42,7 +41,6 @@ const DownFooter: React.FC<FooterProps> = ({ userCartProducts }) => {
     }
   };
 
-  console.log("try to find user id have or not", usersId);
 
   useEffect(() => {
     const handleScroll = () => {

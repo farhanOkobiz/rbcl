@@ -420,7 +420,7 @@ const CheckOutForm: React.FC<Props> = ({
             >
               Privacy Policy{" "}
             </Link>{" "}
-            of NOHASAN.
+            of ROYEL BUSINESS COMPANY LIMITED.
           </label>
         </div>
         {errors.terms && (

@@ -4,7 +4,7 @@ import { lato } from "./font";
 import NextTopLoader from "nextjs-toploader";
 
 export const metadata: Metadata = {
-  title: "NOHASAN",
+  title: "RBCL",
   description: "Best E-commerce platform in BD",
 };
 

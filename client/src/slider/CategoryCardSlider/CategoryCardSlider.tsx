@@ -78,6 +78,9 @@ const CategoryCardSlider: React.FC<CategoryProps> = ({ categoriesList }) => {
                   className="w-full h-full object-contain"
                 />
               </div>
+              <h2 className="text-center mt-1 mx-auto uppercase font-bold">
+                  {category?.name}
+                </h2>
             </Link>
           </SwiperSlide>
         ))}

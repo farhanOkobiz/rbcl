@@ -43,8 +43,6 @@ const ShopProducts: React.FC<ShopProductsProps> = ({
   const [hasMore, setHasMore] = useState(pagination.nextPage !== null);
   const [loading, setLoading] = useState(false);
 
-  console.log("-------for check find  products------", allProducts);
-
   const observerRef = useRef<HTMLDivElement | null>(null);
 
   const fetchMoreProducts = useCallback(async () => {

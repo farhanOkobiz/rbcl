@@ -13,7 +13,7 @@ import { Metadata } from "next";
 import NavBar from "@/components/pages/header/NavBar/NavBar";
 
 export const metadata: Metadata = {
-  title: "NOHASAN | All Product",
+  title: "RBCL | All Product",
   description: "Best E-commerce platform in BD",
 };
 

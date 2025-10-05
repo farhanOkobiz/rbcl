@@ -75,14 +75,14 @@ const Brand: React.FC<Props> = ({ brands }) => {
           {brands?.data?.map((brand: TBrand) => (
             <SwiperSlide key={brand._id}>
               <Link href={`/shop?brand=${brand.slug || brand._id}`}>
-                <div className="border border-[#D4A373] rounded flex items-center justify-center cursor-pointer">
+                <div className="border border-[#D4A373] h-24 rounded flex items-center justify-center cursor-pointer">
                   {brand.image && (
                     <Image
                       src={apiBaseUrl + brand.image}
                       width={100}
                       height={100}
                       alt="Brand Image"
-                      className="p-4 max-w-full max-h-full"
+                      className="p-4 max-w-full h-full rounded-2xl"
                     />
                   )}
                 </div>

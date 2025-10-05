@@ -24,12 +24,11 @@ import Campaign from "@/components/pages/landing_pages/Campaign/Campaign";
 import { getCampaign } from "@/services/campaign";
 import { Metadata } from "next";
 import CartSideBar from "@/components/pages/cartSideBar/CartSideBar";
-import Blogs from "@/components/pages/landing_pages/Blogs/Blogs";
 
 export const metadata: Metadata = {
-  title: "NOHASAN",
+  title: "RBCL",
   description:
-    "Shop online at NOHASAN – Bangladesh's best perfumes e-commerce platform. Discover premium perfumes for men and women unisex at NOHASAN. Shop 100% authentic branded fragrances in Bangladesh with fast delivery and great prices.",
+    "Shop online at RBCL – Bangladesh's best perfumes e-commerce platform. Discover premium perfumes for men and women unisex at ROYEL BUSINESS COMPANY LIMITED. Shop 100% authentic branded product in Bangladesh with fast delivery and great prices.",
 };
 
 const page = async () => {
@@ -62,11 +61,8 @@ const page = async () => {
         <Newest products={allproducts} />
         <DiscountProduct products={productWithDiscount} />
         <Brand brands={brands} />
-
         <Campaign campaign={campaign[0]} />
-        <Blogs  />
       </div>
-
       <CartSideBar cartProducts={products?.data} />
     </>
   );

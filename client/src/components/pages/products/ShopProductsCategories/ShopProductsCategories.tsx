@@ -101,13 +101,18 @@ const ShopProductsCategories: React.FC<ShopProductsCategoriesProps> = ({
   };
 
   // console.log("try to find brand for filter", products);
-
   const handleInputChange = (
     index: number,
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
     const newValues = [...values];
-    newValues[index] = Number(event.target.value);
+    let inputValue = Number(event.target.value);
+
+    // Prevent exceeding MAX or going below MIN
+    if (inputValue > MAX) inputValue = MAX;
+    if (inputValue < MIN) inputValue = MIN;
+
+    newValues[index] = inputValue; // এখানে inputValue assign করতে হবে
 
     // Ensure min is always <= max
     if (newValues[0] <= newValues[1]) {
@@ -116,7 +121,6 @@ const ShopProductsCategories: React.FC<ShopProductsCategoriesProps> = ({
     }
   };
 
-  console.log("geting value", values);
 
   return (
     <div className="px-4 pt-2 sticky top-0 h-screen overflow-y-scroll custom-scroll flex flex-col gap-4 pb-12">

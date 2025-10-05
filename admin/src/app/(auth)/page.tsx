@@ -21,7 +21,7 @@ import { loginUser } from "./action";
 // import { useStore } from "@/hooks/store/use-store";
 // import { useBranch } from "@/hooks/store/use-branch";
 import Image from "next/image";
-import logo from "@/assets/logo/main.png";
+import logo from "@/assets/logo/rbcl.jpg";
 import { Eye, EyeOff } from "lucide-react";
 import { saveAuthData } from "@/utils/auth";
 import Link from "next/link";
@@ -79,23 +79,23 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="w-full h-screen grid grid-cols-2 p-10 relative bg-secondary">
+    <div className="w-full h-screen grid grid-cols-2 p-10 relative bg-blue-100">
       <div className="m-auto grid w-[400px] h-[500px] gap-6 bg-white/30 backdrop-blur-lg shadow-xl p-8 rounded-xl">
         <div className="grid gap-2 text-center">
-          <h1 className="text-3xl font-bold">Login</h1>
+          <h1 className="text-3xl font-bold text-gray-900">Login</h1>
           <p className="text-sm text-gray-400 text-muted-foreground">
             Enter your registered email and password to login.
           </p>
         </div>
         <form onSubmit={form.handleSubmit(onSubmit)}>
-          <div className="grid gap-4">
+          <div className="grid gap-4 ">
             <Form {...form}>
               <FormField
                 control={form.control}
                 name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Email</FormLabel>
+                    <FormLabel className="text-gray-900">Email</FormLabel>
                     <FormControl>
                       <Input placeholder="user@email.com" {...field} />
                     </FormControl>
@@ -111,7 +111,7 @@ export default function LoginPage() {
                 name="password"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Password</FormLabel>
+                    <FormLabel className="text-gray-900">Password</FormLabel>
                     <FormControl>
                       {/* <Input type="password" placeholder="******" {...field} /> */}
                       <div className="relative">
@@ -147,7 +147,7 @@ export default function LoginPage() {
         </form>
         <div>
           <Link
-            className="hover:text-blue-500 hover:underline transition-all duration-500"
+            className="hover:text-blue-500 hover:underline transition-all duration-500 text-gray-900"
             href="/forgot-password"
           >
             Forgot password?
@@ -157,7 +157,7 @@ export default function LoginPage() {
       <div className="max-h-screen flex justify-center items-center">
         <Image
           src={logo}
-          alt="Login to NoHasan"
+          alt="Login to RBCL"
           // height={1600}
           // width={800}
           quality={100}
