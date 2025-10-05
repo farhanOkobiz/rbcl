@@ -8,14 +8,10 @@ export const menuList = [
     link: "/shop",
     subMenu: true,
   },
-  {
-    title: "About",
-    link: "/about",
-  },
-  {
-    title: "Blogs",
-    link: "/blogs",
-  },
+  // {
+  //   title: "About",
+  //   link: "/about",
+  // },
   {
     title: "Contact",
     link: "/contact",

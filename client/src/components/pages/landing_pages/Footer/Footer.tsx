@@ -3,10 +3,8 @@
 import React from "react";
 import {
   FaFacebookF,
-  FaInstagram,
   FaRegCreditCard,
   FaTruck,
-  FaYoutube,
 } from "react-icons/fa";
 import { FaRegMessage, FaRightLeft } from "react-icons/fa6";
 import Link from "next/link";
@@ -21,16 +19,12 @@ interface FooterProps {
 const Footer: React.FC<FooterProps> = ({ userCartProducts }) => {
   const quickLink = [
     {
-      name: "Shop",
+      name: "Home",
       link: "/shop",
     },
     {
-      name: "About Us",
-      link: "/about",
-    },
-    {
-      name: "Blogs",
-      link: "/blogs",
+      name: "Shop",
+      link: "/shop",
     },
     {
       name: "Contact Us",
@@ -113,9 +107,18 @@ const Footer: React.FC<FooterProps> = ({ userCartProducts }) => {
             <div className="text-black font-semibold mb-[20px] text-xl">
               Contact Info
             </div>
-            <div className="text-black text-md lg:text-lg flex flex-col space-y-1">
-              <div>Contact: +880 1735 775 093</div>
-              <div>Whats app: +880 1735 775 093</div>
+            <p className="text-sm leading-relaxed text-gray-700 mb-[20px]">
+              Welcome to <span className="font-semibold">Royel Business Company Limited</span> –
+              a brand built on trust, elegance, and authenticity. <br className=" hidden md:block" />
+              We are passionate about the art of fragrance and committed to bringing you
+              <span className="font-semibold"> 100% authentic perfumes </span> <br className=" hidden md:block" />
+              from globally renowned brands.
+              Each scent is carefully curated to ensure quality, originality, <br className=" hidden md:block" /> and a lasting impression.
+              Discover your signature scent with confidence.
+            </p>
+            <div className="text-black text-md lg:text-lg flex flex-col space-y-1 ">
+              <div>Contact: +880 170000000</div>
+              <div>Whats app: +880 170000000</div>
               <div>Address: Dhaka, Bangladesh</div>
             </div>
           </div>
@@ -170,7 +173,7 @@ const Footer: React.FC<FooterProps> = ({ userCartProducts }) => {
                 >
                   <FaFacebookF />
                 </a>
-                <a
+                {/* <a
                   href="#"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -178,7 +181,7 @@ const Footer: React.FC<FooterProps> = ({ userCartProducts }) => {
                   aria-label="Instagram"
                 >
                   <FaInstagram />
-                </a>
+                </a> */}
 
                 {/* <a
                   href="#"
@@ -190,7 +193,7 @@ const Footer: React.FC<FooterProps> = ({ userCartProducts }) => {
                   <FaInstagram />
                 </a> */}
 
-                <a
+                {/* <a
                   href="#"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -198,7 +201,7 @@ const Footer: React.FC<FooterProps> = ({ userCartProducts }) => {
                   aria-label="youtube"
                 >
                   <FaYoutube />
-                </a>
+                </a> */}
               </div>
 
               {/* <div className="mt-2">
@@ -217,7 +220,7 @@ const Footer: React.FC<FooterProps> = ({ userCartProducts }) => {
         </div>
       </div>
       <div className="bg-[#D4A373] text-white text-center py-4 border-t">
-        Copyright © 2025 NOHASAN. All Right Reserved. Developed by{" "}
+        Copyright © 2025 ROYEL BUSINESS COMPANY LIMITED. All Right Reserved. Developed by{" "}
         <a target="_blank" href="https://okobiz.com/">
           okobiz
         </a>

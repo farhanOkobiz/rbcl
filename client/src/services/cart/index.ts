@@ -56,3 +56,40 @@ export const addToCart = async (product: {
   revalidatePath("/");
   return res;
 };
+
+export const updateCartQuantity = async (
+  cartId: string,
+  action: "inc" | "dec" | "set",
+  newQty?: number
+) => {
+  try {
+    let url = `${apiBaseUrl}/cart/${cartId}`;
+    let options: RequestInit = { method: "PUT" };
+
+    if (action === "inc") {
+      url += "?increment=true";
+    } else if (action === "dec") {
+      url += "?decrement=true";
+    } else if (action === "set") {
+      url += "?update=true";
+      options = {
+        ...options,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ quantity: newQty }),
+      };
+    }
+
+    const res = await fetch(url, options);
+
+    if (!res.ok) throw new Error("Failed to update quantity");
+    const data = await res.json();
+
+    // ✅ revalidatePath দিয়ে cache clear করে দিবে
+    revalidatePath("/cart");
+
+    return data;
+  } catch (error) {
+    console.error("Update failed:", error);
+    throw error;
+  }
+};

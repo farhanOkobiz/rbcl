@@ -2,8 +2,7 @@
 
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
-import logo from "@/assets/logo/Noha.png";
-import SearchForm from "../SearchForm/SearchForm";
+import logo from "@/assets/logo/rbcl.jpg";
 import { menuList } from "@/utilits/menuList";
 import Link from "next/link";
 import { BsCart2 } from "react-icons/bs";
@@ -122,25 +121,25 @@ const NavBar: React.FC<NavBarProps> = ({ userCartProducts }) => {
         <div className="Container">
           <div className="flex items-center justify-between relative">
             <div>
-              <div className="flex items-center lg:gap-0 gap-2">
-                <div className="w-[80px]">
+              <div className="flex items-center gap-1">
+                <div className="">
                   <Link href="/">
                     <Image
                       src={logo || null}
-                      alt="NoHasan | Best E-commerce platform in BD"
+                      alt="ROYEL BUSINESS COMPANY LIMITED | Best E-commerce platform in BD"
                       width={100}
                       height={80}
-                      className="w-full h-full"
+                      className="w-full h-20"
                     />
                   </Link>
                 </div>
+                <p>
+                  Royel business company limited
+                </p>
               </div>
             </div>
 
             <div className="flex items-center  2xl:gap-16   gap-2 xl:relative">
-              <div className="">
-                <SearchForm onClose={() => {}} />
-              </div>
               <div className="lg:flex hidden items-center justify-center  ml-8">
                 {menuList?.map((menu, index) => (
                   <div
@@ -240,7 +239,7 @@ const NavBar: React.FC<NavBarProps> = ({ userCartProducts }) => {
                 <Link href="/">
                   <Image
                     src={logo || null}
-                    alt="NoHasan"
+                    alt="ROYEL BUSINESS COMPANY LIMITED"
                     width={100}
                     height={80}
                     className="w-full h-full"

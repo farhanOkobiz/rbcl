@@ -9,7 +9,7 @@ const AboutNoHasan = () => {
       <div className="flex items-center md:flex-nowrap flex-wrap  gap-8">
         <div className="">
           <h2 className="flex items-center  gap-2  font-medium">
-            <span className="text-3xl">NoHasan</span>
+            <span className="text-3xl">ROYEL BUSINESS COMPANY LIMITED</span>
             <span>
               <MdArrowForwardIos className="text-2xl mt-1 text-[#5CB85C]" />
             </span>

@@ -44,7 +44,6 @@ export const OrderTable: React.FC<Props> = ({ data, pagination }) => {
     },
   });
 
-  console.log("data", data);
 
   return (
     <Card className="m-6 p-4 rounded-lg">

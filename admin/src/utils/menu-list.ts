@@ -117,13 +117,13 @@ export function getMenuList(pathname: string): Group[] {
           icon: Images,
           submenus: [],
         },
-        {
-          href: "/blogs",
-          label: "Blogs",
-          active: pathname.includes("/blogs"),
-          icon: Images,
-          submenus: [],
-        },
+        // {
+        //   href: "/blogs",
+        //   label: "Blogs",
+        //   active: pathname.includes("/blogs"),
+        //   icon: Images,
+        //   submenus: [],
+        // },
         {
           href: "/contact",
           label: "Contacts",

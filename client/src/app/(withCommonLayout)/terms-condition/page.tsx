@@ -18,11 +18,11 @@ const TermCondition = async () => {
               Terms & Conditions
             </h1>
             <p className="mb-6 text-gray-600">
-              Welcome to <strong>Nohasan</strong>! By using this website (the
+              Welcome to <strong>ROYEL BUSINESS COMPANY LIMITED</strong>! By using this website (the
               "Site"), you agree to these Terms & Conditions. If you do not
               agree, please do not use the Site.
               <br />
-              Nohasan is an online beauty and personal care store that offers
+              ROYEL BUSINESS COMPANY LIMITED is an online beauty and personal care store that offers
               high-quality products, including perfumes, skincare, and wellness
               essentials.
               <br />
@@ -38,7 +38,7 @@ const TermCondition = async () => {
                 </h2>
                 <ul className="list-disc list-inside text-gray-700 space-y-1">
                   <li>
-                    To purchase from Nohasan, you may need to create an account
+                    To purchase from ROYEL BUSINESS COMPANY LIMITED, you may need to create an account
                     and provide personal details.
                   </li>
                   <li>
@@ -72,7 +72,7 @@ const TermCondition = async () => {
                 </h2>
                 <ul className="list-disc list-inside text-gray-700 space-y-1">
                   <li>
-                    All orders placed through Nohasan are subject to
+                    All orders placed through ROYEL BUSINESS COMPANY LIMITED are subject to
                     availability and confirmation.
                   </li>
                   <li>
@@ -168,7 +168,7 @@ const TermCondition = async () => {
                   before use.
                 </p>
                 <p>
-                  Nohasan is not liable for any indirect or incidental damages
+                  ROYEL BUSINESS COMPANY LIMITED is not liable for any indirect or incidental damages
                   resulting from the use of our products or services.
                 </p>
               </section>

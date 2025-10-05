@@ -60,7 +60,7 @@ const Campaign: React.FC<Props> = ({ campaign }) => {
 
   return (
     <div className="Container pb-8 py-4">
-      <div className="grid md:grid-cols-2   rounded">
+      <div className="grid md:grid-cols-2 rounded">
         <div className="flex flex-col items-center justify-center bg-[#222222]/80 md:rounded-l md:rounded-t-none rounded-t">
           <div className="text-center lg:pb-8 pb-4 text-[#fff]">
             <p className="md:mt-0 mt-3">Special Offer</p>
@@ -109,7 +109,7 @@ const Campaign: React.FC<Props> = ({ campaign }) => {
             alt="Countdown Timer"
             width={800}
             height={800}
-            className="w-full h-full object-cover md:rounded-r md:rounded-b-none rounded-b opacity-65"
+            className="w-full h-full object-cover md:rounded-r md:rounded-b-none rounded-b"
           />
         </div>
       </div>
