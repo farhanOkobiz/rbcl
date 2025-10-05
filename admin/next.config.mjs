@@ -10,7 +10,7 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "rbcl-server-production.up.railway.app",
+        hostname: "rbcl-production.up.railway.app",
         pathname: "/api/v1/public/uploads/**",
       },
     ],
