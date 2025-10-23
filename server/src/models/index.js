@@ -37,6 +37,8 @@ module.exports = {
   PaymentSchema: require("./payment/paymentSchema.js").PaymentSchema,
   OrderBulkSchema: require("./orderBulk/orderBulkSchema.js").OrderBulkSchema,
   CampaignSchema: require("./campaign/campaignSchema.js").CampaignSchema,
+  BlogCategorySchema: require("../models/blogcategory/blogCategorySchema.js").BlogCategorySchema,
+  BlogSubCategorySchema: require("../models/blogsubCategory/blogSubCategorySchema.js").BlogSubCategorySchema,
   BlogSchema: require("./blog/blogSchema.js").BlogSchema,
   BlogTagSchema: require("./blogTag/blogTagSchema.js").BlogTagSchema,
 };

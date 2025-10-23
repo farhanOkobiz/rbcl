@@ -24,8 +24,10 @@ const ProductReviewRouter = require("./routes/productReview.route.js");
 const WarehouseRoute = require("./routes/warehouse.route.js");
 const WarehouseTransferRoute = require("./routes/warehouseTransfer.route.js");
 const OrderBulkRoute = require("./routes/order.bulk.route.js");
-const BlogTagRoute = require("./routes/blogTag.route.js");
+const BlogCategoryRoute = require("./routes/blogcategory.route.js");
+const BlogSubCategoryRoute = require("./routes/blogsubCategory.route.js");
 const BlogRoute = require("./routes/blog.route.js");
+const BlogTagRoute = require("./routes/blogTag.route.js");
 
 const { Router } = require("express");
 const CampaignRoute = require("./routes/campaign.route.js");
@@ -60,6 +62,8 @@ rootRouter.use("/warehouse", WarehouseRoute);
 rootRouter.use("/warehouse-transfer", WarehouseTransferRoute);
 rootRouter.use("/order-bulk", OrderBulkRoute);
 rootRouter.use("/campaign", CampaignRoute);
+rootRouter.use("/blog-category", BlogCategoryRoute);
+rootRouter.use("/blog-subcategory", BlogSubCategoryRoute);
 rootRouter.use("/blog", BlogRoute);
 rootRouter.use("/blog-tag", BlogTagRoute);
 

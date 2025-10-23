@@ -5,6 +5,8 @@ import React from "react";
 import { BlogTable } from "./table";
 import { CreateBlogForm } from "./form";
 import { getBlogWithPagination } from "@/services/blogs";
+import { getBlogCategoryWithPagination } from "@/services/blogcategory";
+import { getBlogSubCategoryWithPagination } from "@/services/blog-sub-category";
 
 export const revalidate = 0;
 
@@ -13,7 +15,6 @@ interface Props {
     [key: string]: string | string[] | undefined;
   };
 }
-
 export default async function page({ searchParams }: Props) {
   const page = Array.isArray(searchParams.page)
     ? searchParams.page[0]
@@ -22,12 +23,13 @@ export default async function page({ searchParams }: Props) {
     ? searchParams.limit[0]
     : searchParams.limit || "10";
 
-   
-    const { data } = await getBlogWithPagination(page, limit);
+  const { data: blogCategoryData } = await getBlogCategoryWithPagination(page, limit);
+  const { data: blogSubCategoryData } = await getBlogSubCategoryWithPagination(page, limit);
+  const { data } = await getBlogWithPagination(page, limit);
 
   return (
     <ContentLayout title="Blogs">
-      <CreateBlogForm />
+      <CreateBlogForm blogCategoryData={blogCategoryData} blogSubCategoryData={blogSubCategoryData} />
       <BlogTable
         data={data.result.map((item) => item)}
         pagination={{

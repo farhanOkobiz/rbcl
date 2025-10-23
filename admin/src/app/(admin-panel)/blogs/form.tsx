@@ -11,17 +11,11 @@ import {
   FormLabel,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-// import {
-//   Select,
-//   SelectContent,
-//   SelectItem,
-//   SelectTrigger,
-//   SelectValue,
-// } from "@/components/ui/select";
 import { useForm, Controller } from "react-hook-form";
 import { useToast } from "@/components/ui/use-toast";
 import { zodResolver } from "@hookform/resolvers/zod";
 import React, { useState } from "react";
+import { Select as AntSelect } from "antd";
 
 import { z } from "zod";
 
@@ -34,25 +28,63 @@ import { Label } from "@/components/ui/label";
 
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
-
-import { Select } from "antd";
 import { getBlogFormSchema } from "./form-schema";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+
 const defaultValues = {
   name: "",
   title: "",
   details: "",
-  author: "",
+  youtubeUrl: "",
   image: [],
   tags: [],
+  author: "",
+  featured: false,
 };
 
-export const CreateBlogForm: React.FC = () => {
+type TBlogCategory = {
+  _id: string;
+  name: string;
+  image: string;
+  vectorImage: string;
+  slug: string;
+  status: boolean;
+};
+
+type TBlogSubCategory = {
+  _id: string;
+  name: string;
+  slug: string;
+  blogCategoryRef: string;
+};
+
+type CreateBlogFormProps = {
+  blogCategoryData: {
+    result: TBlogCategory[];
+    pagination: any;
+  };
+  blogSubCategoryData: {
+    result: TBlogSubCategory[];
+    pagination: any;
+  };
+};
+
+export const CreateBlogForm: React.FC<CreateBlogFormProps> = ({
+  blogCategoryData,
+  blogSubCategoryData,
+}) => {
   const { toast } = useToast();
 
   const [thumbnailFileList, setThumbnailFileList] = React.useState([]);
 
   const [loading, setLoading] = React.useState(false);
-const blogFormSchema = getBlogFormSchema(false);
+  const blogFormSchema = getBlogFormSchema(false);
 
   const form = useForm<z.infer<typeof blogFormSchema>>({
     resolver: zodResolver(blogFormSchema),
@@ -60,6 +92,7 @@ const blogFormSchema = getBlogFormSchema(false);
   });
 
   const { control, register, watch, formState } = form;
+  const selectedCategoryId = watch("categoryRef");
 
   const handleThumbnailFileChange = ({ fileList }: any) => {
     setThumbnailFileList(fileList);
@@ -72,19 +105,26 @@ const blogFormSchema = getBlogFormSchema(false);
     form.setValue("image", rawFiles);
   };
 
-  console.log(
-    "fileList................................",
-    form.formState.errors
-  );
+  // filtered subcategories
+  const filteredSubCategories = React.useMemo(() => {
+    if (!selectedCategoryId) return [];
+    return blogSubCategoryData?.result.filter(
+      (subCat) => subCat.categoryRef?._id === selectedCategoryId
+    );
+  }, [selectedCategoryId, blogSubCategoryData]);
 
   const onSubmit = async (values: z.infer<typeof blogFormSchema>) => {
-    console.log("sdfkgjfoigjdfoigjdfoigj");
     setLoading(true);
-    const formData = makeFormData(values);
-    console.log(values, "values from form++++++++++++++++++++++++++");
+
+    const formData = makeFormData({
+      ...values,
+      subCategoryRef: values.subCategoryRef || undefined,
+      featured: values.featured ? "true" : "false",
+    });
+
     try {
       await createFormAction(formData);
-      console.log("sdfkgjfoigjdfoigjdfoigj");
+
       form.reset();
       toast({
         title: "Success",
@@ -103,7 +143,6 @@ const blogFormSchema = getBlogFormSchema(false);
     }
   };
 
-  // 000000000000000000000000000000000000
   const [options, setOptions] = useState<{ value: string }[]>([]);
 
   return (
@@ -122,17 +161,81 @@ const blogFormSchema = getBlogFormSchema(false);
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>
-                    Blog Title <b className="text-red-500">*</b>
+                    Blog Title <b className="text-[#52687f]">*</b>
                   </FormLabel>
                   <FormControl>
                     <Input placeholder="Enter blog Title" {...field} />
                   </FormControl>
-                  <FormDescription className="text-red-400 text-xs min-h-4">
+                  <FormDescription className="text-[#52687f] text-xs min-h-4">
                     {form.formState.errors.title?.message}
                   </FormDescription>
                 </FormItem>
               )}
             />
+
+            <div className="flex items-center gap-4 w-full">
+              <FormField
+                control={form.control}
+                name="categoryRef"
+                render={({ field }) => (
+                  <FormItem className="flex-1">
+                    <FormLabel>
+                      Category<b className="text-[#52687f]">*</b>
+                    </FormLabel>
+                    <FormControl>
+                      <Select
+                        value={field.value || ""}
+                        onValueChange={field.onChange}
+                      >
+                        <SelectTrigger>
+                          <SelectValue placeholder="Select category" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {blogCategoryData?.result.map((item) => (
+                            <SelectItem key={item._id} value={item._id}>
+                              {item.name}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </FormControl>
+                    <FormDescription className="text-[#52687f] text-xs min-h-4">
+                      {form.formState.errors.categoryRef?.message}
+                    </FormDescription>
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="subCategoryRef"
+                render={({ field }) => (
+                  <FormItem className="flex-1">
+                    <FormLabel>Subcategory</FormLabel>
+                    <FormControl>
+                      <Select
+                        value={field.value || ""}
+                        onValueChange={field.onChange}
+                      >
+                        <SelectTrigger>
+                          <SelectValue placeholder="Select subcategory (Optional)" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {filteredSubCategories.map((item) => (
+                            <SelectItem key={item._id} value={item._id}>
+                              {item.name}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </FormControl>
+                    <FormDescription className="text-[#52687f] text-xs min-h-4">
+                      {form.formState.errors.subCategoryRef?.message}
+                    </FormDescription>
+                  </FormItem>
+                )}
+              />
+            </div>
+
             <FormField
               control={form.control}
               name="details"
@@ -140,44 +243,11 @@ const blogFormSchema = getBlogFormSchema(false);
                 <FormItem>
                   <FormLabel>Blog Description</FormLabel>
                   <FormControl>
-                    {/* <Input placeholder="Enter product description" {...field} /> */}
+                    {/* <Input placeholder="Enter Blog description" {...field} /> */}
                     <ReactQuill {...field} />
                   </FormControl>
-                  <FormDescription className="text-red-400 text-xs min-h-4">
+                  <FormDescription className="text-[#52687f] text-xs min-h-4">
                     {form.formState.errors.details?.message}
-                  </FormDescription>
-                </FormItem>
-              )}
-            />
-
-            <Controller
-              control={form.control}
-              name="tags"
-              render={({ field: { value, onChange } }) => (
-                <FormItem>
-                  <FormLabel>
-                    Add tags <b className="text-red-500">*</b>
-                  </FormLabel>
-                  <FormControl>
-                    <Select
-                      mode="tags"
-                      style={{ width: "100%" }}
-                      placeholder="Enter or select tags"
-                      value={value || []}
-                      onChange={(newTags) => {
-                        const newOptions = newTags
-                          .filter(
-                            (tag) => !options.some((opt) => opt.value === tag)
-                          )
-                          .map((tag) => ({ value: tag }));
-                        setOptions((prev) => [...prev, ...newOptions]);
-                        onChange(newTags);
-                      }}
-                      options={options}
-                    />
-                  </FormControl>
-                  <FormDescription className="text-red-400 text-xs min-h-4">
-                    {form.formState.errors.tags?.message}
                   </FormDescription>
                 </FormItem>
               )}
@@ -185,20 +255,89 @@ const blogFormSchema = getBlogFormSchema(false);
 
             <FormField
               control={form.control}
-              name="author"
+              name="youtubeUrl"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Author Name</FormLabel>
+                  <FormLabel>YouTube Video Link</FormLabel>
                   <FormControl>
-                    <Input placeholder="Enter author name" {...field} />
+                    <Input placeholder="Enter YouTube video URL" {...field} />
                   </FormControl>
-                  {/* <FormDescription className="text-red-400 text-xs min-h-4">
-                    {form.formState.errors.name?.message}
-                  </FormDescription> */}
+                  <FormDescription className="text-[#52687f] text-xs min-h-4">
+                    {form.formState.errors.youtubeUrl?.message}
+                  </FormDescription>
                 </FormItem>
               )}
             />
 
+            <div className="flex gap-4 w-full">
+              <Controller
+                control={form.control}
+                name="tags"
+                render={({ field: { value, onChange } }) => (
+                  <FormItem className="flex-1">
+                    <FormLabel>
+                      Add tags <b className="text-[#52687f]">*</b>
+                    </FormLabel>
+                    <FormControl>
+                      <AntSelect
+                        className="h-10"
+                        mode="tags"
+                        style={{ width: "100%" }}
+                        placeholder="Enter or select tags"
+                        value={value || []}
+                        onChange={(newTags) => {
+                          const newOptions = newTags
+                            .filter(
+                              (tag) => !options.some((opt) => opt.value === tag)
+                            )
+                            .map((tag) => ({ value: tag }));
+                          setOptions((prev) => [...prev, ...newOptions]);
+                          onChange(newTags);
+                        }}
+                      />
+                    </FormControl>
+                    <FormDescription className="text-[#52687f] text-xs min-h-4">
+                      {form.formState.errors.tags?.message}
+                    </FormDescription>
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="author"
+                render={({ field }) => (
+                  <FormItem className="flex-1">
+                    <FormLabel>Author Name</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Enter author name" {...field} />
+                    </FormControl>
+                    {/* <FormDescription className="text-[#52687f] text-xs min-h-4">
+                    {form.formState.errors.name?.message}
+                  </FormDescription> */}
+                  </FormItem>
+                )}
+              />
+            </div>
+            <FormField
+              control={form.control}
+              name="featured"
+              render={({ field }) => (
+                <FormItem className="flex items-center gap-2">
+                  <FormControl>
+                    <input
+                      type="checkbox"
+                      checked={field.value}
+                      onChange={(e) => field.onChange(e.target.checked)}
+                      className="w-4 h-4 mt-1"
+                    />
+                  </FormControl>
+                  <FormLabel className="text-sm">Mark as Featured</FormLabel>
+                  <FormDescription className="text-[#52687f] text-xs min-h-4">
+                    {form.formState.errors.featured?.message}
+                  </FormDescription>
+                </FormItem>
+              )}
+            />
             <Button type="submit" loading={loading} className="my-6">
               Create
             </Button>
@@ -207,9 +346,7 @@ const blogFormSchema = getBlogFormSchema(false);
           {/* Image */}
           <div className="col-span-1 min-h-[500px] grid grid-cols-2">
             <div className="">
-              <Label>
-                Blog Image(1 File) <b className="text-red-500">*</b>
-              </Label>
+              <Label>Blog Image(1 File)</Label>
               <FormField
                 control={form.control}
                 name="image"
@@ -253,7 +390,7 @@ const blogFormSchema = getBlogFormSchema(false);
                   ))}
               </div>
 
-              <div className="text-red-400 text-xs min-h-4">
+              <div className="text-[#52687f] text-xs min-h-4">
                 {form.formState.errors.image?.message}
               </div>
             </div>

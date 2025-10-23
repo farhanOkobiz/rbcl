@@ -4,10 +4,10 @@ const Schema = mongoose.Schema;
 
 const Blogschema = new Schema(
   {
-    image:
-      {
-        type: String,
-      },
+    image: {
+      type: String,
+      required: false,
+    },
     title: {
       type: String,
       trim: true,
@@ -15,19 +15,34 @@ const Blogschema = new Schema(
     slug: {
       type: String,
     },
-    author: {
-      type: String,
-      trim: true,
+
+    blogCategoryRef: {
+      type: Schema.Types.ObjectId,
+      ref: "BlogCategory",
+      required: true,
+    },
+    blogSubCategoryRef: {
+      type: Schema.Types.ObjectId,
+      ref: "BlogSubCategory",
+      required: false,
     },
     details: {
       type: String,
       trim: true,
     },
+    youtubeUrl: {
+      type: String,
+      required: false,
+    },
     tags: [
       {
-         type: String,
+        type: String,
       },
     ],
+    author: {
+      type: String,
+      trim: true,
+    },
     status: {
       type: Boolean,
       default: true,

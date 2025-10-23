@@ -24,9 +24,15 @@ class BlogRepository extends BaseRepository {
             .find({})
             .sort({ createdAt: sortOrder })
             .skip(offset)
-            .limit(limit);
-          // .populate('')
-          // .populate('')
+            .limit(limit)
+            .populate({
+              path: "blogCategoryRef",
+              select: "name",
+            })
+            .populate({
+              path: "blogSubCategoryRef",
+              select: "name",
+            });
           const totalBlog = await this.#model.countDocuments();
 
           return { doc: blogs, totalDoc: totalBlog };

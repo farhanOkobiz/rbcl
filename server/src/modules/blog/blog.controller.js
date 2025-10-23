@@ -10,12 +10,17 @@ class BlogController {
     };
     const payload = {
       title: req?.body?.title,
+      blogCategoryRef: req.body.categoryRef,
+      blogSubCategoryRef:
+        req.body.subCategoryRef && req.body.subCategoryRef !== "undefined"
+          ? req.body.subCategoryRef
+          : undefined,
       details: req?.body?.details,
+      youtubeUrl: req?.body?.youtubeUrl,
       author: req?.body?.author,
       tags: req?.body?.tags,
       status: req?.body?.status,
     };
-
     const blogResult = await BlogService.createBlog(
       payload,
       payloadFiles,
@@ -30,11 +35,26 @@ class BlogController {
   });
 
   getAllBlog = catchError(async (req, res, next) => {
-    let payload = {
-      tags: req.query.tags,
+    const { tags, category, subCategory } = req.query;
+
+    const payload = {
+      tags,
+      category,
+      subCategory,
     };
+
     const blogResult = await BlogService.getAllBlog(payload);
     const resDoc = responseHandler(200, "Get All Blogs", blogResult);
+    res.status(resDoc.statusCode).json(resDoc);
+  });
+
+  getAllVideoBlog = catchError(async (req, res, next) => {
+    const payload = {
+      tags: req.query.tags,
+    };
+
+    const blogResult = await BlogService.getAllVideoBlog(payload);
+    const resDoc = responseHandler(200, "Get All Video Blogs", blogResult);
     res.status(resDoc.statusCode).json(resDoc);
   });
 
@@ -58,12 +78,13 @@ class BlogController {
 
   updateBlog = catchError(async (req, res, next) => {
     const id = req.params.id;
-    console.log("id", id);
     const payloadFiles = {
       files: req.files,
     };
     const payload = {
       title: req?.body?.title,
+      blogCategoryRef: req.body.categoryRef,
+      blogSubCategoryRef: req.body.subCategoryRef,
       details: req?.body?.details,
       author: req?.body?.author,
       tags: req?.body?.tags,

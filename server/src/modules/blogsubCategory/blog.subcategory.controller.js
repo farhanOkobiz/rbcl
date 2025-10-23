@@ -14,7 +14,7 @@ class BlogSubCategoryController {
       name: req.body.name,
       status: req.body.status,
       slug: req.body.slug,
-      categoryRef: req.body.categoryRef,
+      categoryRef: req.body.categoryRef || req.body.blogCategoryRef,
       viewType: ensureNullIfUndefined(req.body.viewType),
     };
     const blogSubCategoryResult = await BlogSubCategoryService.createBlogSubCategory(

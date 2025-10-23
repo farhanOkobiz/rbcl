@@ -5,6 +5,8 @@ import Image from "next/image";
 import { fileUrlGenerator } from "@/utils/helpers";
 import { BlogDetailsSheet } from "./details";
 import TruncatedHtml from "@/components/utils/truncated-html";
+import { YouTubeModal } from "@/utils/YouTubeModal ";
+
 
 export const columns: ColumnDef<TBlog>[] = [
   {
@@ -31,8 +33,40 @@ export const columns: ColumnDef<TBlog>[] = [
     },
   },
   {
+    header: "YoutTube Video",
+    accessorKey: "youtubeUrl",
+    cell: ({ row }) => {
+
+      const url = row.original.youtubeUrl
+      if (!url) return <span className="text-gray-400">No video</span>;
+
+      const videoIdMatch = url.match(
+        /(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/))([\w-]{11})/
+      );
+      const videoId = videoIdMatch ? videoIdMatch[1] : null;
+
+      return <YouTubeModal url={url} />;
+    }
+  },
+  {
     header: "Title",
     accessorKey: "title",
+  },
+  {
+    header: "Blog Category",
+    accessorKey: "blogCategoryRef",
+    cell: ({ row }) =>
+      typeof row.original.blogCategoryRef === "object"
+        ? row.original.blogCategoryRef.name
+        : "N/A",
+  },
+  {
+    header: "Blog Subcategory",
+    accessorKey: "blogSubCategoryRef",
+    cell: ({ row }) =>
+      typeof row.original.blogSubCategoryRef === "object"
+        ? row.original.blogSubCategoryRef.name
+        : "N/A",
   },
   {
     header: "Tags",
@@ -42,10 +76,6 @@ export const columns: ColumnDef<TBlog>[] = [
     header: "Author",
     accessorKey: "author",
   },
-  // {
-  //   header: "Status",
-  //   accessorKey: "status",
-  // },
   {
     header: "Details",
     accessorKey: "details",

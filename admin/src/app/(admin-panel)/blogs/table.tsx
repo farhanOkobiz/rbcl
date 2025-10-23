@@ -50,7 +50,7 @@ export const BlogTable: React.FC<Props> = ({ data, pagination }) => {
         <Label className="text-xl font-semibold mb-4">Blogs List</Label>
       </div>
 
-      <Table className="rounded-lg overflow-hidden">
+      <Table className="rounded-lg overflow-auto ">
         <TableHeader className="bg-primary">
           {table.getHeaderGroups().map((headerGroup) => (
             <TableRow key={headerGroup.id}>
