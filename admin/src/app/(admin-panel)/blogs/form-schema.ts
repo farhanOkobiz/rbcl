@@ -25,6 +25,7 @@ export const getBlogFormSchema = (isUpdate = false) =>
     subCategoryRef: z.string().optional(),
     details: z.string().optional(),
     youtubeUrl: z.string().optional(),
+    facebookUrl: z.string().optional(),
     author: z.string().optional(),
     tags: z.array(z.string()).min(1, "Please add at least one tag"),
     image: z

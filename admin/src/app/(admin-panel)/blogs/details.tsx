@@ -47,6 +47,8 @@ interface Props {
 }
 
 export const BlogDetailsSheet: React.FC<Props> = ({ blog }) => {
+  console.log(blog, "ok");
+
   const { toast } = useToast();
   const [sheetOpen, setSheetOpen] = useState(false);
   const [updating, setUpdating] = useState(false);
@@ -79,6 +81,9 @@ export const BlogDetailsSheet: React.FC<Props> = ({ blog }) => {
       author: blog.author,
       tags: blog.tags,
       image: [],
+      youtubeUrl: blog.youtubeUrl,
+      facebookUrl: blog.facebookUrl,
+      featured: blog.featured,
     },
   });
 
@@ -118,11 +123,10 @@ export const BlogDetailsSheet: React.FC<Props> = ({ blog }) => {
           typeof sc.categoryRef === "string"
             ? sc.categoryRef
             : sc.categoryRef?._id;
-        console.log("Comparing:", catId, "===", categoryId);
         return catId === categoryId;
       });
 
-      console.log("Filtered subcategories:", filtered);
+
       setFilteredSubCategories(filtered);
 
       setValue("categoryRef", categoryId);
@@ -148,8 +152,6 @@ export const BlogDetailsSheet: React.FC<Props> = ({ blog }) => {
     const filtered = blogSubCategories.filter((sc: any) => {
       let catId = sc.categoryRef;
 
-      console.log(catId);
-
       if (typeof catId === "object" && catId !== null) {
         catId = catId._id || catId.id || String(catId);
       }
@@ -157,10 +159,7 @@ export const BlogDetailsSheet: React.FC<Props> = ({ blog }) => {
       catId = String(catId);
       const selectedId = String(selectedCategoryId);
 
-      console.log(
-        `Comparing: "${catId}" === "${selectedId}"`,
-        catId === selectedId
-      );
+
       return catId === selectedId;
     });
 
@@ -334,6 +333,24 @@ export const BlogDetailsSheet: React.FC<Props> = ({ blog }) => {
                 )}
               />
 
+              {/* Facebook Video Link */}
+              <FormField
+                control={form.control}
+                name="facebookUrl"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>YouTube Video Link</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Enter Facebook URL" {...field} />
+                    </FormControl>
+                    <FormDescription className="text-[#52687f] text-xs min-h-4">
+                      {form.formState.errors.facebookUrl?.message}
+                    </FormDescription>
+                  </FormItem>
+                )}
+              />
+
+              {/* YouTube Video Link */}
               <FormField
                 control={form.control}
                 name="youtubeUrl"

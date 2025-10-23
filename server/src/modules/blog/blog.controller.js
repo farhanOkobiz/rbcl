@@ -17,9 +17,11 @@ class BlogController {
           : undefined,
       details: req?.body?.details,
       youtubeUrl: req?.body?.youtubeUrl,
+      facebookUrl: req?.body?.facebookUrl,
       author: req?.body?.author,
       tags: req?.body?.tags,
       status: req?.body?.status,
+      featured: req?.body?.featured ?? false,
     };
     const blogResult = await BlogService.createBlog(
       payload,
@@ -86,9 +88,11 @@ class BlogController {
       blogCategoryRef: req.body.categoryRef,
       blogSubCategoryRef: req.body.subCategoryRef,
       details: req?.body?.details,
+      youtubeUrl: req?.body?.youtubeUrl,
+      facebookUrl: req?.body?.facebookUrl,
       author: req?.body?.author,
       tags: req?.body?.tags,
-      status: req?.body?.status,
+      featured: req?.body?.featured ?? false,
     };
     const blogResult = await BlogService.updateBlog(id, payload, payloadFiles);
     const resDoc = responseHandler(201, "Blog Update successfully", blogResult);

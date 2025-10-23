@@ -33,6 +33,26 @@ export const columns: ColumnDef<TBlog>[] = [
     },
   },
   {
+    header: "Facebook URL",
+    accessorKey: "facebookUrl",
+    cell: ({ getValue }) => {
+      const url = getValue<string>();
+      return url ? (
+        <a
+          href={url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-600 underline"
+        >
+          {url}
+        </a>
+      ) : (
+        <span className="text-gray-400">N/A</span>
+      );
+    },
+  }
+  ,
+  {
     header: "YoutTube Video",
     accessorKey: "youtubeUrl",
     cell: ({ row }) => {
