@@ -1,3 +1,4 @@
+import BannerTwo from "@/app/(withCommonLayout)/bannertwo/BannerTwo";
 import { getAllBanners } from "@/services/banners";
 import BannerSlider from "@/slider/BannerSlider/BannerSlider";
 import { TBanner } from "@/types";
@@ -12,10 +13,11 @@ const Banner: React.FC<BannerProps> = async () => {
   const mainBanner = banners?.filter(
     (banner: { type: string }) => banner.type === "MAIN BANNER"
   );
-
+  
   return (
     <div className="mt-[120px] lg:mt-0">
-      <BannerSlider banners={mainBanner} />
+      {/* <BannerSlider banners={mainBanner} /> */}
+      <BannerTwo banners={mainBanner} />
     </div>
   );
 };

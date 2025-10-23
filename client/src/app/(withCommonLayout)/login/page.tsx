@@ -132,7 +132,7 @@ const SignIn = () => {
             {/* Submit Button */}
             <button
               type="submit"
-              className="bg-[#D4A373] hover:bg-[#CCD5AE] duration-300 text-white font-bold py-1.5 rounded-md cursor-pointer"
+              className="bg-[#008080] hover:bg-[#CCD5AE] duration-300 text-white font-bold py-1.5 rounded-md cursor-pointer"
             >
               Login
             </button>
@@ -141,7 +141,7 @@ const SignIn = () => {
             <div className="mt-2 text-center  ">
               <Link
                 href="/forgotpassword"
-                className="text-[#D4A373] pr-1 hover:underline"
+                className="text-[#008080] pr-1 hover:underline"
               >
                 Forgot Your Password?
               </Link>{" "}
@@ -150,7 +150,7 @@ const SignIn = () => {
             <div className="mt-2 text-center">
               <Link
                 href="/register"
-                className="text-[#D4A373]  hover:underline"
+                className="text-[#008080]  hover:underline"
               >
                 Registration
               </Link>

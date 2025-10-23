@@ -219,8 +219,8 @@ const ProductDetails: React.FC<Props> = ({ product }) => {
                           setSelectedColor(null);
                           setLevelError(false);
                         }}
-                        className={`p-1 border border-[#262626]/60 hover:bg-[#D4A373] hover:text-[#fff] duration-300 cursor-pointer rounded text-center flex items-center justify-center uppercase ${
-                          level === size.level ? "bg-[#D4A373] text-white" : ""
+                        className={`p-1 border border-[#262626]/60 hover:bg-[#008080] hover:text-[#fff] duration-300 cursor-pointer rounded text-center flex items-center justify-center uppercase ${
+                          level === size.level ? "bg-[#008080] text-white" : ""
                         }`}
                       >
                         {size.level}
@@ -257,7 +257,7 @@ const ProductDetails: React.FC<Props> = ({ product }) => {
                           }}
                           className={`border ${
                             selectedColor === colorItem._id
-                              ? "border-[#D4A373] border-2 w-[20px] h-[20px]"
+                              ? "border-[#008080] border-2 w-[20px] h-[20px]"
                               : "border-[#262626] w-[25px] h-[25px]"
                           } rounded-full cursor-pointer`}
                           style={{ backgroundColor: colorItem.color }}
@@ -288,7 +288,7 @@ const ProductDetails: React.FC<Props> = ({ product }) => {
               <div className="w-full cursor-pointer">
                 <button
                   onClick={handleAddToCart}
-                  className="bg-[#D4A373] hover:bg-[#CCD5AE] duration-300 flex items-center gap-1 px-6 py-2.5 font-semibold text-sm  rounded text-[#fff] cursor-pointer"
+                  className="bg-[#008080] hover:bg-[#CCD5AE] duration-300 flex items-center gap-1 px-6 py-2.5 font-semibold text-sm  rounded text-[#fff] cursor-pointer"
                 >
                   <span>
                     <FiPlus />

@@ -89,7 +89,7 @@ const UserProfile = () => {
       <div>
         <div className="text-2xl font-bold mb-4 flex items-center space-x-5 gap-2">
           <div className="flex space-x-2 items-center">
-            <FaUser className="text-[#D4A373]" />
+            <FaUser className="text-[#008080]" />
             <span>User Profile</span>
           </div>
           {!isEditing ? (

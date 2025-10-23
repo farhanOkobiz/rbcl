@@ -45,7 +45,7 @@ const page = async () => {
                 <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 leading-relaxed">
                   Welcome to{" "}
                   <span className="relative inline-block">
-                    <span className="uppercase text-transparent bg-clip-text bg-[#D4A373] font-extrabold tracking-wide">
+                    <span className="uppercase text-transparent bg-clip-text bg-[#008080] font-extrabold tracking-wide">
                       {companyName}
                     </span>
                     <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-amber-600 to-amber-400 rounded-full"></div>
@@ -53,7 +53,7 @@ const page = async () => {
                 </h1>
                 <p className="text-gray-600 mt-4 text-lg font-medium">
                   A name born from the union of Noha and Hasan, and a brand built on
-                  <span className="text-[#D4A373] font-semibold"> trust, elegance, and authenticity</span>.
+                  <span className="text-[#008080] font-semibold"> trust, elegance, and authenticity</span>.
                 </p>
               </div>
             </div>
@@ -65,7 +65,7 @@ const page = async () => {
             {/* Mission Statement Card */}
             <div className="bg-white rounded-2xl p-6 lg:p-8 shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300">
               <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-[#D4A373] rounded-xl flex items-center justify-center">
+                <div className="flex-shrink-0 w-12 h-12 bg-[#008080] rounded-xl flex items-center justify-center">
                   <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
@@ -74,7 +74,7 @@ const page = async () => {
                   <h3 className="text-lg font-semibold text-gray-800 mb-3">Our Mission</h3>
                   <p className="text-gray-700 leading-relaxed text-base md:text-lg">
                     At
-                    <span className="uppercase text-[#D4A373] font-semibold bg-amber-50 px-2 py-1 rounded-md">
+                    <span className="uppercase text-[#008080] font-semibold bg-amber-50 px-2 py-1 rounded-md">
                       {companyName}
                     </span>
                     , we are passionate about the art of fragrance. Our mission is to bring
@@ -89,7 +89,7 @@ const page = async () => {
             {/* Company Story Card */}
             <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl p-6 lg:p-8 border border-amber-100 hover:shadow-md transition-all duration-300">
               <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-[#D4A373] rounded-xl flex items-center justify-center">
+                <div className="flex-shrink-0 w-12 h-12 bg-[#008080] rounded-xl flex items-center justify-center">
                   <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                   </svg>
@@ -97,7 +97,7 @@ const page = async () => {
                 <div className="flex-1">
                   <h3 className="text-lg font-semibold text-gray-800 mb-3">Our Story</h3>
                   <p className="text-gray-700 leading-relaxed text-base md:text-lg">
-                    What began as a <span className="font-semibold text-[#D4A373]">shared vision between husband and wife</span> has grown
+                    What began as a <span className="font-semibold text-[#008080]">shared vision between husband and wife</span> has grown
                     into a commitment to provide our customers with a premium
                     fragrance experience. We believe that a great perfume does more
                     than smell good – it speaks of <span className="italic font-medium">identity, mood, and memory</span>.
@@ -109,13 +109,13 @@ const page = async () => {
             {/* Call to Action Card */}
             <div className="bg-white rounded-2xl p-6 lg:p-8 shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300">
               <div className="text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-[#D4A373] rounded-full mb-4">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-[#008080] rounded-full mb-4">
                   <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                   </svg>
                 </div>
                 <p className="text-gray-700 leading-relaxed text-lg md:text-xl font-medium">
-                  We invite you to <span className="text-[#D4A373] font-semibold">explore our selection</span> and find your signature
+                  We invite you to <span className="text-[#008080] font-semibold">explore our selection</span> and find your signature
                   scent with confidence and ease.
                 </p>
               </div>
@@ -128,18 +128,18 @@ const page = async () => {
               <div className="inline-block">
                 <p className="text-2xl md:text-3xl lg:text-4xl font-bold text-white leading-tight">
                   <span className="relative">
-                    <span className="uppercase text-transparent bg-clip-text bg-[#D4A373] font-black tracking-wider">
+                    <span className="uppercase text-transparent bg-clip-text bg-[#008080] font-black tracking-wider">
                       {companyName}
                     </span>
-                    <div className="absolute -bottom-2 left-0 w-full h-1 bg-[#D4A373] rounded-full"></div>
+                    <div className="absolute -bottom-2 left-0 w-full h-1 bg-[#008080] rounded-full"></div>
                   </span>
                 </p>
                 <div className="mt-6 space-y-2">
-                  <p className="text-xl md:text-2xl text-[#D4A373] font-semibold tracking-wide">
+                  <p className="text-xl md:text-2xl text-[#008080] font-semibold tracking-wide">
                     Authentic Scents
                   </p>
-                  <div className="w-16 h-0.5 bg-[#D4A373] mx-auto rounded-full"></div>
-                  <p className="text-xl md:text-2xl text-[#D4A373] font-semibold tracking-wide">
+                  <div className="w-16 h-0.5 bg-[#008080] mx-auto rounded-full"></div>
+                  <p className="text-xl md:text-2xl text-[#008080] font-semibold tracking-wide">
                     Honest Commitment
                   </p>
                 </div>

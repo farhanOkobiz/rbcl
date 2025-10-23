@@ -46,7 +46,7 @@ const ThankYou = () => {
           </p>
           <Link
             href="/shop"
-            className="inline-block bg-[#D4A373] hover:bg-[#CCD5AE]  text-white font-semibold px-6 py-2 rounded hover:bg-primary transition duration-300"
+            className="inline-block bg-[#008080] hover:bg-[#CCD5AE]  text-white font-semibold px-6 py-2 rounded hover:bg-primary transition duration-300"
           >
             Back to Shop
           </Link>

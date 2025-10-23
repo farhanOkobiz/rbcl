@@ -14,13 +14,13 @@ const ReturnPolicy = async () => {
       <div className="Container py-10 ">
         <div className="">
           <div className="p-8">
-            <h1 className="text-3xl font-bold text-[#D4A373] mb-4">
+            <h1 className="text-3xl font-bold text-[#008080] mb-4">
               Return & Exchange Policy
             </h1>
 
             <div className="space-y-8">
               <section>
-                <h2 className="text-xl font-semibold text-[#D4A373] mb-2">
+                <h2 className="text-xl font-semibold text-[#008080] mb-2">
                   1. When You Can Return or Exchange a Product:
                 </h2>
                 <ul className="list-disc list-inside text-gray-700 space-y-1">
@@ -34,7 +34,7 @@ const ReturnPolicy = async () => {
               </section>
 
               <section>
-                <h2 className="text-xl font-semibold text-[#D4A373] mb-2">
+                <h2 className="text-xl font-semibold text-[#008080] mb-2">
                   2. Items That Cannot Be Returned or Exchanged:
                 </h2>
                 <ul className="list-disc list-inside text-gray-700 space-y-1">
@@ -51,7 +51,7 @@ const ReturnPolicy = async () => {
               </section>
 
               <section>
-                <h2 className="text-xl font-semibold text-[#D4A373] mb-2">
+                <h2 className="text-xl font-semibold text-[#008080] mb-2">
                   3. Return & Exchange Process:
                 </h2>
                 <ul className="list-disc list-inside text-gray-700 space-y-1">
@@ -98,7 +98,7 @@ const ReturnPolicy = async () => {
               </section>
 
               <section>
-                <h2 className="text-xl font-semibold text-[#D4A373] mb-2">
+                <h2 className="text-xl font-semibold text-[#008080] mb-2">
                   4. For Online Payment Orders:
                 </h2>
                 <ul className="list-disc list-inside text-gray-700 space-y-1">
@@ -111,7 +111,7 @@ const ReturnPolicy = async () => {
               </section>
 
               <section>
-                <h2 className="text-xl font-semibold text-[#D4A373] mb-2">
+                <h2 className="text-xl font-semibold text-[#008080] mb-2">
                   5. Contact Us for Returns & Exchanges:
                 </h2>
                 <ul className="list-disc list-inside text-gray-700 space-y-1">
@@ -123,7 +123,7 @@ const ReturnPolicy = async () => {
               </section>
 
               <section>
-                <h2 className="text-xl font-semibold text-[#D4A373] mb-2">
+                <h2 className="text-xl font-semibold text-[#008080] mb-2">
                   6. Product-Specific Return Policies
                 </h2>
                 <ul className="list-disc list-inside text-gray-700 space-y-1">

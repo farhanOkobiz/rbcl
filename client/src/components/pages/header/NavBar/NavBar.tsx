@@ -114,12 +114,12 @@ const NavBar: React.FC<NavBarProps> = ({ userCartProducts }) => {
   return (
     <>
       <div
-        className={`hidden lg:block w-full py-4 z-40  bg-white transition-all duration-300 fixed top-0 ${
+        className={`hidden lg:block w-full z-40 py-1  bg-[#008080] text-white transition-all duration-300 fixed top-0 ${
           isScrolled ? "shadow" : " relative "
         }`}
       >
         <div className="Container">
-          <div className="flex items-center justify-between relative">
+          <div className="max-w-[1280px] mx-auto flex items-center justify-between relative">
             <div>
               <div className="flex items-center gap-1">
                 <div className="">
@@ -127,9 +127,9 @@ const NavBar: React.FC<NavBarProps> = ({ userCartProducts }) => {
                     <Image
                       src={logo || null}
                       alt="ROYEL BUSINESS COMPANY LIMITED | Best E-commerce platform in BD"
-                      width={100}
-                      height={80}
-                      className="w-full h-20"
+                      width={65}
+                      height={65}
+                      className="w-full h-[80px]"
                     />
                   </Link>
                 </div>
@@ -191,7 +191,7 @@ const NavBar: React.FC<NavBarProps> = ({ userCartProducts }) => {
                 <div className="px-2 py-2 border rounded relative">
                   <BsCart2 />
 
-                  <p className="top-[-12px] right-[-8px] absolute w-[20px] h-[20px] text-sm text-[#fff] text-center rounded-full bg-[#D4A373]">
+                  <p className="top-[-12px] right-[-8px] absolute w-[20px] h-[20px] text-sm text-[#fff] text-center rounded-full bg-[#008080]">
                     {userCartProducts?.cartDetails?.length || 0}
                   </p>
                 </div>
@@ -250,17 +250,17 @@ const NavBar: React.FC<NavBarProps> = ({ userCartProducts }) => {
 
             <div className="flex items-center justify-center 2xl:gap-16 xl:gap-8 lg:gap-4 gap-2 xl:relative">
               <div className="flex items-center justify-center xl:gap-4 gap-2">
-                <div
+                {/* <div
                   onClick={() => setShowSearch(true)}
                   className="px-2 py-2 border rounded cursor-pointer"
                 >
                   <IoSearchOutline />
-                </div>
+                </div> */}
                 <Link href="/cart">
                   <div className="px-2 py-2 border rounded relative">
                     <BsCart2 />
 
-                    <p className="top-[-12px] right-[-8px] absolute w-[20px] h-[20px] text-sm text-[#fff] text-center rounded-full bg-[#D4A373]">
+                    <p className="top-[-12px] right-[-8px] absolute w-[20px] h-[20px] text-sm text-[#fff] text-center rounded-full bg-[#008080]">
                       {userCartProducts?.cartDetails?.length || 0}
                     </p>
                   </div>

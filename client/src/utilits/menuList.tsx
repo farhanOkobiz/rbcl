@@ -4,20 +4,20 @@ export const menuList = [
     link: "/",
   },
   {
+    title: "About",
+    link: "/about",
+  },
+  {
+    title: "Blogs",
+    link: "/blogs"
+  },
+  {
     title: "Shop",
     link: "/shop",
     subMenu: true,
   },
-  // {
-  //   title: "About",
-  //   link: "/about",
-  // },
   {
     title: "Contact",
     link: "/contact",
   },
-  // {
-  //   title: "Whole Sale",
-  //   link: "/bulkOrder",
-  // },
 ];

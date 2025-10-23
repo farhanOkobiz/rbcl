@@ -14,7 +14,7 @@ const TermCondition = async () => {
       <div className="Container py-10 ">
         <div className="">
           <div className="p-8">
-            <h1 className="text-3xl font-bold text-[#D4A373] mb-4">
+            <h1 className="text-3xl font-bold text-[#008080] mb-4">
               Terms & Conditions
             </h1>
             <p className="mb-6 text-gray-600">
@@ -33,7 +33,7 @@ const TermCondition = async () => {
 
             <div className="space-y-8">
               <section>
-                <h2 className="text-xl font-semibold text-[#D4A373] mb-2">
+                <h2 className="text-xl font-semibold text-[#008080] mb-2">
                   1. Your Account
                 </h2>
                 <ul className="list-disc list-inside text-gray-700 space-y-1">
@@ -56,7 +56,7 @@ const TermCondition = async () => {
               </section>
 
               <section>
-                <h2 className="text-xl font-semibold text-[#D4A373] mb-2">
+                <h2 className="text-xl font-semibold text-[#008080] mb-2">
                   2. Privacy & Data Protection
                 </h2>
                 <p>
@@ -67,7 +67,7 @@ const TermCondition = async () => {
               </section>
 
               <section>
-                <h2 className="text-xl font-semibold text-[#D4A373] mb-2">
+                <h2 className="text-xl font-semibold text-[#008080] mb-2">
                   3. Orders & Payments
                 </h2>
                 <ul className="list-disc list-inside text-gray-700 space-y-1">
@@ -90,7 +90,7 @@ const TermCondition = async () => {
               </section>
 
               <section>
-                <h2 className="text-xl font-semibold text-[#D4A373] mb-2">
+                <h2 className="text-xl font-semibold text-[#008080] mb-2">
                   4. Product Availability & Description
                 </h2>
                 <p>
@@ -105,7 +105,7 @@ const TermCondition = async () => {
               </section>
 
               <section>
-                <h2 className="text-xl font-semibold text-[#D4A373] mb-2">
+                <h2 className="text-xl font-semibold text-[#008080] mb-2">
                   5. Shipping & Delivery
                 </h2>
                 <ul className="list-disc list-inside text-gray-700 space-y-1">
@@ -124,7 +124,7 @@ const TermCondition = async () => {
               </section>
 
               <section>
-                <h2 className="text-xl font-semibold text-[#D4A373] mb-2">
+                <h2 className="text-xl font-semibold text-[#008080] mb-2">
                   6. Returns & Refunds
                 </h2>
                 <ul className="list-disc list-inside text-gray-700 space-y-1">
@@ -144,7 +144,7 @@ const TermCondition = async () => {
               </section>
 
               <section>
-                <h2 className="text-xl font-semibold text-[#D4A373] mb-2">
+                <h2 className="text-xl font-semibold text-[#008080] mb-2">
                   7. Image Disclaimer
                 </h2>
                 <p>
@@ -159,7 +159,7 @@ const TermCondition = async () => {
               </section>
 
               <section>
-                <h2 className="text-xl font-semibold text-[#D4A373] mb-2">
+                <h2 className="text-xl font-semibold text-[#008080] mb-2">
                   8. Limitation of Liability
                 </h2>
                 <p>
@@ -174,7 +174,7 @@ const TermCondition = async () => {
               </section>
 
               <section>
-                <h2 className="text-xl font-semibold text-[#D4A373] mb-2">
+                <h2 className="text-xl font-semibold text-[#008080] mb-2">
                   9. Termination
                 </h2>
                 <p>

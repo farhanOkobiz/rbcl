@@ -283,7 +283,7 @@ const CheckOutForm: React.FC<Props> = ({
         {/*BreakDown */}
         <div className="text-center rounded lg:py-8 py-4 lg:my-8 my-4 bg-gray-100">
           <p className="">Your total payable amount is</p>
-          <h4 className="font-extrabold text-2xl text-[#D4A373] pt-2">
+          <h4 className="font-extrabold text-2xl text-[#008080] pt-2">
             ৳{payableAmount}
           </h4>
           <p className="font-bold text-xl pb-2">BreakDown</p>
@@ -386,7 +386,7 @@ const CheckOutForm: React.FC<Props> = ({
           </div>
           <div
             onClick={() => handleAddCoupon()}
-            className="bg-[#D4A373] py-2 px-10 text-white 2xl:w-[30%] xl:w-[40%] lg:w-[50%] rounded cursor-pointer text-center w-full"
+            className="bg-[#008080] py-2 px-10 text-white 2xl:w-[30%] xl:w-[40%] lg:w-[50%] rounded cursor-pointer text-center w-full"
           >
             Add Coupon
           </div>
@@ -403,20 +403,20 @@ const CheckOutForm: React.FC<Props> = ({
             I agree to{" "}
             <Link
               href="/terms-condition"
-              className="text-[#D4A373] hover:underline hover:text-[#CCD5AE]"
+              className="text-[#008080] hover:underline hover:text-[#CCD5AE]"
             >
               Terms & Conditions,
             </Link>{" "}
             <Link
               href="/returnPolicy"
-              className="text-[#D4A373] hover:underline hover:text-[#CCD5AE]"
+              className="text-[#008080] hover:underline hover:text-[#CCD5AE]"
             >
               Refund Policy
             </Link>{" "}
             and{" "}
             <Link
               href="/privacyPolicy"
-              className="text-[#D4A373] hover:underline hover:text-[#CCD5AE]"
+              className="text-[#008080] hover:underline hover:text-[#CCD5AE]"
             >
               Privacy Policy{" "}
             </Link>{" "}
@@ -436,8 +436,8 @@ const CheckOutForm: React.FC<Props> = ({
             ${isSubmitting ? " cursor-not-allowed" : ""}
             ${
               startCar === true
-                ? "bg-[#ffffff] border border-[#D4A373] "
-                : "bg-[#D4A373] hover:bg-[#CCD5AE] duration-300 border border-[#D4A373]/30"
+                ? "bg-[#ffffff] border border-[#008080] "
+                : "bg-[#008080] hover:bg-[#CCD5AE] duration-300 border border-[#008080]/30"
             }
             `}
         >

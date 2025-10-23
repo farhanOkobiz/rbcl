@@ -16,12 +16,12 @@ import {
 } from "@/components/ui/table";
 import { Label } from "@radix-ui/react-label";
 import { Card } from "@/components/ui/card";
-import { TBulkOrder } from "@/types/shared";
+import { TSubCategory } from "@/types/shared";
 import { columns } from "./columns";
 import { DataTablePagination } from "@/components/ui/data-table-pagination";
 
 interface Props {
-  data: TBulkOrder[];
+  data: TSubCategory[];
   pagination: {
     page: number;
     limit: number;
@@ -29,12 +29,13 @@ interface Props {
   };
 }
 
-export const BulkOrderTable: React.FC<Props> = ({ data, pagination }) => {
+export const SubCategoryTable: React.FC<Props> = ({ data, pagination }) => {
   const table = useReactTable({
     data,
     columns,
     getCoreRowModel: getCoreRowModel(),
     manualPagination: true,
+    columnResizeMode: "onChange",
     pageCount: Math.ceil(pagination.total / pagination.limit),
     state: {
       pagination: {
@@ -47,7 +48,7 @@ export const BulkOrderTable: React.FC<Props> = ({ data, pagination }) => {
   return (
     <Card className="m-6 p-4 rounded-lg">
       <div className="flex justify-between items-center">
-        <Label className="text-xl font-semibold mb-4">Bulk Order List</Label>
+        <Label className="text-xl font-semibold mb-4">Blog SubCategory List</Label>
       </div>
 
       <Table className="rounded-lg overflow-hidden">
@@ -58,6 +59,9 @@ export const BulkOrderTable: React.FC<Props> = ({ data, pagination }) => {
                 return (
                   <TableHead
                     key={header.id}
+                    style={{
+                      width: header.getSize(), // Apply width from columnDef.size
+                    }}
                     className={
                       (header.column.columnDef.meta as any)?.align
                         ? "h-8 text-white text-" +
@@ -87,6 +91,9 @@ export const BulkOrderTable: React.FC<Props> = ({ data, pagination }) => {
                 {row.getVisibleCells().map((cell) => (
                   <TableCell
                     key={cell.id}
+                    style={{
+                      width: cell.column.getSize(),
+                    }}
                     className={
                       (cell.column.columnDef.meta as any)?.align
                         ? "py-1 text-" +

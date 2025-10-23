@@ -44,13 +44,13 @@ const Brand: React.FC<Props> = ({ brands }) => {
         {/* Nav Buttons */}
         <button
           ref={prevRef}
-          className="absolute left-2 sm:left-4 md:left-8 lg:left-18 xl:left-26 2xl:left-76 top-1/2 -translate-y-1/2 z-10 p-2 bg-[#D4A373] rounded-full hover:bg-[#CCD5AE] text-white duration-300 cursor-pointer"
+          className="absolute left-2 sm:left-4 md:left-8 lg:left-18 xl:left-26 2xl:left-76 top-1/2 -translate-y-1/2 z-10 p-2 bg-[#008080] rounded-full hover:bg-[#CCD5AE] text-white duration-300 cursor-pointer"
         >
           <ChevronLeft size={20} />
         </button>
         <button
           ref={nextRef}
-          className="absolute right-2 sm:right-4 md:right-8 lg:right-18 xl:right-26 2xl:right-76 top-1/2 -translate-y-1/2 z-10 p-2 bg-[#D4A373] rounded-full hover:bg-[#CCD5AE] text-white duration-300 cursor-pointer"
+          className="absolute right-2 sm:right-4 md:right-8 lg:right-18 xl:right-26 2xl:right-76 top-1/2 -translate-y-1/2 z-10 p-2 bg-[#008080] rounded-full hover:bg-[#CCD5AE] text-white duration-300 cursor-pointer"
         >
           <ChevronRight size={20} />
         </button>
@@ -75,7 +75,7 @@ const Brand: React.FC<Props> = ({ brands }) => {
           {brands?.data?.map((brand: TBrand) => (
             <SwiperSlide key={brand._id}>
               <Link href={`/shop?brand=${brand.slug || brand._id}`}>
-                <div className="border border-[#D4A373] h-24 rounded flex items-center justify-center cursor-pointer">
+                <div className="border border-[#008080] h-24 rounded flex items-center justify-center cursor-pointer">
                   {brand.image && (
                     <Image
                       src={apiBaseUrl + brand.image}

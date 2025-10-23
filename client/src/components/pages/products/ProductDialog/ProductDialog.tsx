@@ -159,7 +159,7 @@ const ProductDialog: React.FC<Product> = ({
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <motion.button
-          className="flex items-center justify-center py-2 rounded text-[#fff] text-sm font-semibold mt-2 bg-[#D4A373] group-hover:bg-[#CCD5AE] w-full gap-2 duration-300 cursor-pointer"
+          className="flex items-center justify-center py-2 rounded text-[#fff] text-sm font-semibold mt-2 bg-[#008080] group-hover:bg-[#CCD5AE] w-full gap-2 duration-300 cursor-pointer"
           onHoverStart={() => setIsHovered(true)}
           onHoverEnd={() => setIsHovered(false)}
           transition={{ type: "spring", stiffness: 300 }}
@@ -249,9 +249,9 @@ const ProductDialog: React.FC<Product> = ({
                                 setSelectedColor(null);
                                 setLevelError(false);
                               }}
-                              className={`p-1 border border-[#262626]/60 hover:bg-[#D4A373] hover:text-[#fff] duration-300 cursor-pointer rounded text-center flex items-center justify-center uppercase ${
+                              className={`p-1 border border-[#262626]/60 hover:bg-[#008080] hover:text-[#fff] duration-300 cursor-pointer rounded text-center flex items-center justify-center uppercase ${
                                 level === size.level
-                                  ? "bg-[#D4A373] text-white"
+                                  ? "bg-[#008080] text-white"
                                   : ""
                               }`}
                             >
@@ -274,9 +274,9 @@ const ProductDialog: React.FC<Product> = ({
                           setSelectedColor(null);
                           setLevelError(false);
                         }}
-                        className={`p-1 border border-[#262626]/60 hover:bg-[#D4A373] hover:text-[#fff] duration-300 cursor-pointer rounded text-center flex items-center justify-center uppercase ${
+                        className={`p-1 border border-[#262626]/60 hover:bg-[#008080] hover:text-[#fff] duration-300 cursor-pointer rounded text-center flex items-center justify-center uppercase ${
                           level === (inventoryRef as InventoryItem).level
-                            ? "bg-[#D4A373] text-white"
+                            ? "bg-[#008080] text-white"
                             : ""
                         }`}
                       >
@@ -323,7 +323,7 @@ const ProductDialog: React.FC<Product> = ({
                           }}
                           className={`border ${
                             selectedColor === colorItem._id
-                              ? "border-[#D4A373] border-2 w-[20px] h-[20px]"
+                              ? "border-[#008080] border-2 w-[20px] h-[20px]"
                               : "border-[#262626] w-[25px] h-[25px]"
                           } rounded-full cursor-pointer`}
                           style={{ backgroundColor: colorItem.color }}
@@ -351,7 +351,7 @@ const ProductDialog: React.FC<Product> = ({
               </div>
               <div
                 onClick={handleAddToCart}
-                className="w-[50%] bg-[#D4A373] border-transparent hover:bg-[#CCD5AE] duration-300 text-center flex items-center justify-center rounded cursor-pointer"
+                className="w-[50%] bg-[#008080] border-transparent hover:bg-[#CCD5AE] duration-300 text-center flex items-center justify-center rounded cursor-pointer"
               >
                 <button className=" focus:outline-none w-full border-transparent flex items-center justify-center gap-1 px-4 py-3 font-semibold text-[12px] cursor-pointer rounded text-[#fff] ">
                   <span>
@@ -368,7 +368,7 @@ const ProductDialog: React.FC<Product> = ({
           <h2 className="text-base text-[#262626]/70 font-semibold">
             Unit Price
           </h2>
-          <p className="text-[#D4A373] text-xl font-semibold">
+          <p className="text-[#008080] text-xl font-semibold">
             <span className="text-xl">৳</span>{" "}
             {/* <span>
               {(() => {

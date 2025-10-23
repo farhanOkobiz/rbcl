@@ -23,7 +23,7 @@ const page = async () => {
   const coupon = "";
   const userCartProducts = await getCartProducts(userRef, coupon);
   const allBlogs = await getAllBlogs();
-  console.log("allBlogs", allBlogs);
+
   return (
     <div>
       <NavBar userCartProducts={userCartProducts?.data} />

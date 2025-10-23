@@ -14,14 +14,14 @@ const privacyPolicy = async () => {
       <div className="Container py-10 ">
         <div className="">
           <div className="p-8">
-            <h1 className="text-3xl font-bold text-[#D4A373] mb-4">
+            <h1 className="text-3xl font-bold text-[#008080] mb-4">
               Privacy Policy
             </h1>
 
             <div className="space-y-8">
               <p>What Information We Collect</p>
               <section>
-                <h2 className="text-xl font-semibold text-[#D4A373] mb-2">
+                <h2 className="text-xl font-semibold text-[#008080] mb-2">
                   1. We collect, store, and process your personal data to
                   complete your purchases and provide our services. The
                   information we collect may include:
@@ -39,7 +39,7 @@ const privacyPolicy = async () => {
               </section>
 
               <section>
-                <h2 className="text-xl font-semibold text-[#D4A373] mb-2">
+                <h2 className="text-xl font-semibold text-[#008080] mb-2">
                   2.How We Use Your Information:
                 </h2>
                 <p>We use your data to:</p> <br></br>
@@ -68,7 +68,7 @@ const privacyPolicy = async () => {
               </section>
 
               <section>
-                <h2 className="text-xl font-semibold text-[#D4A373] mb-2">
+                <h2 className="text-xl font-semibold text-[#008080] mb-2">
                   3. Sharing Your Information
                 </h2>
                 <ul className="list-disc list-inside text-gray-700 space-y-1">
@@ -84,7 +84,7 @@ const privacyPolicy = async () => {
               </section>
 
               <section>
-                <h2 className="text-xl font-semibold text-[#D4A373] mb-2">
+                <h2 className="text-xl font-semibold text-[#008080] mb-2">
                   4. Accessing Your Information
                 </h2>
                 <ul className="list-disc list-inside text-gray-700 space-y-1">
@@ -105,7 +105,7 @@ const privacyPolicy = async () => {
               </section>
 
               <section>
-                <h2 className="text-xl font-semibold text-[#D4A373] mb-2">
+                <h2 className="text-xl font-semibold text-[#008080] mb-2">
                   5. Marketing & Communication
                 </h2>
                 <ul className="list-disc list-inside text-gray-700 space-y-1">
@@ -124,7 +124,7 @@ const privacyPolicy = async () => {
               </section>
 
               <section>
-                <h2 className="text-xl font-semibold text-[#D4A373] mb-2">
+                <h2 className="text-xl font-semibold text-[#008080] mb-2">
                   6. Your Rights
                 </h2>
                 <ul className="list-disc list-inside text-gray-700 space-y-1">

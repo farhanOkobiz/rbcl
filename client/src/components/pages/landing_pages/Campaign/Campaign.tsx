@@ -97,7 +97,7 @@ const Campaign: React.FC<Props> = ({ campaign }) => {
 
           <div className="my-8">
             <Link href="/shop">
-              <button className="px-8 py-3 bg-[#D4A373] text-[#fff] rounded cursor-pointer border border-[#ffff]/0 hover:border-[#fff] duration-300">
+              <button className="px-8 py-3 bg-[#008080] text-[#fff] rounded cursor-pointer border border-[#ffff]/0 hover:border-[#fff] duration-300">
                 Shop Now
               </button>
             </Link>

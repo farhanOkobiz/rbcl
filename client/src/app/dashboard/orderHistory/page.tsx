@@ -24,8 +24,8 @@ const getStatusInfo = (status: string) => {
     case "OrderPlaced":
       return {
         label: "Order Placed",
-        color: "text-[#D4A373]",
-        icon: <FaClipboardList className="inline-block mr-2 text-[#D4A373]" />,
+        color: "text-[#008080]",
+        icon: <FaClipboardList className="inline-block mr-2 text-[#008080]" />,
       };
     case "DeliveredPending":
       return {
@@ -90,7 +90,7 @@ const OrderHistory = async () => {
   return (
     <div>
       <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
-        <FaBox className="text-[#D4A373]" />
+        <FaBox className="text-[#008080]" />
         Order History
       </h2>
 
@@ -133,7 +133,7 @@ const OrderHistory = async () => {
                 </div>
 
                 <div className="flex items-center">
-                  <FaTruck className="inline-block mr-2 text-[#D4A373]" />
+                  <FaTruck className="inline-block mr-2 text-[#008080]" />
                   <div>
                     <span className="mr-2 font-semibold">Delivery Charge:</span>
                     ৳{order?.shippingCost}

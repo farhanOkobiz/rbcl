@@ -24,6 +24,10 @@ import Campaign from "@/components/pages/landing_pages/Campaign/Campaign";
 import { getCampaign } from "@/services/campaign";
 import { Metadata } from "next";
 import CartSideBar from "@/components/pages/cartSideBar/CartSideBar";
+import BannerTwo from "./bannertwo/BannerTwo";
+import NavBarTwo from "@/components/pages/header/NavBar/NavBarTwo";
+import Blogs from "@/components/pages/landing_pages/Blogs/Blogs";
+import BlogsForHome from "@/components/pages/landing_pages/BlogsForHome/BlogsForHome";
 
 export const metadata: Metadata = {
   title: "RBCL",
@@ -56,12 +60,15 @@ const page = async () => {
       <NavBar userCartProducts={products?.data} />
       <div className="">
         <Banner banners={[]} />
-        <Category />
-        <BestSelling products={bestSelling} />
-        <Newest products={allproducts} />
-        <DiscountProduct products={productWithDiscount} />
-        <Brand brands={brands} />
-        <Campaign campaign={campaign[0]} />
+        <NavBarTwo/>
+        {/* <Category /> */}
+        {/* <Blogs/> */}
+        <BlogsForHome/>
+        {/* <BestSelling products={bestSelling} /> */}
+        {/* <Newest products={allproducts} /> */}
+        {/* <DiscountProduct products={productWithDiscount} /> */}
+        {/* <Brand brands={brands} /> */}
+        {/* <Campaign campaign={campaign[0]} /> */}
       </div>
       <CartSideBar cartProducts={products?.data} />
     </>

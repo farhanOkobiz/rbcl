@@ -218,7 +218,7 @@ const Registration = () => {
             <button
               type="submit"
               disabled={isSubmitting}
-              className={`bg-[#D4A373] hover:bg-[#CCD5AE] duration-300 text-white font-bold py-1.5 rounded-md cursor-pointer ${
+              className={`bg-[#008080] hover:bg-[#CCD5AE] duration-300 text-white font-bold py-1.5 rounded-md cursor-pointer ${
                 isSubmitting ? "opacity-50 cursor-not-allowed" : ""
               }`}
             >
@@ -230,7 +230,7 @@ const Registration = () => {
           <div className="flex justify-center gap-2 mt-4 text-md">
             <div className="mt-2 text-center">
               Already have an account?{" "}
-              <Link href="/login" className="text-[#D4A373] hover:underline">
+              <Link href="/login" className="text-[#008080] hover:underline">
                 Login
               </Link>
             </div>

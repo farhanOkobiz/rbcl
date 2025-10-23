@@ -52,7 +52,7 @@ export default function Layout({
       {isMobile && (
         <button
           onClick={toggleSidebar}
-          className="fixed z-50 top-4 left-4 p-2 rounded-full bg-[#D4A373] text-white lg:hidden"
+          className="fixed z-50 top-4 left-4 p-2 rounded-full bg-[#008080] text-white lg:hidden"
         >
           {isSidebarOpen ? <FaTimes /> : <FaBars />}
         </button>
@@ -84,8 +84,8 @@ export default function Layout({
                 href="/dashboard/profile"
                 className={`block px-4 py-2 rounded-lg ${
                   pathname === "/dashboard/profile"
-                    ? "bg-[#D4A373] text-white"
-                    : "text-[#D4A373] hover:bg-blue-100"
+                    ? "bg-[#008080] text-white"
+                    : "text-[#008080] hover:bg-blue-100"
                 }`}
                 onClick={() => setIsSidebarOpen(false)}
               >
@@ -97,8 +97,8 @@ export default function Layout({
                 href="/dashboard/orderHistory"
                 className={`block px-4 py-2 rounded-lg ${
                   pathname === "/dashboard/orderHistory"
-                    ? "bg-[#D4A373] text-white"
-                    : "text-[#D4A373] hover:bg-blue-100"
+                    ? "bg-[#008080] text-white"
+                    : "text-[#008080] hover:bg-blue-100"
                 }`}
                 onClick={() => setIsSidebarOpen(false)}
               >
@@ -130,8 +130,8 @@ export default function Layout({
               href="/dashboard/profile"
               className={`block px-4 py-2 rounded-lg ${
                 pathname === "/dashboard/profile"
-                  ? "bg-[#D4A373] text-white"
-                  : "text-[#D4A373] hover:bg-blue-100"
+                  ? "bg-[#008080] text-white"
+                  : "text-[#008080] hover:bg-blue-100"
               }`}
             >
               Profile
@@ -142,8 +142,8 @@ export default function Layout({
               href="/dashboard/orderHistory"
               className={`block px-4 py-2 rounded-lg ${
                 pathname === "/dashboard/orderHistory"
-                  ? "bg-[#D4A373] text-white"
-                  : "text-[#D4A373] hover:bg-blue-100"
+                  ? "bg-[#008080] text-white"
+                  : "text-[#008080] hover:bg-blue-100"
               }`}
             >
               Order History
@@ -156,7 +156,7 @@ export default function Layout({
       <main className={`p-6 w-full`}>
         <div className="flex justify-between mb-4">
           <div></div>
-          <div className="text-md lg:text-2xl font-bold bg-[#D4A373] text-white rounded-lg px-2 lg:px-5 py-1 lg:py-2">
+          <div className="text-md lg:text-2xl font-bold bg-[#008080] text-white rounded-lg px-2 lg:px-5 py-1 lg:py-2">
             User Dashboard
           </div>
           <div>

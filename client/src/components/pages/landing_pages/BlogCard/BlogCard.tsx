@@ -18,19 +18,19 @@ export type BlogCardProps = {
   return (
     <div className="group">
       <Link href={`blogs/${slug}`}>
-        <div className="p-2 border border-[#CCD5AE] rounded overflow-hidden h-[350px] lg:h-[260px] xl:h-[350px] ">
+        <div className="p-2 border border-[#CCD5AE] rounded overflow-hidden h-[350px] lg:h-[160px] xl:h-[230px] ">
           <Image
             src={apiBaseUrl + image}
             alt=""
             width={350}
-            height={350}
+            height={250}
             className="w-full h-full rounded cursor-pointer group-hover:scale-110 duration-500"
           />
         </div>
       </Link>
       <div className="px-2 py-2">
         <Link href={`blogs/${slug}`}>
-          <h2 className="lg:text-lg text-base font-semibold line-clamp-1 text-[#D4A373] cursor-pointer">
+          <h2 className="lg:text-lg text-base font-semibold line-clamp-1 text-[#008080] cursor-pointer">
             {title}
           </h2>
         </Link>

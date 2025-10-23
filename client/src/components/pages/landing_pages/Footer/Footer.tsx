@@ -53,61 +53,13 @@ const Footer: React.FC<FooterProps> = ({ userCartProducts }) => {
 
   return (
     <div className="relative">
-      <div className="Container bg-[#F3F3F3]">
-        <div className="max-w-6xl grid grid-cols-2 lg:grid-cols-4 lg:justify-center mx-auto py-5 lg:py-10 px-1 gap-y-4 gap-x-2">
-          <div className="flex items-center space-x-2 lg:space-x-4">
-            <div className="lg:text-xl text-white bg-[#D4A373] p-3 rounded-full">
-              <FaTruck />
-            </div>
-            <div className="flex flex-col space-y-1">
-              <div className="text-md lg:text-xl">Free Shipping</div>
-              <div className="text-sm text-gray-600">
-                Free Shipping for orders
-              </div>
-            </div>
-          </div>
-          <div className="flex items-center space-x-2 lg:space-x-4">
-            <div className="lg:text-xl text-white bg-[#D4A373] p-3 rounded-full">
-              <FaRightLeft />
-            </div>
-            <div className="flex flex-col space-y-1">
-              <div className="text-md lg:text-xl">Return & Exchanges</div>
-              <div className="text-sm text-gray-600">
-                Free Shipping for orders
-              </div>
-            </div>
-          </div>
-          <div className="flex items-center space-x-2 lg:space-x-4">
-            <div className="lg:text-xl text-white bg-[#D4A373] p-3 rounded-full">
-              <FaRegMessage />
-            </div>
-            <div className="flex flex-col space-y-1">
-              <div className="text-md lg:text-xl">Online Support</div>
-              <div className="text-sm text-gray-600">
-                24 hours a day, 7 days a week
-              </div>
-            </div>
-          </div>
-          <div className="flex items-center space-x-2 lg:space-x-4">
-            <div className="lg:text-xl text-white bg-[#D4A373] p-3 rounded-full">
-              <FaRegCreditCard />
-            </div>
-            <div className="flex flex-col space-y-1">
-              <div className="text-md lg:text-xl">Flexible Payment</div>
-              <div className="text-sm text-gray-600">
-                Pay with Multiple Credit Cards
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="Container bg-[#CCD5AE] py-10 lg:py-16">
+      <div className="Container bg-[#008080] text-white py-10 lg:py-16">
         <div className="max-w-[1280px] mx-auto flex flex-col lg:flex-row justify-between space-y-5">
           <div>
-            <div className="text-black font-semibold mb-[20px] text-xl">
+            <div className=" font-semibold mb-[20px] text-xl">
               Contact Info
             </div>
-            <p className="text-sm leading-relaxed text-gray-700 mb-[20px]">
+            <p className="text-sm leading-relaxed mb-[20px]">
               Welcome to <span className="font-semibold">Royel Business Company Limited</span> –
               a brand built on trust, elegance, and authenticity. <br className=" hidden md:block" />
               We are passionate about the art of fragrance and committed to bringing you
@@ -116,17 +68,17 @@ const Footer: React.FC<FooterProps> = ({ userCartProducts }) => {
               Each scent is carefully curated to ensure quality, originality, <br className=" hidden md:block" /> and a lasting impression.
               Discover your signature scent with confidence.
             </p>
-            <div className="text-black text-md lg:text-lg flex flex-col space-y-1 ">
-              <div>Contact: +880 170000000</div>
+            <div className=" text-md lg:text-lg flex flex-col space-y-1 ">
+              {/* <div>Contact: +880 170000000</div>
               <div>Whats app: +880 170000000</div>
-              <div>Address: Dhaka, Bangladesh</div>
+              <div>Address: Dhaka, Bangladesh</div> */}
             </div>
           </div>
           <div>
-            <div className="text-black font-semibold mb-[20px] text-xl">
+            <div className=" font-semibold mb-[20px] text-xl">
               Quick Links
             </div>
-            <ul className="text-black text-xl">
+            <ul className=" text-xl">
               {quickLink.map((item, index) => (
                 <div key={index}>
                   <Link href={item.link}>
@@ -141,15 +93,15 @@ const Footer: React.FC<FooterProps> = ({ userCartProducts }) => {
             </ul>
           </div>
           <div>
-            <div className="text-black font-semibold mb-[20px] text-xl">
+            <div className=" font-semibold mb-[20px] text-xl">
               Infromation
             </div>
-            <ul className="text-black text-xl">
+            <ul className=" text-xl">
               {information.map((item, index) => (
                 <div key={index}>
                   <Link href={item.link}>
                     <li className="my-1 relative group cursor-pointer">
-                      <span className="inline-block transition-all duration-300 group-hover:translate-x-2 group-hover:text-black text-md lg:text-lg">
+                      <span className="inline-block transition-all duration-300 group-hover:translate-x-2  text-md lg:text-lg">
                         {item.name}
                       </span>
                     </li>
@@ -159,7 +111,7 @@ const Footer: React.FC<FooterProps> = ({ userCartProducts }) => {
             </ul>
           </div>
           <div>
-            <div className="text-black font-semibold mb-[20px] text-xl">
+            <div className=" font-semibold mb-[20px] text-xl">
               Social Media
             </div>
             <div className="">
@@ -219,7 +171,7 @@ const Footer: React.FC<FooterProps> = ({ userCartProducts }) => {
           </div>
         </div>
       </div>
-      <div className="bg-[#D4A373] text-white text-center py-4 border-t">
+      <div className="bg-[#008080] text-white text-center py-4 border-t">
         Copyright © 2025 ROYEL BUSINESS COMPANY LIMITED. All Right Reserved. Developed by{" "}
         <a target="_blank" href="https://okobiz.com/">
           okobiz

@@ -75,7 +75,7 @@ const SearchCancel = () => {
           {allCategories.map((cat, index) => (
             <div
               key={index}
-              className="bg-[#D4A373] inline-flex p-1 px-2 rounded text-[#fff] text-sm items-center justify-center gap-1 capitalize"
+              className="bg-[#008080] inline-flex p-1 px-2 rounded text-[#fff] text-sm items-center justify-center gap-1 capitalize"
             >
               <p>{cat}</p>
               <HiMiniXMark
@@ -92,7 +92,7 @@ const SearchCancel = () => {
           {allSubCategories.map((sub, index) => (
             <div
               key={index}
-              className="bg-[#D4A373] inline-flex p-1 px-2 rounded text-[#fff] text-sm items-center justify-center gap-1 capitalize"
+              className="bg-[#008080] inline-flex p-1 px-2 rounded text-[#fff] text-sm items-center justify-center gap-1 capitalize"
             >
               <p>{sub}</p>
               <HiMiniXMark
@@ -109,7 +109,7 @@ const SearchCancel = () => {
           {allChildCategories.map((child, index) => (
             <div
               key={index}
-              className="bg-[#D4A373] inline-flex p-1 px-2 rounded text-[#fff] text-sm items-center justify-center gap-1 capitalize"
+              className="bg-[#008080] inline-flex p-1 px-2 rounded text-[#fff] text-sm items-center justify-center gap-1 capitalize"
             >
               <p>{child}</p>
               <HiMiniXMark
@@ -126,7 +126,7 @@ const SearchCancel = () => {
           {allbrands.map((brn, index) => (
             <div
               key={index}
-              className="bg-[#D4A373] inline-flex p-1 px-2 rounded text-[#fff] text-sm items-center justify-center gap-1 capitalize"
+              className="bg-[#008080] inline-flex p-1 px-2 rounded text-[#fff] text-sm items-center justify-center gap-1 capitalize"
             >
               <p>{brn}</p>
               <HiMiniXMark
@@ -143,7 +143,7 @@ const SearchCancel = () => {
           {allgenders.map((gen, index) => (
             <div
               key={index}
-              className="bg-[#D4A373] inline-flex p-1 px-2 rounded text-[#fff] text-sm items-center justify-center gap-1 capitalize"
+              className="bg-[#008080] inline-flex p-1 px-2 rounded text-[#fff] text-sm items-center justify-center gap-1 capitalize"
             >
               <p>{gen}</p>
               <HiMiniXMark

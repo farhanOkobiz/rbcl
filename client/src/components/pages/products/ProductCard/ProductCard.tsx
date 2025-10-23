@@ -23,7 +23,7 @@ const ProductCard: React.FC<Props> = ({ product }) => {
     <div className="productcard">
       <Link href={`/product/${slug}`}>
         <div className="relative group rounded ">
-          <div className="absolute top-0 rounded left-0 h-[2px] w-full bg-[#D4A373] origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100 z-10"></div>
+          <div className="absolute top-0 rounded left-0 h-[2px] w-full bg-[#008080] origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100 z-10"></div>
           <div className=" rounded-t overflow-hidden">
             {thumbnailImage && (
               <Image

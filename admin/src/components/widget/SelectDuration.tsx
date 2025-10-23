@@ -38,7 +38,7 @@ const SelectDuration = ({ setSelectChartFilter, setSelectChartFilterLabel }: Sel
                   setSelectChartFilterLabel(item.name);
                 }}
                 className={`${
-                  active ? "bg-secondary-500 text-[#D4A373]" : "text-slate-900 dark:text-slate-300"
+                  active ? "bg-secondary-500 text-[#008080]" : "text-slate-900 dark:text-slate-300"
                 } cursor-pointer border-b border-gray-200 px-4 py-2 text-sm flex items-center space-x-2`}
               >
                 <span>{item.name}</span>

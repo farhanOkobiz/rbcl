@@ -45,7 +45,7 @@ const CartOverView: React.FC<Props> = ({ products, shipping }) => {
             <div className="flex xl:justify-center gap-4 border-b border-black/20 pb-2 ">
               <div className="xl:text-2xl text-xl font-bold">Cart Overview</div>
               <Link href="/cart">
-                <div className="font-bold text-[#D4A373] hover:underline">
+                <div className="font-bold text-[#008080] hover:underline">
                   Modify Order
                 </div>
               </Link>
@@ -85,23 +85,23 @@ const CartOverView: React.FC<Props> = ({ products, shipping }) => {
 
             <div className="flex justify-between font-bold text-[16px] py-3 border-t border-black/20">
               <p>subtotal:</p>
-              <p className="text-[#D4A373] text-[20px]">
+              <p className="text-[#008080] text-[20px]">
                 ৳{products?.totalPrice}
               </p>
             </div>
             <div className="flex justify-between font-bold text-[16px] py-3">
               <p>Shipping (+):</p>
-              <p className="text-[#D4A373] text-[20px]">৳{shipping}</p>
+              <p className="text-[#008080] text-[20px]">৳{shipping}</p>
             </div>
             <div className="flex justify-between font-bold text-[16px] py-3">
               <p>Discount (-):</p>
-              <p className="text-[#D4A373] text-[20px]">
+              <p className="text-[#008080] text-[20px]">
                 ৳{products?.couponDiscount}
               </p>
             </div>
             <div className="flex justify-between font-bold text-[20px] py-3 border-t border-black/20">
               <p>Payable:</p>
-              <p className="text-[#D4A373]">
+              <p className="text-[#008080]">
                 ৳{subTotalPrice}
               </p>
             </div>
