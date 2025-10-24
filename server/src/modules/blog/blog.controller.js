@@ -70,14 +70,12 @@ class BlogController {
   });
 
   getAllBlogForHome = catchError(async (req, res, next) => {
-    const { tags, category, subCategory } = req.query;
+    const { tags } = req.query;
 
     const payload = {
       tags,
-      category,
-      subCategory,
     };
-    const blogResult = await BlogService.getAllBlog(payload);
+    const blogResult = await BlogService.getAllBlogForHome(payload);
     const resDoc = responseHandler(200, "Get All Blogs", blogResult);
     res.status(resDoc.statusCode).json(resDoc);
   });

@@ -6,6 +6,8 @@ import { getCartProducts } from "@/services/cart";
 import React from "react";
 import T1 from "../../../assets/texture/t8.jpg";
 import NavBarThreeWrapper from "@/components/pages/header/NavBar/NavBarThreeWrapper";
+import VideoBlogCard from "../VideoBlogCard/VideoBlogCard";
+import FaceBookBlogCard from "../FaceBookBlogCard/FaceBookBlogCard";
 
 // Define the Blog type
 type Blog = {
@@ -58,16 +60,26 @@ const page = async ({ searchParams }: PageProps) => {
   const youtubeBlogs = allBlogs.filter(
     (blog: Blog) => (blog as any).youtubeUrl && (blog as any).youtubeUrl !== ""
   );
+
   const facebookBlogs = allBlogs.filter(
-    (blog: Blog) =>
-      (blog as any).facebookUrl &&
-      (blog as any).facebookUrl !== "" &&
-      !youtubeBlogs.includes(blog)
+    (blog: any) =>
+      blog.facebookUrl &&
+      blog.facebookUrl !== "" &&
+      blog.facebookUrl !== "undefined"
   );
-  const normalBlogs = allBlogs.filter(
-    (blog: Blog) =>
-      !youtubeBlogs.includes(blog) && !facebookBlogs.includes(blog)
-  );
+
+  const normalBlogs = allBlogs.filter((blog: any) => {
+    const hasYoutube =
+      blog.youtubeUrl &&
+      blog.youtubeUrl !== "" &&
+      blog.youtubeUrl !== "undefined";
+    const hasFacebook =
+      blog.facebookUrl &&
+      blog.facebookUrl !== "" &&
+      blog.facebookUrl !== "undefined";
+
+    return !hasYoutube && !hasFacebook;
+  });
 
   return (
     <div>
@@ -89,12 +101,10 @@ const page = async ({ searchParams }: PageProps) => {
             </h2>
             <div className="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-2 grid-cols-1 gap-4">
               {youtubeBlogs.map((blog: Blog) => (
-                <BlogCard
-                  key={blog._id}
+                <VideoBlogCard
+                  key={blog.id}
                   title={blog.title}
-                  details={blog.details}
-                  image={blog.image}
-                  tags={blog.tags}
+                  youtubeUrl={blog.youtubeUrl}
                   date={blog.createdAt}
                   author={blog.author}
                   slug={blog.slug}
@@ -112,15 +122,15 @@ const page = async ({ searchParams }: PageProps) => {
             </h2>
             <div className="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-2 grid-cols-1 gap-4">
               {facebookBlogs.map((blog: Blog) => (
-                <BlogCard
-                  key={blog._id}
-                  title={blog.title}
-                  details={blog.details}
+                <FaceBookBlogCard
+                  key={blog.id}
                   image={blog.image}
+                  title={blog.title}
                   tags={blog.tags}
                   date={blog.createdAt}
                   author={blog.author}
                   slug={blog.slug}
+                  facebookUrl={blog.facebookUrl}
                 />
               ))}
             </div>

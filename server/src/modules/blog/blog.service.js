@@ -41,12 +41,24 @@ class BlogService extends BaseService {
 
   async getAllBlogForHome() {
     const filter = {
-      $or: [
-        { youtubeUrl: { $exists: false } },
-        { youtubeUrl: null },
-        { youtubeUrl: "" },
+      $and: [
+        {
+          $or: [
+            { youtubeUrl: { $exists: false } },
+            { youtubeUrl: null },
+            { youtubeUrl: "" },
+          ],
+        },
+        {
+          $or: [
+            { facebookUrl: { $exists: false } },
+            { facebookUrl: null },
+            { facebookUrl: "" },
+          ],
+        },
       ],
     };
+
     return await this.#repository.findAll(filter);
   }
 
