@@ -11,6 +11,7 @@ import React from "react";
 // import { getAllBanners } from "@/services/banners";
 import { Metadata } from "next";
 import NavBar from "@/components/pages/header/NavBar/NavBar";
+import T2 from "../../../assets/texture/t8.jpg";
 
 export const metadata: Metadata = {
   title: "RBCL | All Product",
@@ -80,7 +81,14 @@ export default async function ShopPage({
   return (
     <>
       <NavBar userCartProducts={cartProducts?.data} />
-      <div className="flex min-h-screen Container">
+      <div
+        style={{
+          backgroundImage: `url(${T2.src})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+        className="flex min-h-screen Container text-white"
+      >
         <div className="2xl:w-[20%] xl:xl-[25%] lg:w-[25%]  hidden lg:block">
           <ShopProductsCategories
             shopSideBar={shopSideBar}
@@ -92,7 +100,7 @@ export default async function ShopPage({
             products={products.result}
             pagination={products.pagination}
             categorySlug={categorySlug}
-            subCategorySlug={subCategorySlug} 
+            subCategorySlug={subCategorySlug}
             childCategorySlug={childCategorySlug}
             brand={brand}
             gender={gender}

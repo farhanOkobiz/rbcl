@@ -14,7 +14,12 @@ export type BlogCardProps = {
   slug: string;
 };
 
-  const BlogCardForHome: React.FC<BlogCardProps> = ({ title, details, image,  slug }) => {
+const BlogCardForHome: React.FC<BlogCardProps> = ({
+  title,
+  details,
+  image,
+  slug,
+}) => {
   return (
     <div className="group">
       <Link href={`blogs/${slug}`}>
@@ -30,13 +35,13 @@ export type BlogCardProps = {
       </Link>
       <div className="px-2 py-2">
         <Link href={`blogs/${slug}`}>
-          <h2 className="lg:text-lg text-base font-semibold line-clamp-1 text-[#008080] cursor-pointer">
+          <h2 className="lg:text-lg text-base font-semibold line-clamp-1 cursor-pointer">
             {title}
           </h2>
         </Link>
         <Link href={`blogs/${slug}`}>
-          <p className="mt-2 text-[#262626]/60 cursor-pointer">
-           <span dangerouslySetInnerHTML={{ __html: details }} />
+          <p className="mt-2  cursor-pointer">
+            <span dangerouslySetInnerHTML={{ __html: details }} />
           </p>
         </Link>
       </div>

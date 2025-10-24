@@ -28,21 +28,25 @@ class BlogService extends BaseService {
   }
 
   async getAllBlog(payload) {
-    const { tagRef, category, subCategory } = payload;
+    const { tagRef, blogCategoryRef, blogSubCategoryRef } = payload;
+    console.log(blogCategoryRef, blogSubCategoryRef, "ok");
+    const filter = {}; // filter object
 
+    if (tagRef) filter.tagRef = tagRef;
+    if (blogCategoryRef) filter.blogCategoryRef = blogCategoryRef;
+    if (blogSubCategoryRef) filter.blogSubCategoryRef = blogSubCategoryRef;
+
+    return await this.#repository.findAll(filter);
+  }
+
+  async getAllBlogForHome() {
     const filter = {
-      status: true,
       $or: [
         { youtubeUrl: { $exists: false } },
         { youtubeUrl: null },
         { youtubeUrl: "" },
       ],
     };
-
-    if (tagRef) filter.tagRef = tagRef;
-    if (category) filter["blogCategoryRef"] = category;
-    if (subCategory) filter["blogSubCategoryRef"] = subCategory;
-
     return await this.#repository.findAll(filter);
   }
 
@@ -50,8 +54,23 @@ class BlogService extends BaseService {
     const { tagRef } = payload;
 
     const filter = {
-      status: true,
       youtubeUrl: { $exists: true, $ne: "" },
+    };
+
+    if (tagRef) filter.tagRef = tagRef;
+
+    return await this.#repository.findAll(filter);
+  }
+
+  async getAllFacebookBlog(payload) {
+    const { tagRef } = payload;
+
+    const filter = {
+      facebookUrl: {
+        $exists: true,
+        $ne: "",
+        $nin: ["undefined", null],
+      },
     };
 
     if (tagRef) filter.tagRef = tagRef;

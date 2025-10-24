@@ -5,32 +5,35 @@ import Image from "next/image";
 import NavBar from "@/components/pages/header/NavBar/NavBar";
 import { getCartProducts } from "@/services/cart";
 import { getUser } from "@/services/auth";
+import T2 from "../../../assets/texture/t8.jpg";
 
 const page = async () => {
   const user = await getUser();
   const userRef = user?.id;
   const coupon = "";
   const userCartProducts = await getCartProducts(userRef, coupon);
-  const companyName = "Royel business company limited";
+  const companyName = "Royel Business Company Limited";
+
   return (
-    <div>
+    <div
+      style={{
+        backgroundImage: `url(${T2.src})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
       <NavBar userCartProducts={userCartProducts?.data} />
-      {/* <div className="bg-[#1D4092] mt-20 w-full py-6 lg:flex hidden"></div> */}
-      <div className="container mx-auto lg:py-12 lg:mt-0 mt-20 mb-32 px-4">
-        {/* Main Content Wrapper */}
-        <div className="max-w-6xl mx-auto">
-
-          {/* Hero Section with Image and Introduction */}
+      <div className="Container mt-28 lg:mt-0">
+        <div className="max-w-[1280px] mx-auto py-10 md:py-16 px-4">
+          {/* Header Section */}
           <div className="flex flex-col lg:flex-row items-start lg:items-center gap-8 lg:gap-12 mb-12">
-
-            {/* Company Image */}
             <div className="flex-shrink-0">
               <div className="relative group">
-                <div className="absolute -inset-1 bg-gradient-to-r from-amber-600 to-amber-400 rounded-xl blur opacity-25 group-hover:opacity-40 transition duration-300"></div>
-                <div className="relative border-2 border-amber-600/20 rounded-xl p-3 bg-white shadow-lg hover:shadow-xl transition-all duration-300">
+                <div className="absolute -inset-1 bg-gradient-to-r from-[#008080] to-amber-400 rounded-xl blur opacity-25 group-hover:opacity-40 transition duration-300"></div>
+                <div className="relative border-2 border-[#008080]/30 rounded-xl p-3 bg-white shadow-lg hover:shadow-xl transition-all duration-300">
                   <Image
                     src={aboutImage}
-                    alt="Royel Business Company"
+                    alt={companyName}
                     width={140}
                     height={140}
                     className="rounded-lg object-cover"
@@ -39,112 +42,108 @@ const page = async () => {
               </div>
             </div>
 
-            {/* Hero Text */}
             <div className="flex-1">
-              <div className="bg-gradient-to-br from-gray-50 to-white p-6 lg:p-8 rounded-2xl shadow-sm border border-gray-100">
-                <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 leading-relaxed">
-                  Welcome to{" "}
-                  <span className="relative inline-block">
-                    <span className="uppercase text-transparent bg-clip-text bg-[#008080] font-extrabold tracking-wide">
-                      {companyName}
-                    </span>
-                    <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-amber-600 to-amber-400 rounded-full"></div>
+              <div className="bg-gradient-to-br from-white/90 to-gray-50 p-6 lg:p-8 rounded-2xl shadow-sm border border-gray-100">
+                <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 leading-relaxed">
+                  About{" "}
+                  <span className="text-[#008080] font-extrabold uppercase">
+                    {companyName}
                   </span>
                 </h1>
                 <p className="text-gray-600 mt-4 text-lg font-medium">
-                  A name born from the union of Noha and Hasan, and a brand built on
-                  <span className="text-[#008080] font-semibold"> trust, elegance, and authenticity</span>.
+                  {companyName} is a dynamic platform that combines{" "}
+                  <span className="text-[#008080] font-semibold">
+                    blogging and e-commerce
+                  </span>{" "}
+                  under one digital space. We empower creativity and commerce by
+                  connecting readers, writers, and shoppers through authentic
+                  content and quality products.
                 </p>
               </div>
             </div>
           </div>
 
-          {/* Content Cards */}
-          <div className="grid gap-6 lg:gap-8">
-
-            {/* Mission Statement Card */}
-            <div className="bg-white rounded-2xl p-6 lg:p-8 shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300">
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-[#008080] rounded-xl flex items-center justify-center">
-                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-lg font-semibold text-gray-800 mb-3">Our Mission</h3>
-                  <p className="text-gray-700 leading-relaxed text-base md:text-lg">
-                    At
-                    <span className="uppercase text-[#008080] font-semibold bg-amber-50 px-2 py-1 rounded-md">
-                      {companyName}
-                    </span>
-                    , we are passionate about the art of fragrance. Our mission is to bring
-                    you <span className="font-semibold text-gray-800">100% authentic perfumes</span> sourced from globally renowned brands
-                    and trusted suppliers. Each scent in our collection is carefully
-                    curated to ensure quality, originality, and a lasting impression.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Company Story Card */}
-            <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl p-6 lg:p-8 border border-amber-100 hover:shadow-md transition-all duration-300">
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-[#008080] rounded-xl flex items-center justify-center">
-                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                  </svg>
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-lg font-semibold text-gray-800 mb-3">Our Story</h3>
-                  <p className="text-gray-700 leading-relaxed text-base md:text-lg">
-                    What began as a <span className="font-semibold text-[#008080]">shared vision between husband and wife</span> has grown
-                    into a commitment to provide our customers with a premium
-                    fragrance experience. We believe that a great perfume does more
-                    than smell good – it speaks of <span className="italic font-medium">identity, mood, and memory</span>.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Call to Action Card */}
-            <div className="bg-white rounded-2xl p-6 lg:p-8 shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300">
-              <div className="text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-[#008080] rounded-full mb-4">
-                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                  </svg>
-                </div>
-                <p className="text-gray-700 leading-relaxed text-lg md:text-xl font-medium">
-                  We invite you to <span className="text-[#008080] font-semibold">explore our selection</span> and find your signature
-                  scent with confidence and ease.
-                </p>
-              </div>
-            </div>
+          {/* Mission Section */}
+          <div className="bg-white rounded-2xl p-8 lg:p-10 shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300 mb-8">
+            <h2 className="text-2xl font-bold text-gray-800 mb-3">
+              Our Mission
+            </h2>
+            <p className="text-gray-700 text-lg leading-relaxed">
+              Our mission is to create a trusted online space where{" "}
+              <span className="font-semibold text-[#008080]">
+                knowledge meets business
+              </span>
+              . Through our blog, we share insightful stories, reviews, and
+              guides; while our e-commerce platform brings{" "}
+              <span className="font-semibold">authentic, affordable</span> and{" "}
+              <span className="font-semibold">high-quality</span> products to
+              your doorstep.
+            </p>
           </div>
 
-          {/* Brand Tagline Section */}
-          <div className="mt-12 pt-8 border-t-2 border-gradient-to-r from-transparent via-amber-200 to-transparent">
-            <div className="text-center bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-8 lg:p-12 shadow-xl">
-              <div className="inline-block">
-                <p className="text-2xl md:text-3xl lg:text-4xl font-bold text-white leading-tight">
-                  <span className="relative">
-                    <span className="uppercase text-transparent bg-clip-text bg-[#008080] font-black tracking-wider">
-                      {companyName}
-                    </span>
-                    <div className="absolute -bottom-2 left-0 w-full h-1 bg-[#008080] rounded-full"></div>
-                  </span>
-                </p>
-                <div className="mt-6 space-y-2">
-                  <p className="text-xl md:text-2xl text-[#008080] font-semibold tracking-wide">
-                    Authentic Scents
-                  </p>
-                  <div className="w-16 h-0.5 bg-[#008080] mx-auto rounded-full"></div>
-                  <p className="text-xl md:text-2xl text-[#008080] font-semibold tracking-wide">
-                    Honest Commitment
-                  </p>
-                </div>
-              </div>
-            </div>
+          {/* Vision Section */}
+          <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl p-8 lg:p-10 border border-amber-100 hover:shadow-md transition-all duration-300 mb-8">
+            <h2 className="text-2xl font-bold text-gray-800 mb-3">
+              Our Vision
+            </h2>
+            <p className="text-gray-700 text-lg leading-relaxed">
+              We envision {companyName} as{" "}
+              <span className="text-[#008080] font-semibold">
+                Bangladesh’s leading digital hub
+              </span>{" "}
+              for lifestyle, learning, and shopping. Our goal is to inspire and
+              empower people through meaningful content and a seamless shopping
+              experience that reflects{" "}
+              <span className="italic font-medium">
+                trust, creativity, and convenience
+              </span>
+              .
+            </p>
+          </div>
+
+          {/* Values Section */}
+          <div className="bg-white rounded-2xl p-8 lg:p-10 shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300 mb-8">
+            <h2 className="text-2xl font-bold text-gray-800 mb-3">
+              Our Core Values
+            </h2>
+            <ul className="list-disc list-inside text-gray-700 text-lg leading-relaxed space-y-2">
+              <li>
+                <span className="text-[#008080] font-semibold">
+                  Innovation:
+                </span>{" "}
+                We continuously evolve to bring fresh ideas and better solutions
+                for our users and customers.
+              </li>
+              <li>
+                <span className="text-[#008080] font-semibold">Integrity:</span>{" "}
+                We value honesty, authenticity, and transparency in every
+                interaction.
+              </li>
+              <li>
+                <span className="text-[#008080] font-semibold">Quality:</span>{" "}
+                We ensure every product and piece of content meets our high
+                standards of excellence.
+              </li>
+              <li>
+                <span className="text-[#008080] font-semibold">Community:</span>{" "}
+                We believe in building a connected and informed community that
+                grows together.
+              </li>
+            </ul>
+          </div>
+
+          {/* Closing Section */}
+          <div className="text-center bg-white rounded-2xl p-10 lg:p-14 shadow-inner">
+            <p className="text-2xl md:text-3xl font-bold text-[#008080] mb-4">
+              {companyName}
+            </p>
+            <p className="text-gray-700 text-lg max-w-3xl mx-auto">
+              At {companyName}, we blend{" "}
+              <span className="text-[#008080] font-semibold">
+                creativity, commerce, and community
+              </span>{" "}
+              to make digital life more inspiring and rewarding.
+            </p>
           </div>
         </div>
       </div>

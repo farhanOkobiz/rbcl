@@ -121,7 +121,6 @@ const ShopProductsCategories: React.FC<ShopProductsCategoriesProps> = ({
     }
   };
 
-
   return (
     <div className="px-4 pt-2 sticky top-0 h-screen overflow-y-scroll custom-scroll flex flex-col gap-4 pb-12">
       <div>
@@ -136,7 +135,7 @@ const ShopProductsCategories: React.FC<ShopProductsCategoriesProps> = ({
                 Min Price
               </label>
               <div className="relative">
-                <span className="absolute left-3 top-2.5 text-gray-500">৳</span>
+                <span className="absolute left-3 top-2.5 ">৳</span>
                 <input
                   type="number"
                   value={values[0]}
@@ -153,7 +152,7 @@ const ShopProductsCategories: React.FC<ShopProductsCategoriesProps> = ({
                 Max Price
               </label>
               <div className="relative">
-                <span className="absolute left-3 top-2.5 text-gray-500">৳</span>
+                <span className="absolute left-3 top-2.5 ">৳</span>
                 <input
                   type="number"
                   value={values[1]}
@@ -214,7 +213,7 @@ const ShopProductsCategories: React.FC<ShopProductsCategoriesProps> = ({
             />
           </div>
 
-          <div className="flex justify-between text-sm text-gray-500 pb-2">
+          <div className="flex justify-between text-sm pb-2">
             <span>৳{values[0]}</span>
             <span>৳{values[1]}</span>
           </div>
@@ -226,12 +225,12 @@ const ShopProductsCategories: React.FC<ShopProductsCategoriesProps> = ({
           <h2 className="pb-2 text-base font-semibold">CATEGORY</h2>
           {shopSideBar?.map((cat) => (
             <li key={cat._id}>
-              <label className="flex items-center gap-2 cursor-pointer font-medium text-gray-700">
+              <label className="flex items-center gap-2 cursor-pointer font-medium ">
                 <input
                   type="checkbox"
                   checked={selectedCategories.includes(cat.slug)}
                   onChange={() => updateParams("category", cat.slug)}
-                  className="accent-[#495588]"
+                  className=""
                 />
                 {cat.name}
               </label>
@@ -240,14 +239,14 @@ const ShopProductsCategories: React.FC<ShopProductsCategoriesProps> = ({
                 {Array.isArray(cat.subCategories) &&
                   cat.subCategories.map((subCat: TSubCategory) => (
                     <li key={subCat._id}>
-                      <label className="flex items-center gap-2 cursor-pointer text-sm text-gray-600">
+                      <label className="flex items-center gap-2 cursor-pointer text-sm">
                         <input
                           type="checkbox"
                           checked={selectedSubCategories.includes(subCat.slug)}
                           onChange={() =>
                             updateParams("subCategory", subCat.slug)
                           }
-                          className="accent-[#495588]"
+                          className=""
                         />
                         {subCat.name}
                       </label>
@@ -257,7 +256,7 @@ const ShopProductsCategories: React.FC<ShopProductsCategoriesProps> = ({
                           subCat.childCategories.map(
                             (childCat: TChildCategory) => (
                               <li key={childCat._id}>
-                                <label className="flex items-center gap-2 cursor-pointer text-sm text-gray-600">
+                                <label className="flex items-center gap-2 cursor-pointer text-sm">
                                   <input
                                     type="checkbox"
                                     checked={selectedChildCategories.includes(
@@ -292,7 +291,7 @@ const ShopProductsCategories: React.FC<ShopProductsCategoriesProps> = ({
             {products?.brands?.map((brand: TBrand) => (
               <ul key={brand._id}>
                 <li>
-                  <label className="flex items-center gap-2 cursor-pointer font-medium text-gray-700">
+                  <label className="flex items-center gap-2 cursor-pointer font-medium ">
                     <input
                       type="checkbox"
                       checked={selectedBrands.includes(brand?.slug)}
@@ -317,7 +316,7 @@ const ShopProductsCategories: React.FC<ShopProductsCategoriesProps> = ({
               products?.genders?.map((gender: TGender) => (
                 <ul key={gender}>
                   <li>
-                    <label className="flex items-center gap-2 cursor-pointer font-medium text-gray-700">
+                    <label className="flex items-center gap-2 cursor-pointer font-medium ">
                       <input
                         type="checkbox"
                         checked={selectedGenders.includes(gender)}

@@ -159,7 +159,7 @@ const ProductDialog: React.FC<Product> = ({
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <motion.button
-          className="flex items-center justify-center py-2 rounded text-[#fff] text-sm font-semibold mt-2 bg-[#008080] group-hover:bg-[#CCD5AE] w-full gap-2 duration-300 cursor-pointer"
+          className="flex items-center justify-center py-2 rounded text-[#fff] text-sm font-semibold mt-2 bg-[#008080] group-hover:bg-[#CCD5AE] group-hover:text-gray-900 w-full gap-2 duration-300 cursor-pointer"
           onHoverStart={() => setIsHovered(true)}
           onHoverEnd={() => setIsHovered(false)}
           transition={{ type: "spring", stiffness: 300 }}

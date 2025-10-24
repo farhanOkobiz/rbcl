@@ -11,23 +11,15 @@ import {
 
 import { getCartProducts } from "@/services/cart";
 import NavBar from "@/components/pages/header/NavBar/NavBar";
-
 import { getUser } from "@/services/auth";
-
-import Newest from "@/components/pages/landing_pages/Newest/Newest";
-
-import DiscountProduct from "@/components/pages/landing_pages/DiscountProduct/DiscountProduct";
-import Brand from "@/components/pages/landing_pages/Brand/Brand";
-import BestSelling from "@/components/pages/landing_pages/BestSelling/BestSelling";
 import { getAllBrands } from "@/services/brand";
-import Campaign from "@/components/pages/landing_pages/Campaign/Campaign";
 import { getCampaign } from "@/services/campaign";
 import { Metadata } from "next";
 import CartSideBar from "@/components/pages/cartSideBar/CartSideBar";
-import BannerTwo from "./bannertwo/BannerTwo";
 import NavBarTwo from "@/components/pages/header/NavBar/NavBarTwo";
 import Blogs from "@/components/pages/landing_pages/Blogs/Blogs";
 import BlogsForHome from "@/components/pages/landing_pages/BlogsForHome/BlogsForHome";
+import T1 from "../../assets/texture/t8.jpg";
 
 export const metadata: Metadata = {
   title: "RBCL",
@@ -54,16 +46,24 @@ const page = async () => {
   const productWithDiscount = await getAllDiscountProduct();
   const brands = await getAllBrands();
 
-
   return (
     <>
       <NavBar userCartProducts={products?.data} />
-      <div className="">
+      <div
+        style={{
+          backgroundImage: `url(${T1.src})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+        className="text-white"
+      >
         <Banner banners={[]} />
-        <NavBarTwo/>
+        <NavBarTwo />
         {/* <Category /> */}
         {/* <Blogs/> */}
-        <BlogsForHome/>
+        <BlogsForHome />
+        <Blogs />
         {/* <BestSelling products={bestSelling} /> */}
         {/* <Newest products={allproducts} /> */}
         {/* <DiscountProduct products={productWithDiscount} /> */}

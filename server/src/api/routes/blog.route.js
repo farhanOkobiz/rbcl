@@ -12,6 +12,9 @@ BlogRoute.route("/")
 
 BlogRoute.get("/pagination", controller.getBlogWithPagination);
 BlogRoute.get("/single/:slug", controller.getSingleBlog);
+BlogRoute.get("/allBlogForHome", controller.getAllBlogForHome);
+BlogRoute.get("/videoBlogs", controller.getAllVideoBlog);
+BlogRoute.get("/facebookBlogs", controller.getAllFacebookBlog);
 
 BlogRoute.route("/:id")
   // .get(controller.getSingleBlog)

@@ -14,11 +14,11 @@ export type BlogCardProps = {
   slug: string;
 };
 
-  const BlogCard: React.FC<BlogCardProps> = ({ title, details, image,  slug }) => {
+const BlogCard: React.FC<BlogCardProps> = ({ title, details, image, slug }) => {
   return (
-    <div className="group">
+    <div className="group text-white border rounded shadow">
       <Link href={`blogs/${slug}`}>
-        <div className="p-2 border border-[#CCD5AE] rounded overflow-hidden h-[350px] lg:h-[160px] xl:h-[230px] ">
+        <div className="p-2 border border-[#CCD5AE] rounded overflow-hidden h-[350px] md:h-[250px] lg:h-[230px] xl:h-[230px] ">
           <Image
             src={apiBaseUrl + image}
             alt=""
@@ -30,17 +30,17 @@ export type BlogCardProps = {
       </Link>
       <div className="px-2 py-2">
         <Link href={`blogs/${slug}`}>
-          <h2 className="lg:text-lg text-base font-semibold line-clamp-1 text-[#008080] cursor-pointer">
+          <h2 className="lg:text-lg text-base font-semibold line-clamp-1  cursor-pointer">
             {title}
           </h2>
         </Link>
         <Link href={`blogs/${slug}`}>
-          <p className="mt-2 text-[#262626]/60 line-clamp-2 cursor-pointer">
-           <span dangerouslySetInnerHTML={{ __html: details }} />
+          <p className="mt-2 line-clamp-2 cursor-pointer">
+            <span dangerouslySetInnerHTML={{ __html: details }} />
           </p>
         </Link>
         <Link href={`blogs/${slug}`}>
-          <div className="flex items-center gap-1 mt-2 font-semibold cursor-pointer text-[#262626]/60 group-hover:text-[#262626]">
+          <div className="flex items-center gap-1 mt-2 font-semibold cursor-pointer  ">
             <span>Read More</span>
             <span className="mt-1">
               <BsArrowRight />

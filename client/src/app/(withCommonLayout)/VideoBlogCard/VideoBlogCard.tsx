@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
-import { YouTubeModal } from "../../youtubevideo/YouTubeModal ";
 import { motion } from "framer-motion";
+import { YouTubeModal } from "@/components/pages/youtubevideo/YouTubeModal ";
 
 export type VideoBlogCardProps = {
   title: string;
@@ -29,10 +29,10 @@ const VideoBlogCard: React.FC<VideoBlogCardProps> = ({ title, youtubeUrl }) => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="group cursor-pointer h-96"
+        className="group cursor-pointer"
         onClick={() => videoId && setOpen(true)}
       >
-        <div className="p-2 border border-[#CCD5AE] rounded overflow-hidden h-[350px] lg:h-[260px] xl:h-[350px] relative">
+        <div className="p-2 border border-[#CCD5AE] rounded overflow-hidden h-[350px] md:h-[200px] lg:h-[260px] xl:h-[350px] relative">
           {videoId ? (
             <>
               <iframe
@@ -53,7 +53,6 @@ const VideoBlogCard: React.FC<VideoBlogCardProps> = ({ title, youtubeUrl }) => {
             </div>
           )}
         </div>
-
         <div className="px-2 py-2">
           <h2 className="lg:text-lg text-base font-semibold line-clamp-1 text-[#52687f]">
             {title}
