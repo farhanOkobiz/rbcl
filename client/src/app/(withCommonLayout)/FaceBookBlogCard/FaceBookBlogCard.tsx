@@ -2,7 +2,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { BsArrowRight } from "react-icons/bs";
+import { BsArrowRight, BsFacebook } from "react-icons/bs";
 import { apiBaseUrl } from "@/config/config";
 
 export type FaceBookBlogCardProps = {
@@ -34,6 +34,12 @@ const FaceBookBlogCard: React.FC<FaceBookBlogCardProps> = ({
             fill
             className="object-cover group-hover:scale-105 duration-500"
           />
+          {/* Facebook icon badge */}
+          {facebookUrl && (
+            <div className="absolute top-2 right-2 bg-white p-2 rounded-full shadow-md hover:bg-blue-100 transition">
+              <BsFacebook className="text-blue-600 w-5 h-5" />
+            </div>
+          )}
         </div>
 
         {/* Content */}

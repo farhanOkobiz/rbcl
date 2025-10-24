@@ -3,6 +3,7 @@ import { apiBaseUrl } from "@/config/config";
 import { getUser } from "@/services/auth";
 import { getSingleBlogBySlug } from "@/services/blogs";
 import { getCartProducts } from "@/services/cart";
+import T1 from "../../../../assets/texture/t8.jpg";
 
 import Image from "next/image";
 import React from "react";
@@ -29,7 +30,14 @@ const page: React.FC<PageProps> = async ({ params }) => {
   return (
     <div>
       <NavBar userCartProducts={products?.data} />
-      <div className="Container py-8 lg:mt-0 mt-20 2xl:px-100 xl:px-40 lg:px-14 ">
+      <div
+        style={{
+          backgroundImage: `url(${T1.src})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+        className="Container py-8 lg:mt-0 mt-20 2xl:px-100 xl:px-40 lg:px-14 "
+      >
         <div className="">
           <div className="xl:h-[500px] lg:h-[450px] h-[320px] rounded p-2 border border-[#CCD5AE]">
             <Image
@@ -43,7 +51,7 @@ const page: React.FC<PageProps> = async ({ params }) => {
 
           <div className="py-4">
             {singleBlog?.data?.author && (
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 text-white">
                 <span className="p-1 rounded border border-[#008080] text-[#008080]">
                   <FaRegUser className="text-[12px]" />
                 </span>
@@ -51,16 +59,16 @@ const page: React.FC<PageProps> = async ({ params }) => {
                 <h2 className="font-medium">{singleBlog?.data?.author}</h2>
               </div>
             )}
-            <h2 className="md:text-2xl text-xl mt-3">
+            <h2 className="md:text-2xl text-xl mt-3 text-white">
               {singleBlog?.data?.title}
             </h2>
-            <p className="mt-2 text-[#262626]/80">
+            <p className="mt-2 text-white">
               <span
                 dangerouslySetInnerHTML={{ __html: singleBlog?.data?.details }}
               />
             </p>
 
-            <div className="flex items-center gap-2 py-4">
+            <div className="flex items-center gap-2 py-4 text-white">
               <h2 className="text-xl font-semibold">Tags :</h2>
               <div className="flex items-center justify-center gap-2">
                 {singleBlog?.data?.tags.map((tag: string, index: number) => (

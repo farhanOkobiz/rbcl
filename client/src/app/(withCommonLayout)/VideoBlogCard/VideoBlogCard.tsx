@@ -54,7 +54,7 @@ const VideoBlogCard: React.FC<VideoBlogCardProps> = ({ title, youtubeUrl }) => {
           )}
         </div>
         <div className="px-2 py-2">
-          <h2 className="lg:text-lg text-base font-semibold line-clamp-1 text-[#52687f]">
+          <h2 className="lg:text-lg text-base font-semibold line-clamp-1 ">
             {title}
           </h2>
         </div>
