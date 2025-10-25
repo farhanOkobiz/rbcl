@@ -1,59 +1,18 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { motion } from "framer-motion";
-import { TGender, TShopSideBar, TShopSideBarResponsive } from "@/types";
-import { usePathname } from "next/navigation";
-import { getShopSidebar } from "@/services/shopSidebar";
-import ShopPageSidebar from "./ShopPageSidebar";
-import AllPageSidebar from "./AllPageSidebar";
-import { getAllProductsForShop } from "@/services/products";
+import { menuList } from "@/utilits/menuList";
+import Link from "next/link";
 
 type ResponsiveNavSidBarProps = {
   onClose: () => void;
 };
 
-const ResponsiveNavSidBar: React.FC<ResponsiveNavSidBarProps> = ({
-  onClose,
-}) => {
-  const pathname = usePathname();
-  const [shopSideBar, setShopSideBar] = useState<TShopSideBar[]>([]);
-  const [products, setProducts] = useState<TShopSideBarResponsive | null>(null);
-
-  // console.log("products", products);
-  useEffect(() => {
-    getShopSidebar()
-      .then((res) => {
-        if (res?.data) setShopSideBar(res.data);
-      })
-      .catch((err) => console.error(err));
-  }, []);
-
-  useEffect(() => {
-    getAllProductsForShop({})
-      .then((res) => {
-        if (res?.data) setProducts(res.data?.filterOptions);
-        console.log("products res.data", res?.data?.filterOptions);
-      })
-      .catch((err) => console.error(err));
-    // .then((res) => { const { data: products } =
-    //   console.log("products res.data", res.data);
-    //   if (res?.data) setProducts(res.data);
-    // })
-    // .catch((err) => console.error(err));
-  }, []);
-
-  const isShopPage = pathname === "/shop";
-  const defaultProducts: TShopSideBarResponsive = {
-    brands: [],
-    categories: [],
-    genders: null as unknown as TGender, // Replace with a valid default value for TGender
-    priceRange: { minPrice: 0, maxPrice: 0 }, // Set default values for minPrice and maxPrice
-    sizes: [],
-  };
-
+const ResponsiveNavSidBar: React.FC<ResponsiveNavSidBarProps> = ({ onClose }) => {
   return (
-    <div className=" ">
+    <div>
+      {/* Overlay */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -63,25 +22,23 @@ const ResponsiveNavSidBar: React.FC<ResponsiveNavSidBarProps> = ({
         onClick={onClose}
       />
 
+      {/* Sidebar */}
       <motion.div
         initial={{ x: "-100%" }}
         animate={{ x: 0 }}
         exit={{ x: "-100%" }}
         transition={{ type: "tween", ease: "easeInOut", duration: 0.3 }}
-        className="w-[70%] lg:w-[20%] bg-[#fff] top-[80px] h-screen fixed  left-0 z-30 pt-12 lg:hidden"
+        className="w-[70%] bg-white top-[80px] h-screen fixed left-0 z-30 pt-6 lg:hidden px-4"
       >
-        {isShopPage ? (
-          // <ShopPageSidebar
-          // shopSideBar={shopSideBar}
-          // products={products ? products.filterOptions : []}
-          // />
-          <ShopPageSidebar
-            shopSideBar={shopSideBar}
-            products={products || defaultProducts}
-          />
-        ) : (
-          <AllPageSidebar shopSideBar={shopSideBar} />
-        )}
+        <ul className="flex flex-col gap-4">
+          {menuList.map((menu, index) => (
+            <li key={index}>
+              <Link href={menu.link} onClick={onClose} className="text-lg font-medium hover:text-[#008080]">
+                {menu.title}
+              </Link>
+            </li>
+          ))}
+        </ul>
       </motion.div>
     </div>
   );

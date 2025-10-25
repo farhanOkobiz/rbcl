@@ -26,7 +26,7 @@ const page = async () => {
       <div className="Container mt-28 lg:mt-0">
         <div className="max-w-[1280px] mx-auto py-10 md:py-16 px-4">
           {/* Header Section */}
-          <div className="flex flex-col lg:flex-row items-start lg:items-center gap-8 lg:gap-12 mb-12">
+          <div className="flex flex-col lg:flex-row items-center lg:items-center gap-8 lg:gap-12 mb-12">
             <div className="flex-shrink-0">
               <div className="relative group">
                 <div className="absolute -inset-1 bg-gradient-to-r from-[#008080] to-amber-400 rounded-xl blur opacity-25 group-hover:opacity-40 transition duration-300"></div>

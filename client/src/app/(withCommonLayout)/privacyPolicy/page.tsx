@@ -12,12 +12,11 @@ const privacyPolicy = async () => {
     <>
       <NavBar userCartProducts={products?.data} />
       <div className="Container py-10 ">
-        <div className="">
-          <div className="p-8">
+        <div className="max-w-[1280px] mx-auto">
+          <div className="py-8">
             <h1 className="text-3xl font-bold text-[#008080] mb-4">
-              Privacy Policy
+              Delivery Options
             </h1>
-
             <div className="space-y-8">
               <p>What Information We Collect</p>
               <section>

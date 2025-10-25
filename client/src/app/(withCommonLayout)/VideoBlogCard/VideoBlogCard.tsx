@@ -48,13 +48,13 @@ const VideoBlogCard: React.FC<VideoBlogCardProps> = ({ title, youtubeUrl }) => {
               </div>
             </>
           ) : (
-            <div className="flex items-center justify-center h-full bg-gray-100 text-gray-500 text-sm">
+            <div className="flex items-center justify-center h-full bg-gray-100 text-sm">
               No video available
             </div>
           )}
         </div>
         <div className="px-2 py-2">
-          <h2 className="lg:text-lg text-base font-semibold line-clamp-1 ">
+          <h2 className="lg:text-lg text-base font-semibold line-clamp-1 text-white">
             {title}
           </h2>
         </div>

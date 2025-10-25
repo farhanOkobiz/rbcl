@@ -13,8 +13,8 @@ const orderPolicy = async () => {
     <>
       <NavBar userCartProducts={products?.data} />
       <div className="Container py-10 ">
-        <div className="">
-          <div className="p-8">
+        <div className="max-w-[1280px] mx-auto">
+          <div className="py-8">
             <h1 className="text-3xl font-bold text-[#008080] mb-4">
               Delivery Options
             </h1>
@@ -113,7 +113,7 @@ const orderPolicy = async () => {
                     or exchanges are allowed.
                   </li>
                   <li>
-                    Customer Service Contact: +880 1735 775 093 (Sunday –
+                    Customer Service Contact: +880 170000000 (Sunday –
                     Thursday, 10:00 AM – 06:30 PM)
                   </li>
                   <li>

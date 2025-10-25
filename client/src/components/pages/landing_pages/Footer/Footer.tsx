@@ -23,6 +23,14 @@ const Footer: React.FC<FooterProps> = ({ userCartProducts }) => {
       link: "/shop",
     },
     {
+      name: "About",
+      link: "/about",
+    },
+    {
+      name: "Blogs",
+      link: "/blogs"
+    },
+    {
       name: "Shop",
       link: "/shop",
     },
@@ -61,17 +69,17 @@ const Footer: React.FC<FooterProps> = ({ userCartProducts }) => {
             </div>
             <p className="text-sm leading-relaxed mb-[20px]">
               Welcome to <span className="font-semibold">Royel Business Company Limited</span> –
-              a brand built on trust, elegance, and authenticity. <br className=" hidden md:block" />
-              We are passionate about the art of fragrance and committed to bringing you
-              <span className="font-semibold"> 100% authentic perfumes </span> <br className=" hidden md:block" />
-              from globally renowned brands.
-              Each scent is carefully curated to ensure quality, originality, <br className=" hidden md:block" /> and a lasting impression.
-              Discover your signature scent with confidence.
+              <br className="hidden md:block" />
+              Your destination for authentic products and expert insights.
+              <br className="hidden md:block" />
+              Explore blogs, shop top-quality items, and stay updated.
+              <br className="hidden md:block" />
+              We combine knowledge, trust, and convenience in every experience.
             </p>
             <div className=" text-md lg:text-lg flex flex-col space-y-1 ">
-              {/* <div>Contact: +880 170000000</div>
+              <div>Contact: +880 170000000</div>
               <div>Whats app: +880 170000000</div>
-              <div>Address: Dhaka, Bangladesh</div> */}
+              <div>Address: Dhaka, Bangladesh</div>
             </div>
           </div>
           <div>

@@ -42,16 +42,15 @@ export const columns: ColumnDef<TBlog>[] = [
           href={url}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-blue-600 underline"
+          className="text-blue-600 underline hover:text-blue-800"
         >
-          {url}
+          View
         </a>
       ) : (
         <span className="text-gray-400">N/A</span>
       );
     },
-  }
-  ,
+  },
   {
     header: "YoutTube Video",
     accessorKey: "youtubeUrl",

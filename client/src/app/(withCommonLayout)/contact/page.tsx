@@ -20,7 +20,7 @@ const Contact = async () => {
         }}
         className="py-12"
       >
-        <div className="max-w-[1147px] mx-auto text-white">
+        <div className="max-w-[1280px] mx-auto text-white">
           {/* Header Section */}
           <div className="text-center mb-16">
             <div className="inline-block relative">
@@ -95,9 +95,9 @@ const Contact = async () => {
                   },
                   {
                     title: "Call Us",
-                    desc: "+880 173 577 5093",
+                    desc: "+880 1700000000",
                     sub: "Available 24/7",
-                    href: "tel:+8801735775093",
+                    href: "tel:+8801700000000",
                     icon: (
                       <svg
                         className="w-6 h-6 text-gray-700"
@@ -116,9 +116,9 @@ const Contact = async () => {
                   },
                   {
                     title: "Email Us",
-                    desc: "info@nohasan.com",
+                    desc: "a......@gmail.com",
                     sub: "We'll reply within 24 hours",
-                    href: "mailto:info@nohasan.com",
+                    href: "mailto:a....@gmail.com",
                     icon: (
                       <svg
                         className="w-6 h-6 text-gray-700"

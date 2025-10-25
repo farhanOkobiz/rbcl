@@ -47,7 +47,7 @@ interface Props {
 }
 
 export const BlogDetailsSheet: React.FC<Props> = ({ blog }) => {
-  console.log(blog, "ok");
+
 
   const { toast } = useToast();
   const [sheetOpen, setSheetOpen] = useState(false);

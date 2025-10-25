@@ -21,7 +21,7 @@ const BlogCardForHome: React.FC<BlogCardProps> = ({
   slug,
 }) => {
   return (
-    <div className="group">
+    <div className="group mb-4 border rounded">
       <Link href={`blogs/${slug}`}>
         <div className="p-2 border border-[#CCD5AE] rounded overflow-hidden h-[350px] lg:h-[260px] xl:h-[350px] ">
           <Image

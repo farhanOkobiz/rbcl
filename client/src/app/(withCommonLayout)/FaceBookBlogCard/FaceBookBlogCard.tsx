@@ -44,12 +44,12 @@ const FaceBookBlogCard: React.FC<FaceBookBlogCardProps> = ({
 
         {/* Content */}
         <div className="px-3 py-3">
-          <h2 className="lg:text-lg text-base font-semibold line-clamp-1 ">
+          <h2 className="lg:text-lg text-base font-semibold line-clamp-1 text-white">
             {title}
           </h2>
 
           {/* Read More */}
-          <div className="flex items-center gap-1 mt-2 font-semibold ">
+          <div className="flex items-center gap-1 mt-2 font-semibold text-white">
             <span>Read More</span>
             <span className="mt-1">
               <BsArrowRight />

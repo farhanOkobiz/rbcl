@@ -103,13 +103,20 @@ class BlogService extends BaseService {
 
   async updateBlog(id, payload, payloadFiles, session) {
     const { files } = payloadFiles;
-    const { title, details, tagRef, author, status } = payload;
 
     if (files && files.length > 0) {
       const images = await ImgUploader(files);
       for (const key in images) {
         payload[key] = images[key];
       }
+    }
+
+    if (
+      !payload.blogSubCategoryRef ||
+      payload.blogSubCategoryRef === "null" ||
+      payload.blogSubCategoryRef === "undefined"
+    ) {
+      delete payload.blogSubCategoryRef;
     }
 
     const blogData = await this.#repository.updateById(id, payload);
