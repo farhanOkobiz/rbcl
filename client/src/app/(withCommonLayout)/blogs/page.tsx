@@ -15,6 +15,8 @@ type Blog = {
   title: string;
   details: string;
   image: string;
+  facebookUrl:string;
+  youtubeUrl: string;
   tags: string[];
   createdAt: string;
   author: string;
@@ -29,7 +31,7 @@ type PageProps = {
 };
 
 const page = async ({ searchParams }: PageProps) => {
-  // ✅ Await searchParams first
+  // Await searchParams first
   const params = await searchParams;
 
   const user = await getUser();
@@ -102,12 +104,9 @@ const page = async ({ searchParams }: PageProps) => {
             <div className="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-2 grid-cols-1 gap-4">
               {youtubeBlogs.map((blog: Blog) => (
                 <VideoBlogCard
-                  key={blog.id}
+                  key={blog._id}  
                   title={blog.title}
                   youtubeUrl={blog.youtubeUrl}
-                  date={blog.createdAt}
-                  author={blog.author}
-                  slug={blog.slug}
                 />
               ))}
             </div>
@@ -123,12 +122,9 @@ const page = async ({ searchParams }: PageProps) => {
             <div className="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-2 grid-cols-1 gap-4">
               {facebookBlogs.map((blog: Blog) => (
                 <FaceBookBlogCard
-                  key={blog.id}
+                  key={blog._id}
                   image={blog.image}
                   title={blog.title}
-                  tags={blog.tags}
-                  date={blog.createdAt}
-                  author={blog.author}
                   slug={blog.slug}
                   facebookUrl={blog.facebookUrl}
                 />

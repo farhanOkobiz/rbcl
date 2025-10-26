@@ -672,10 +672,15 @@ export type TBlog = {
   _id?: string;
   image?: string;
   title?: string;
+  facebookUrl?: string;
+  youtubeUrl?: string;
   author?: string;
   details?: string;
   slug?: string;
   tags: [];
   createdAt?: string;
   updatedAt?: string;
+  blogCategoryRef?: string | { _id: string; name: string };
+  blogSubCategoryRef?: string | { _id: string; name: string };
+  featured:boolean
 };

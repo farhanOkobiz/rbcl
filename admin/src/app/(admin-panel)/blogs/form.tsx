@@ -62,7 +62,7 @@ type TBlogSubCategory = {
   _id: string;
   name: string;
   slug: string;
-  blogCategoryRef: string;
+  categoryRef?: string | { _id: string; name: string } | undefined;
 };
 
 type CreateBlogFormProps = {
@@ -109,9 +109,21 @@ export const CreateBlogForm: React.FC<CreateBlogFormProps> = ({
   // filtered subcategories
   const filteredSubCategories = React.useMemo(() => {
     if (!selectedCategoryId) return [];
-    return blogSubCategoryData?.result.filter(
-      (subCat) => subCat.categoryRef?._id === selectedCategoryId
-    );
+    
+  return blogSubCategoryData?.result.filter((subCat) => {
+    let catId: string;
+
+    if (!subCat.categoryRef) return false;
+
+    if (typeof subCat.categoryRef === "string") {
+      catId = subCat.categoryRef;
+    } else {
+      catId = subCat.categoryRef._id;
+    }
+
+      return catId === selectedCategoryId;
+    }) || [];
+
   }, [selectedCategoryId, blogSubCategoryData]);
 
   const onSubmit = async (values: z.infer<typeof blogFormSchema>) => {

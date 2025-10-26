@@ -31,9 +31,6 @@ const VideoBlogs = async () => {
                   key={blog.id}
                   title={blog.title}
                   youtubeUrl={blog.youtubeUrl}
-                  date={blog.createdAt}
-                  author={blog.author}
-                  slug={blog.slug}
                 />
               ))}
         </div>

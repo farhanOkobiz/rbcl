@@ -1,6 +1,5 @@
 import BannerTwo from "@/app/(withCommonLayout)/bannertwo/BannerTwo";
 import { getAllBanners } from "@/services/banners";
-import BannerSlider from "@/slider/BannerSlider/BannerSlider";
 import { TBanner } from "@/types";
 import React from "react";
 

@@ -2,7 +2,6 @@ import { apiBaseUrl } from "@/config/config";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { BsArrowRight } from "react-icons/bs";
 
 export type BlogCardProps = {
   title: string;

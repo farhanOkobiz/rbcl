@@ -75,8 +75,12 @@ export const BlogDetailsSheet: React.FC<Props> = ({ blog }) => {
     resolver: zodResolver(blogFormSchema),
     defaultValues: {
       title: blog.title,
-      categoryRef: blog.blogCategoryRef?._id,
-      subCategoryRef: blog.blogSubCategoryRef?._id,
+        categoryRef: typeof blog.blogCategoryRef === "string"
+        ? blog.blogCategoryRef
+        : blog.blogCategoryRef?._id,
+      subCategoryRef: typeof blog.blogSubCategoryRef === "string"
+        ? blog.blogSubCategoryRef
+        : blog.blogSubCategoryRef?._id,
       details: blog.details,
       author: blog.author,
       tags: blog.tags,
@@ -116,7 +120,11 @@ export const BlogDetailsSheet: React.FC<Props> = ({ blog }) => {
       blogSubCategories &&
       blogSubCategories.length > 0
     ) {
-      const categoryId = blog.blogCategoryRef?._id;
+      
+          const categoryId =
+      typeof blog.blogCategoryRef === "string"
+        ? blog.blogCategoryRef
+        : blog.blogCategoryRef._id;
 
       const filtered = blogSubCategories.filter((sc: any) => {
         const catId =
@@ -131,7 +139,11 @@ export const BlogDetailsSheet: React.FC<Props> = ({ blog }) => {
 
       setValue("categoryRef", categoryId);
       if (blog.blogSubCategoryRef) {
-        setValue("subCategoryRef", blog.blogSubCategoryRef?._id);
+            const subCategoryId =
+        typeof blog.blogSubCategoryRef === "string"
+          ? blog.blogSubCategoryRef
+          : blog.blogSubCategoryRef._id;
+        setValue("subCategoryRef", subCategoryId);
       }
     }
   }, [
@@ -163,7 +175,6 @@ export const BlogDetailsSheet: React.FC<Props> = ({ blog }) => {
       return catId === selectedId;
     });
 
-    console.log("Final filtered subcategories:", filtered);
     setFilteredSubCategories(filtered);
 
     if (!filtered.some((sc: any) => sc._id === watch("subCategoryRef"))) {

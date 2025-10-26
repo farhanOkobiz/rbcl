@@ -1,19 +1,19 @@
 import Banner from "@/components/pages/landing_pages/Banner/Banner";
-import Category from "@/components/pages/landing_pages/Category/Category";
+// import Category from "@/components/pages/landing_pages/Category/Category";
 
 import React from "react";
 
-import {
-  getAllBestSellProduct,
-  getAllDiscountProduct,
-  getAllProducts,
-} from "@/services/products";
+// import {
+//   getAllBestSellProduct,
+//   getAllDiscountProduct,
+//   getAllProducts,
+// } from "@/services/products";
 
 import { getCartProducts } from "@/services/cart";
 import NavBar from "@/components/pages/header/NavBar/NavBar";
 import { getUser } from "@/services/auth";
-import { getAllBrands } from "@/services/brand";
-import { getCampaign } from "@/services/campaign";
+// import { getAllBrands } from "@/services/brand";
+// import { getCampaign } from "@/services/campaign";
 import { Metadata } from "next";
 import CartSideBar from "@/components/pages/cartSideBar/CartSideBar";
 import NavBarTwo from "@/components/pages/header/NavBar/NavBarTwo";
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 const page = async () => {
   // ------for campaign----
 
-  const { data: campaign } = await getCampaign();
+  // const { data: campaign } = await getCampaign();
 
   const user = await getUser();
   const userId = user?.id;
@@ -40,11 +40,11 @@ const page = async () => {
 
   // for all products
 
-  const allproducts = await getAllProducts();
+  // const allproducts = await getAllProducts();
 
-  const bestSelling = await getAllBestSellProduct();
-  const productWithDiscount = await getAllDiscountProduct();
-  const brands = await getAllBrands();
+  // const bestSelling = await getAllBestSellProduct();
+  // const productWithDiscount = await getAllDiscountProduct();
+  // const brands = await getAllBrands();
 
   return (
     <>

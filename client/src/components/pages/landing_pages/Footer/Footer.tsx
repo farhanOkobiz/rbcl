@@ -2,11 +2,8 @@
 
 import React from "react";
 import {
-  FaFacebookF,
-  FaRegCreditCard,
-  FaTruck,
+  FaFacebookF
 } from "react-icons/fa";
-import { FaRegMessage, FaRightLeft } from "react-icons/fa6";
 import Link from "next/link";
 import DownFooter from "../../DownFooter/DownFooter";
 
