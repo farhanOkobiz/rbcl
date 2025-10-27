@@ -39,7 +39,7 @@ const Blogs = () => {
       transition: {
         duration: 0.6,
         delay: i * 0.2,
-        ease: [0.42, 0, 0.58, 1]
+        ease: "easeInOut"
       },
     }),
   };
