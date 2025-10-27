@@ -125,7 +125,6 @@ const page = async ({ searchParams }: PageProps) => {
                   key={blog._id}
                   image={blog.image}
                   title={blog.title}
-                  slug={blog.slug}
                   facebookUrl={blog.facebookUrl}
                 />
               ))}

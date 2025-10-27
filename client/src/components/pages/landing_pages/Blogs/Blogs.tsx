@@ -45,8 +45,8 @@ const Blogs = () => {
   };
 
   return (
-    <div className="Container pb-12">
-      <div className="flex md:items-center md:flex-row flex-col md:justify-between md:gap-0 gap-2">
+    <div className=" pb-12 max-w-[1280px] mx-auto">
+      <div className=" flex md:items-center md:flex-row flex-col md:justify-between md:gap-0 gap-2">
         <div className="flex flex-col gap-2">
           <h2 className="lg:text-2xl text-xl font-semibold">
             Our Latest Blogs

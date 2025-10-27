@@ -25,16 +25,14 @@ const FaceBookBlogs = async () => {
           </h2>
         </div>
       </div>
-      <div className="grid grid-cols-1 gap-4 mt-4">
+      <div className="grid grid-cols-1">
         {Array.isArray(allFacebookBlogs?.data) &&
           allFacebookBlogs.data
             .slice(0, 4)
             .map((blog: Blog) => (
               <FaceBookBlogCard
                 key={blog.id}
-                image={blog.image}
                 title={blog.title}
-                slug={blog.slug}
                 facebookUrl={blog.facebookUrl}
               />
             ))}
