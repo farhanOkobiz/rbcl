@@ -45,44 +45,46 @@ const Blogs = () => {
   };
 
   return (
-    <div className=" pb-12 max-w-[1280px] mx-auto">
-      <div className=" flex md:items-center md:flex-row flex-col md:justify-between md:gap-0 gap-2">
-        <div className="flex flex-col gap-2">
-          <h2 className="lg:text-2xl text-xl font-semibold">
-            Our Latest Blogs
-          </h2>
-          <p className="text-lg">
-            Read blogs to know more about perfume-fragrance
-          </p>
-        </div>
-        <Link href="/blogs">
-          <div className="md:px-6 md:py-3 p-2 md:text-base text-sm text-[#fff] rounded bg-[#52687f] inline-flex hover:bg-[#CCD5AE] duration-300 cursor-pointer">
-            <button className="cursor-pointer">View More</button>
+    <div className="Container">
+      <div className=" pb-12 max-w-[1280px] mx-auto">
+        <div className=" flex md:items-center md:flex-row flex-col md:justify-between md:gap-0 gap-2">
+          <div className="flex flex-col gap-2">
+            <h2 className="lg:text-2xl text-xl font-semibold">
+              Our Latest Blogs
+            </h2>
+            <p className="text-lg">
+              Read blogs to know more about perfume-fragrance
+            </p>
           </div>
-        </Link>
-      </div>
+          <Link href="/blogs">
+            <div className="md:px-6 md:py-3 p-2 md:text-base text-sm text-[#fff] rounded bg-[#52687f] inline-flex hover:bg-[#CCD5AE] duration-300 cursor-pointer">
+              <button className="cursor-pointer">View More</button>
+            </div>
+          </Link>
+        </div>
 
-      <div className="gap-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-6">
-        {blogs.map((blog, index) => (
-          <motion.div
-            key={blog.id}
-            custom={index}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={cardVariants}
-          >
-            <BlogCard
-              title={blog.title}
-              details={blog.details}
-              image={blog.image}
-              tags={blog.tags}
-              date={blog.createdAt}
-              author={blog.author}
-              slug={blog.slug}
-            />
-          </motion.div>
-        ))}
+        <div className="gap-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-6">
+          {blogs.map((blog, index) => (
+            <motion.div
+              key={blog.id}
+              custom={index}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={cardVariants}
+            >
+              <BlogCard
+                title={blog.title}
+                details={blog.details}
+                image={blog.image}
+                tags={blog.tags}
+                date={blog.createdAt}
+                author={blog.author}
+                slug={blog.slug}
+              />
+            </motion.div>
+          ))}
+        </div>
       </div>
     </div>
   );

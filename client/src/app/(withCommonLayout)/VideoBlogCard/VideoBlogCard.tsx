@@ -23,7 +23,7 @@ const VideoBlogCard: React.FC<VideoBlogCardProps> = ({ title, youtubeUrl }) => {
   const embedUrl = videoId ? `https://www.youtube.com/embed/${videoId}` : "";
 
   return (
-    <div className="border mb-8 rounded">
+    <div className="border mb-8 rounded border-white">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -32,7 +32,7 @@ const VideoBlogCard: React.FC<VideoBlogCardProps> = ({ title, youtubeUrl }) => {
         className="group cursor-pointer"
         onClick={() => videoId && setOpen(true)}
       >
-        <div className="p-2 border border-[#CCD5AE] rounded overflow-hidden h-[350px] md:h-[200px] lg:h-[260px] xl:h-[350px] relative">
+        <div className="p-2 border border-white rounded overflow-hidden h-[350px] md:h-[200px] lg:h-[260px] xl:h-[350px] relative">
           {videoId ? (
             <>
               <iframe
@@ -41,7 +41,7 @@ const VideoBlogCard: React.FC<VideoBlogCardProps> = ({ title, youtubeUrl }) => {
                 className="w-full h-full rounded pointer-events-none"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               ></iframe>
-              <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+              <div className="absolute inset-0 bg-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
                 <span className="text-white text-lg font-semibold">
                   ▶ Watch
                 </span>

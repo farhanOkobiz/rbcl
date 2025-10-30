@@ -21,8 +21,8 @@ const BlogsForHome = async () => {
     <div>
       <div className="Container pb-12">
         <div className="max-w-[1280px] mx-auto">
-          <div className="grid lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2 gap-4">
-            <div className="md:col-span-2">
+          <div className="grid lg:grid-cols-12 md:grid-cols-12 sm:grid-cols-2 gap-4">
+            <div className="lg:col-span-8 md:col-span-12">
               <div className="flex md:items-center md:flex-row flex-col md:justify-between md:gap-0 gap-2 mt-6 mb-4">
                 <div className="flex flex-col gap-2">
                   <h2 className="lg:text-2xl text-xl font-semibold uppercase">
@@ -46,9 +46,11 @@ const BlogsForHome = async () => {
                     />
                   ))}
             </div>
-            <div className="md:col-span-1">
+            <div className="lg:col-span-4 md:col-span-12 md:grid md:grid-cols-2 md:gap-3 lg:grid lg:grid-cols-1 ">
               <FaceBookBlogs />
+              <div className="mt-10">
               <VideoBlogs />
+              </div>
             </div>
           </div>
         </div>

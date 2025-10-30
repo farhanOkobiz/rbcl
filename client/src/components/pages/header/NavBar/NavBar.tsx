@@ -217,7 +217,7 @@ const NavBar: React.FC<NavBarProps> = ({ userCartProducts }) => {
       </div>
 
       <div
-        className={`py-3 px-4 shadow-md border border-gray-200 fixed w-full z-30 top-0 bg-white transition-all duration-300 lg:hidden `}
+        className={`py-3 px-4 shadow-md border border-[#008080]  fixed w-full z-30 top-0 bg-[#008080] text-white transition-all duration-300 lg:hidden `}
       >
         <div className="">
           <div className="flex items-center justify-between relative">

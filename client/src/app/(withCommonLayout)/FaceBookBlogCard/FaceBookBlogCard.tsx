@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 export type FaceBookBlogCardProps = {
   facebookUrl: string;
@@ -11,35 +11,64 @@ const FaceBookBlogCard: React.FC<FaceBookBlogCardProps> = ({
   facebookUrl,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [containerWidth, setContainerWidth] = useState<number>(500);
+  const [key, setKey] = useState(0);
 
-  // Extract actual Facebook URL if iframe HTML is passed
   let actualUrl = facebookUrl;
   let isVideo = false;
 
-  // Check if the input is an iframe string
-  if (facebookUrl.includes('<iframe')) {
-    // Check if it's a video embed
-    isVideo = facebookUrl.includes('plugins/video.php');
-
-    // Extract the href parameter from the iframe
+  // Detect iframe or video URL
+  if (facebookUrl.includes("<iframe")) {
+    isVideo = facebookUrl.includes("plugins/video.php");
     const hrefMatch = facebookUrl.match(/href=([^&\s"]+)/);
     if (hrefMatch && hrefMatch[1]) {
-      // Decode the URL (it's URL-encoded in the iframe)
       actualUrl = decodeURIComponent(hrefMatch[1]);
     }
   } else {
-    // Check if the direct URL is a video URL
-    isVideo = actualUrl.includes('/videos/');
+    isVideo = actualUrl.includes("/videos/");
   }
 
+  // Monitor container width changes
   useEffect(() => {
-    // Load Facebook SDK
+    const updateWidth = () => {
+      if (containerRef.current) {
+        const width = containerRef.current.offsetWidth;
+        setContainerWidth(width);
+        // Force re-render when width changes significantly
+        setKey(prev => prev + 1);
+      }
+    };
+
+    // Initial width
+    updateWidth();
+
+    // Use ResizeObserver for better performance
+    const resizeObserver = new ResizeObserver(() => {
+      updateWidth();
+    });
+
+    if (containerRef.current) {
+      resizeObserver.observe(containerRef.current);
+    }
+
+    // Fallback for older browsers
+    window.addEventListener("resize", updateWidth);
+
+    return () => {
+      resizeObserver.disconnect();
+      window.removeEventListener("resize", updateWidth);
+    };
+  }, []);
+
+  // Load Facebook SDK dynamically
+  useEffect(() => {
     if (!(window as any).FB) {
-      const script = document.createElement('script');
-      script.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v18.0';
+      const script = document.createElement("script");
+      script.src =
+        "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v18.0";
       script.async = true;
       script.defer = true;
-      script.crossOrigin = 'anonymous';
+      script.crossOrigin = "anonymous";
       document.body.appendChild(script);
 
       script.onload = () => {
@@ -48,37 +77,50 @@ const FaceBookBlogCard: React.FC<FaceBookBlogCardProps> = ({
         }
       };
     } else {
-      (window as any).FB.XFBML.parse();
+      // Re-parse when width changes
+      setTimeout(() => {
+        if ((window as any).FB) {
+          (window as any).FB.XFBML.parse();
+        }
+      }, 100);
     }
-  }, [actualUrl]);
+  }, [key, actualUrl]);
 
   if (!facebookUrl) return null;
 
+  // Calculate optimal width (max 500px for desktop)
+  const optimalWidth = Math.min(containerWidth, 500);
+
   return (
-    <div
-      className="bg-white rounded-md"
-      ref={containerRef}
-      style={{
-        marginTop: "2rem",
-        width: "410px",
-        maxWidth: "100%"
-      }}
-    >
-      {isVideo ? (
-        <div
-          className="fb-video"
-          data-href={actualUrl}
-          data-width="410"
-          data-show-text="true"
-        ></div>
-      ) : (
-        <div
-          className="fb-post"
-          data-href={actualUrl}
-          data-width="410"
-          data-show-text="true"
-        ></div>
-      )}
+    <div className="rounded-md overflow-hidden bg-white">
+      <div
+        ref={containerRef}
+        key={key}
+        className="
+          rounded 
+          w-full 
+          mx-auto
+        "
+        style={{
+          maxWidth: "500px",
+        }}
+      >
+        {isVideo ? (
+          <div
+            className="fb-video"
+            data-href={actualUrl}
+            data-width={optimalWidth}
+            data-show-text="true"
+          ></div>
+        ) : (
+          <div
+            className="fb-post"
+            data-href={actualUrl}
+            data-width={optimalWidth}
+            data-show-text="true"
+          ></div>
+        )}
+      </div>
     </div>
   );
 };

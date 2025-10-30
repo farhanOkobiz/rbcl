@@ -122,7 +122,7 @@ const ShopProductsCategories: React.FC<ShopProductsCategoriesProps> = ({
   };
 
   return (
-    <div className="px-4 pt-2 sticky top-0 h-screen overflow-y-scroll custom-scroll flex flex-col gap-4 pb-12">
+    <div className="px-4 pt-8 sticky top-0 h-screen overflow-y-scroll custom-scroll flex flex-col gap-4 pb-12">
       <div>
         <div className="space-y-2 border border-[#008080] rounded px-3 py-4 h-[220px]">
           <h2 className="pb-2 text-base font-semibold uppercase">
