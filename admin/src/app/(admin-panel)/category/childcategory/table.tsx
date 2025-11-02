@@ -52,7 +52,7 @@ export const ChildCategoryTable: React.FC<Props> = ({ data, pagination }) => {
       </div>
 
       <Table className="rounded-lg overflow-hidden">
-        <TableHeader className="bg-primary">
+        <TableHeader className="bg-[#008080]">
           {table.getHeaderGroups().map((headerGroup) => (
             <TableRow key={headerGroup.id}>
               {headerGroup.headers.map((header) => {

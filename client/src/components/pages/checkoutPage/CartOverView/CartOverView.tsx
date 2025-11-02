@@ -101,9 +101,7 @@ const CartOverView: React.FC<Props> = ({ products, shipping }) => {
             </div>
             <div className="flex justify-between font-bold text-[20px] py-3 border-t border-black/20">
               <p>Payable:</p>
-              <p className="text-[#008080]">
-                ৳{subTotalPrice}
-              </p>
+              <p className="text-[#008080]">৳{subTotalPrice}</p>
             </div>
           </motion.div>
         )}

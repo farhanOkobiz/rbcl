@@ -10,7 +10,7 @@ type SubCategory = {
 };
 
 const NavBarTwo = async () => {
-  const { data: blogCategoriesList } = await getAllBlogCategorys()
+  const { data: blogCategoriesList } = await getAllBlogCategorys();
   const { data: blogSubCategoriesList } = await getAllBlogSubCategory();
 
   const categoriesWithSub = blogCategoriesList?.map((cat: any) => {

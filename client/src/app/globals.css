@@ -7,19 +7,19 @@
   }
 
   .text-primary {
-    @apply text-[#1C3E92]
+    @apply text-[#1C3E92];
   }
 
-  .bg-primary {
-    @apply bg-[#1C3E92]
+  .primary {
+    @apply bg-[#1C3E92];
   }
 
   .text-secondary {
-    @apply text-[#5772B3]
+    @apply text-[#5772B3];
   }
 
   .bg-secondary {
-    @apply bg-[#5772B3]
+    @apply bg-[#5772B3];
   }
 
   .button-primary {
@@ -50,7 +50,7 @@
 }
 
 .custom-scroll::-webkit-scrollbar-track {
-  background: #CCD5AE;
+  background: #ccd5ae;
   border-radius: 4px;
 }
 
@@ -64,7 +64,6 @@
   cursor: crosshair;
 }
 
-
 .spinner {
   position: absolute;
   width: 9px;
@@ -76,7 +75,8 @@
   width: 50%;
   height: 150%;
   background: #000000;
-  transform: rotate(calc(var(--rotation) * 1deg)) translate(0, calc(var(--translation) * 1%));
+  transform: rotate(calc(var(--rotation) * 1deg))
+    translate(0, calc(var(--translation) * 1%));
   animation: spinner-fzua35 1s calc(var(--delay) * 1s) infinite ease;
 }
 
@@ -141,11 +141,22 @@
 }
 
 @keyframes spinner-fzua35 {
-  0%, 10%, 20%, 30%, 50%, 60%, 70%, 80%, 90%, 100% {
-    transform: rotate(calc(var(--rotation) * 1deg)) translate(0, calc(var(--translation) * 1%));
+  0%,
+  10%,
+  20%,
+  30%,
+  50%,
+  60%,
+  70%,
+  80%,
+  90%,
+  100% {
+    transform: rotate(calc(var(--rotation) * 1deg))
+      translate(0, calc(var(--translation) * 1%));
   }
 
   50% {
-    transform: rotate(calc(var(--rotation) * 1deg)) translate(0, calc(var(--translation) * 1.5%));
+    transform: rotate(calc(var(--rotation) * 1deg))
+      translate(0, calc(var(--translation) * 1.5%));
   }
 }

@@ -48,7 +48,7 @@ const BlogsForHome = async () => {
             </div>
             <div className="lg:col-span-4 md:col-span-12 md:grid md:grid-cols-2 md:gap-3 lg:grid lg:grid-cols-1 ">
               <FaceBookBlogs />
-              <div className="mt-10">
+              <div className="md:mt-10 lg:mt-0">
               <VideoBlogs />
               </div>
             </div>

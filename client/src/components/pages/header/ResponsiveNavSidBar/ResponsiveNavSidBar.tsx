@@ -9,7 +9,9 @@ type ResponsiveNavSidBarProps = {
   onClose: () => void;
 };
 
-const ResponsiveNavSidBar: React.FC<ResponsiveNavSidBarProps> = ({ onClose }) => {
+const ResponsiveNavSidBar: React.FC<ResponsiveNavSidBarProps> = ({
+  onClose,
+}) => {
   return (
     <div>
       {/* Overlay */}
@@ -33,7 +35,11 @@ const ResponsiveNavSidBar: React.FC<ResponsiveNavSidBarProps> = ({ onClose }) =>
         <ul className="flex flex-col gap-4">
           {menuList.map((menu, index) => (
             <li key={index}>
-              <Link href={menu.link} onClick={onClose} className="text-lg font-medium hover:text-[#008080]">
+              <Link
+                href={menu.link}
+                onClick={onClose}
+                className="text-lg font-medium hover:text-[#008080]"
+              >
                 {menu.title}
               </Link>
             </li>

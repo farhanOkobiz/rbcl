@@ -52,7 +52,7 @@ export default function Layout({
       {isMobile && (
         <button
           onClick={toggleSidebar}
-          className="fixed z-50 top-4 left-4 p-2 rounded-full bg-[#008080] text-white lg:hidden"
+          className="fixed z-50 top-4 left-4 p-2 rounded-full bg-[[[#008080]]] text-white lg:hidden"
         >
           {isSidebarOpen ? <FaTimes /> : <FaBars />}
         </button>

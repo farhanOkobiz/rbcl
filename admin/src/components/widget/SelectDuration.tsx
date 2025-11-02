@@ -7,7 +7,10 @@ interface SelectDurationProps {
   setSelectChartFilterLabel: (label: string) => void;
 }
 
-const SelectDuration = ({ setSelectChartFilter, setSelectChartFilterLabel }: SelectDurationProps) => {
+const SelectDuration = ({
+  setSelectChartFilter,
+  setSelectChartFilterLabel,
+}: SelectDurationProps) => {
   const actions = [
     { name: "This Day", value: "this-day" },
     { name: "Previous Day", value: "prv-day" },
@@ -24,7 +27,7 @@ const SelectDuration = ({ setSelectChartFilter, setSelectChartFilterLabel }: Sel
       <Menu.Button className="text-lg inline-flex items-center justify-center  dark:border-slate-700 rounded dark:text-slate-400">
         <div className="flex items-center space-x-2 py-2 px-4 rounded-md bg-slate-200 text-slate-900 dark:bg-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700">
           <span className="text-sm font-semibold">Duration</span>
-        <TbLayoutNavbarExpand />
+          <TbLayoutNavbarExpand />
         </div>
       </Menu.Button>
 
@@ -38,7 +41,9 @@ const SelectDuration = ({ setSelectChartFilter, setSelectChartFilterLabel }: Sel
                   setSelectChartFilterLabel(item.name);
                 }}
                 className={`${
-                  active ? "bg-secondary-500 text-[#008080]" : "text-slate-900 dark:text-slate-300"
+                  active
+                    ? "bg-secondary-500 text-[#008080]"
+                    : "text-slate-900 dark:text-slate-300"
                 } cursor-pointer border-b border-gray-200 px-4 py-2 text-sm flex items-center space-x-2`}
               >
                 <span>{item.name}</span>

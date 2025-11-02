@@ -1,12 +1,8 @@
 import NavBar from "@/components/pages/header/NavBar/NavBar";
-import BlogCard from "@/components/pages/landing_pages/BlogCard/BlogCard";
 import { getUser } from "@/services/auth";
-import { getAllBlogs } from "@/services/blogs";
 import { getCartProducts } from "@/services/cart";
 import React from "react";
 import NavBarThreeWrapper from "@/components/pages/header/NavBar/NavBarThreeWrapper";
-import VideoBlogCard from "../VideoBlogCard/VideoBlogCard";
-import FaceBookBlogCard from "../FaceBookBlogCard/FaceBookBlogCard";
 import BlogListClient from "./BlogListClient";
 
 // Define the Blog type

@@ -22,7 +22,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <NextTopLoader showSpinner={false} color="#008080" />
+          <NextTopLoader showSpinner={false} color="[#008080]" />
           <AdminPanelLayout>{children}</AdminPanelLayout>
           <Toaster />
         </ThemeProvider>

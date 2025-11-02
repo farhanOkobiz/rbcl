@@ -20,7 +20,6 @@ const DiscountProduct: React.FC<ProductsProps> = ({ products }) => {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
 
-
   return (
     <div className="Container pt-12 relative">
       <div className="md:flex hidden items-center justify-center pb-2 relative w-[40px] h-[40px] mx-auto">

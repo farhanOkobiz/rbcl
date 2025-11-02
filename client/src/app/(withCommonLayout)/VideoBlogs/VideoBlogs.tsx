@@ -21,7 +21,7 @@ const VideoBlogs = async () => {
     }
 
     return (
-      <div className="mt-6">
+      <div className=" md:mt-7 lg:mt-4">
         <div className="grid grid-cols-1">
           {Array.isArray(allVideoBlogs?.data) &&
             allVideoBlogs.data
@@ -35,7 +35,7 @@ const VideoBlogs = async () => {
               ))}
         </div>
         <Link href="/blogs">
-          <div className="md:px-6 md:py-3 p-2 md:text-base text-sm my-6 text-[#fff] rounded bg-[#52687f] inline-flex hover:bg-[#CCD5AE] hover:text-gray-900 duration-300 cursor-pointer">
+          <div className="md:px-6 md:py-3 p-2 md:text-base text-sm text-[#fff] rounded bg-[#52687f] inline-flex hover:bg-[#CCD5AE] hover:text-gray-900 duration-300 cursor-pointer">
             <button className="cursor-pointer">View More</button>
           </div>
         </Link>

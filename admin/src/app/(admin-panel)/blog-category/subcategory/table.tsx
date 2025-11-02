@@ -48,11 +48,13 @@ export const SubCategoryTable: React.FC<Props> = ({ data, pagination }) => {
   return (
     <Card className="m-6 p-4 rounded-lg">
       <div className="flex justify-between items-center">
-        <Label className="text-xl font-semibold mb-4">Blog SubCategory List</Label>
+        <Label className="text-xl font-semibold mb-4">
+          Blog SubCategory List
+        </Label>
       </div>
 
       <Table className="rounded-lg overflow-hidden">
-        <TableHeader className="bg-primary">
+        <TableHeader className="bg-[#008080]">
           {table.getHeaderGroups().map((headerGroup) => (
             <TableRow key={headerGroup.id}>
               {headerGroup.headers.map((header) => {

@@ -1,9 +1,7 @@
 "use Client";
 
 import React from "react";
-import {
-  FaFacebookF
-} from "react-icons/fa";
+import { FaFacebookF } from "react-icons/fa";
 import Link from "next/link";
 import DownFooter from "../../DownFooter/DownFooter";
 
@@ -25,7 +23,7 @@ const Footer: React.FC<FooterProps> = ({ userCartProducts }) => {
     },
     {
       name: "Blogs",
-      link: "/blogs"
+      link: "/blogs",
     },
     {
       name: "Shop",
@@ -61,11 +59,13 @@ const Footer: React.FC<FooterProps> = ({ userCartProducts }) => {
       <div className="Container bg-[#008080] text-white py-10 lg:py-16">
         <div className="max-w-[1280px] mx-auto flex flex-col lg:flex-row justify-between space-y-5">
           <div>
-            <div className=" font-semibold mb-[20px] text-xl">
-              Contact Info
-            </div>
+            <div className=" font-semibold mb-[20px] text-xl">Contact Info</div>
             <p className="text-sm leading-relaxed mb-[20px]">
-              Welcome to <span className="font-semibold">Royel Business Company Limited</span> –
+              Welcome to{" "}
+              <span className="font-semibold">
+                Royel Business Company Limited
+              </span>{" "}
+              –
               <br className="hidden md:block" />
               Your destination for authentic products and expert insights.
               <br className="hidden md:block" />
@@ -80,9 +80,7 @@ const Footer: React.FC<FooterProps> = ({ userCartProducts }) => {
             </div>
           </div>
           <div>
-            <div className=" font-semibold mb-[20px] text-xl">
-              Quick Links
-            </div>
+            <div className=" font-semibold mb-[20px] text-xl">Quick Links</div>
             <ul className=" text-xl">
               {quickLink.map((item, index) => (
                 <div key={index}>
@@ -98,9 +96,7 @@ const Footer: React.FC<FooterProps> = ({ userCartProducts }) => {
             </ul>
           </div>
           <div>
-            <div className=" font-semibold mb-[20px] text-xl">
-              Infromation
-            </div>
+            <div className=" font-semibold mb-[20px] text-xl">Infromation</div>
             <ul className=" text-xl">
               {information.map((item, index) => (
                 <div key={index}>
@@ -116,9 +112,7 @@ const Footer: React.FC<FooterProps> = ({ userCartProducts }) => {
             </ul>
           </div>
           <div>
-            <div className=" font-semibold mb-[20px] text-xl">
-              Social Media
-            </div>
+            <div className=" font-semibold mb-[20px] text-xl">Social Media</div>
             <div className="">
               <div className="flex lg:justify-center lg:items-center gap-2 mt-4">
                 <a
@@ -176,12 +170,15 @@ const Footer: React.FC<FooterProps> = ({ userCartProducts }) => {
           </div>
         </div>
       </div>
-      <div className="bg-[#008080] text-white text-center py-4 border-t">
-        Copyright © 2025 ROYEL BUSINESS COMPANY LIMITED. All Right Reserved. Developed by{" "}
-        <a target="_blank" href="https://okobiz.com/">
-          okobiz
-        </a>
-        .
+      <div className="bg-[#008080] Container flex justify-between gap-12   text-white text-center py-4 border-t">
+        <div>Copyright © 2025 RBCL. All Right Reserved. </div>
+        <div>
+          Developed by
+          <a className="ml-1" target="_blank" href="https://okobiz.com/">
+            okobiz
+          </a>
+          .
+        </div>
       </div>
 
       <DownFooter userCartProducts={userCartProducts} />

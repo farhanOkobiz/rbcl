@@ -143,7 +143,7 @@
 
 //         {/* Table Section */}
 //         <table className="mt-4 rounded-lg w-full">
-//           <thead className="bg-primary text-primary-foreground">
+//           <thead className="[#008080] text-primary-foreground">
 //             <tr>
 //               {filteredHeaders.map((header, index) => (
 //                 <th key={index} className="p-2 text-start">

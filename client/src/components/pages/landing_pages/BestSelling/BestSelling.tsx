@@ -41,12 +41,12 @@ const BestSelling: React.FC<ProductsProps> = ({ products }) => {
         <Image src={icon} width={35} height={35} alt="icon" className="p-0.5" />
       </div>
       <h2 className="md:text-2xl font-semibold md:text-center hidden md:block mt-2">
-        BEST SELLING 
+        BEST SELLING
       </h2>
       <div className="flex justify-between">
         <p className="here using this p for arrow right site hidden md:block"></p>
         <h2 className="md:text-2xl font-semibold text-start md:hidden">
-          BEST SELLING 
+          BEST SELLING
         </h2>
         <div className="flex gap-2 pb-2" ref={(el) => {}}>
           <button

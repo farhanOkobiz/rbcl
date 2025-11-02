@@ -66,7 +66,7 @@
 
 //       <div className="mt-4">
 //         <Table className="rounded-lg overflow-hidden">
-//           <TableHeader className="bg-primary">
+//           <TableHeader className="[#008080]">
 //             <TableRow>
 //               <TableHead className="h-8 text-white">#</TableHead>
 //               <TableHead className="h-8 text-white">Barcode</TableHead>

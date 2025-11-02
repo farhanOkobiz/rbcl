@@ -44,7 +44,6 @@ export const OrderTable: React.FC<Props> = ({ data, pagination }) => {
     },
   });
 
-
   return (
     <Card className="m-6 p-4 rounded-lg">
       <div className="flex justify-between items-center">
@@ -52,7 +51,7 @@ export const OrderTable: React.FC<Props> = ({ data, pagination }) => {
       </div>
 
       <Table className="rounded-lg overflow-hidden">
-        <TableHeader className="bg-primary">
+        <TableHeader className="bg-[#008080]">
           {table.getHeaderGroups().map((headerGroup) => (
             <TableRow key={headerGroup.id}>
               {headerGroup.headers.map((header) => {

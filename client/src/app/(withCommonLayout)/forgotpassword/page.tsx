@@ -109,7 +109,7 @@ const ForgetPassword = () => {
               Login
             </Link>{" "}
             |
-            <Link href="/register" className="text-[#008080] hover:underline">
+            <Link href="/register" className="text-[#008080]] hover:underline">
               Registration
             </Link>
           </div>

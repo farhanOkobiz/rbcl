@@ -76,7 +76,7 @@
 
 //       <div className="py-4">
 //         <Table className="rounded-lg overflow-hidden">
-//           <TableHeader className="bg-primary">
+//           <TableHeader className="[#008080]">
 //             <TableRow>
 //               {/* <TableHead className="h-8 text-white">SL</TableHead> */}
 //               {/* <TableHead className="h-8 text-white">Item Code</TableHead> */}
