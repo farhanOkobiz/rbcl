@@ -3,15 +3,12 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: "http",
-        hostname: "localhost",
-        port: "8001",
-        pathname: "/**",
+        protocol: "https",
+        hostname: "rbcl-bd.com",
       },
       {
-        protocol: "https",
-        hostname: "rbcl-production.up.railway.app",
-        pathname: "/api/v1/public/uploads/**",
+        protocol: "http",
+        hostname: "localhost",
       },
     ],
   },
