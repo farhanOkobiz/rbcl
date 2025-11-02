@@ -6,6 +6,7 @@ import { fileUrlGenerator } from "@/utils/helpers";
 import { BlogDetailsSheet } from "./details";
 import TruncatedHtml from "@/components/utils/truncated-html";
 import { YouTubeModal } from "@/utils/YouTubeModal ";
+import FaceBookBlogCard from "@/components/FaceBookBlogCardForAdmin/FaceBookBlogCardForAdmin";
 
 
 export const columns: ColumnDef<TBlog>[] = [
@@ -38,14 +39,9 @@ export const columns: ColumnDef<TBlog>[] = [
     cell: ({ getValue }) => {
       const url = getValue<string>();
       return url ? (
-        <a
-          href={url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-blue-600 underline hover:text-blue-800"
-        >
-          View
-        </a>
+        <div className="w-[100px]">
+          <FaceBookBlogCard facebookUrl={url} compact={true} />
+        </div>
       ) : (
         <span className="text-gray-400">N/A</span>
       );
