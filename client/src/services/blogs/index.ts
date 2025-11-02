@@ -4,12 +4,16 @@ import { apiBaseUrl } from "@/config/config";
 export const getAllBlogs = async (filters?: {
   categorySlug?: string;
   subCategorySlug?: string;
+  page?: number;
+  limit?: number;
 }) => {
   const params = new URLSearchParams();
 
   if (filters?.categorySlug) params.append("category", filters.categorySlug);
   if (filters?.subCategorySlug)
     params.append("subCategory", filters.subCategorySlug);
+  if (filters?.page) params.append("page", filters.page.toString());
+  if (filters?.limit) params.append("limit", filters.limit.toString());
 
   if (!apiBaseUrl)
     throw new Error(
@@ -80,6 +84,11 @@ export const getAllVideoBlogs = async () => {
 
 export const getAllFacebookBlogs = async () => {
   const res = await fetch(`${apiBaseUrl}/blog/facebookBlogs`);
+  return res.json();
+};
+
+export const getAllLetestBlogs = async () => {
+  const res = await fetch(`${apiBaseUrl}/blog/letestBlogs`);
   return res.json();
 };
 

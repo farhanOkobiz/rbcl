@@ -34,7 +34,7 @@ const BlogCardForHome: React.FC<BlogCardProps> = ({
       </Link>
       <div className="px-2 py-2">
         <Link href={`blogs/${slug}`}>
-          <h2 className="lg:text-lg text-base font-semibold line-clamp-1 cursor-pointer">
+          <h2 className="lg:text-xl 2xl:text-2xl text-base font-semibold line-clamp-1 cursor-pointer">
             {title}
           </h2>
         </Link>

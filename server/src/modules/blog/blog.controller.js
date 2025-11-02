@@ -43,6 +43,8 @@ class BlogController {
       category: categorySlug,
       subCategory: subCategorySlug,
       tags,
+      page = 1,
+      limit = 9,
     } = req.query;
 
     let categoryId;
@@ -64,7 +66,12 @@ class BlogController {
     if (categoryId) filter.blogCategoryRef = categoryId;
     if (subCategoryId) filter.blogSubCategoryRef = subCategoryId;
 
-    const blogResult = await BlogService.getAllBlog(filter);
+    const blogResult = await BlogService.getAllBlog(
+      filter,
+      parseInt(page),
+      parseInt(limit)
+    );
+
     const resDoc = responseHandler(200, "Get All Blogs", blogResult);
     res.status(resDoc.statusCode).json(resDoc);
   });
@@ -97,6 +104,16 @@ class BlogController {
 
     const blogResult = await BlogService.getAllFacebookBlog(payload);
     const resDoc = responseHandler(200, "Get All Facebook Blogs", blogResult);
+    res.status(resDoc.statusCode).json(resDoc);
+  });
+
+  getAllLetestBlog = catchError(async (req, res, next) => {
+    const payload = {
+      tags: req.query.tags,
+    };
+
+    const blogResult = await BlogService.getAllLetestBlog(payload);
+    const resDoc = responseHandler(200, "Get All Letest Blogs", blogResult);
     res.status(resDoc.statusCode).json(resDoc);
   });
 

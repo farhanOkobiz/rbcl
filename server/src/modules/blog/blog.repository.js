@@ -15,6 +15,19 @@ class BlogRepository extends BaseRepository {
     return newBlog;
   }
 
+  async findAllWithPaginationForClient(filter, skip, limit) {
+    return await this.#model
+      .find(filter)
+      .sort({ createdAt: -1 })
+      .skip(skip)
+      .limit(limit)
+      .populate("blogCategoryRef blogSubCategoryRef");
+  }
+
+  async count(filter) {
+    return await this.#model.countDocuments(filter);
+  }
+
   async getBlogWithPagination(payload) {
     try {
       const blogs = await pagination(
@@ -45,6 +58,7 @@ class BlogRepository extends BaseRepository {
       throw error;
     }
   }
+
   async getSingleBlog(slug) {
     const blogData = await this.#model.findOne({ slug });
     if (!blogData) throw new NotFoundError("Blog Not Find");

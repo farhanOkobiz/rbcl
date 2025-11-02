@@ -27,16 +27,36 @@ class BlogService extends BaseService {
     return blogData;
   }
 
-  async getAllBlog(payload) {
+  async getAllBlog(payload, page = 1, limit = 9) {
     const { tagRef, blogCategoryRef, blogSubCategoryRef } = payload;
-    console.log(blogCategoryRef, blogSubCategoryRef, "ok");
     const filter = {}; // filter object
+
+    const skip = (page - 1) * limit;
 
     if (tagRef) filter.tagRef = tagRef;
     if (blogCategoryRef) filter.blogCategoryRef = blogCategoryRef;
     if (blogSubCategoryRef) filter.blogSubCategoryRef = blogSubCategoryRef;
 
-    return await this.#repository.findAll(filter);
+    // Get both blogs and total count
+    const [blogs, total] = await Promise.all([
+      this.#repository.findAllWithPaginationForClient(filter, skip, limit),
+      this.#repository.count(filter),
+    ]);
+
+    const totalPages = Math.ceil(total / limit);
+    const hasMore = page < totalPages;
+
+    return {
+      blogs,
+      pagination: {
+        page: parseInt(page),
+        limit: parseInt(limit),
+        total,
+        totalPages,
+        hasMore,
+      },
+    };
+    
   }
 
   async getAllBlogForHome() {
@@ -88,6 +108,27 @@ class BlogService extends BaseService {
     if (tagRef) filter.tagRef = tagRef;
 
     return await this.#repository.findAll(filter);
+  }
+
+  async getAllLetestBlog(payload) {
+    const { tagRef } = payload;
+
+    const filter = {
+      $or: [
+        { facebookUrl: { $exists: false } },
+        { facebookUrl: "" },
+        { facebookUrl: null },
+        { facebookUrl: "undefined" },
+      ],
+    };
+
+    if (tagRef) filter.tagRef = tagRef;
+
+    // Assuming `findAll` supports limit and sort
+    return await this.#repository.findAll(filter, {
+      sort: { createdAt: -1 }, // latest first
+      limit: 4,
+    });
   }
 
   async getBlogWithPagination(payload) {
