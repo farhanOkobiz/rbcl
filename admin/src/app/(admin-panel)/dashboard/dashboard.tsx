@@ -18,23 +18,16 @@ import {
   UsersRound,
 } from "lucide-react";
 import React, { useState } from "react";
-import { useReactToPrint } from "react-to-print";
-import { useStore } from "zustand";
-import { Menubar, MenubarMenu, MenubarTrigger } from "@/components/ui/menubar";
+
 import { useRouter } from "next/navigation";
 import { makeBDPrice } from "@/utils/helpers";
 import { DashboardMetrics } from "@/types/shared";
-import RadialsChart from "@/components/widget/chart/radials";
-import { getOrderReportsByDuration } from "@/services/reports";
-import SelectDuration from "../../../components/widget/SelectDuration";
 
 interface SalesDashboardProps {
   counts: DashboardMetrics;
 }
 
 export default function AdminDashboard({ counts }: SalesDashboardProps) {
-  const [selectRadialsChart, setSelectRadialsChart] = useState("this-year");
-  const [selectChartLabel, setSelectChartLabel] = useState("This Year");
   const router = useRouter();
 
   return (

@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "next dev -p 3003",
     "build": "next build",
-    "start": "node server.js",
+    "start": "next start -p 3003",
     "lint": "next lint",
     "migrate": "knex migrate:latest"
   },

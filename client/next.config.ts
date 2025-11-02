@@ -5,11 +5,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "rbcl-production.up.railway.app",
-      },
-      {
-        protocol: "https",
-        hostname: "rbcl-client.vercel.app",
+        hostname: "rbcl-bd.com",
       },
       {
         protocol: "http",
