@@ -32,12 +32,14 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-const defaultValues = {
+type BlogFormValues = z.infer<ReturnType<typeof getBlogFormSchema>>;
+
+const defaultValues: BlogFormValues = {
   title: "",
   details: "",
   youtubeUrl: "",
   facebookUrl: "",
-  blogType: "facebook", // 👈 added
+  blogType: "facebook",
   categoryRef: "",
   subCategoryRef: "",
   image: [],
@@ -73,14 +75,17 @@ export const CreateBlogForm: React.FC<CreateBlogFormProps> = ({
 
   const blogFormSchema = getBlogFormSchema(false);
 
-  const form = useForm<z.infer<typeof blogFormSchema>>({
+  const form = useForm<BlogFormValues>({
     resolver: zodResolver(blogFormSchema),
     defaultValues,
   });
 
   const { watch, control, setValue, getValues } = form;
 
-  const selectedBlogType = watch("blogType");
+  const selectedBlogType = watch("blogType") as
+    | "facebook"
+    | "youtube"
+    | "article";
   const selectedCategoryId = watch("categoryRef");
 
   const handleThumbnailFileChange = ({ fileList }: any) => {
@@ -375,25 +380,29 @@ export const CreateBlogForm: React.FC<CreateBlogFormProps> = ({
                 )}
               />
 
-              {getValues("image")?.length > 0 && (
-                <div className="mt-4">
-                  {getValues("image")?.map((file, i) => (
-                    <div
-                      key={i}
-                      className="border-dashed border-2 rounded-lg p-2 px-3 mb-2 text-xs text-gray-500"
-                    >
-                      <div className="flex items-center gap-2">
-                        <Paperclip className="h-4 w-4" />
-                        <span>{file.name}</span>
+              {(() => {
+                const files = getValues("image");
+                if (!files || files.length === 0) return null;
+                return (
+                  <div className="mt-4">
+                    {files.map((file, i) => (
+                      <div
+                        key={i}
+                        className="border-dashed border-2 rounded-lg p-2 px-3 mb-2 text-xs text-gray-500"
+                      >
+                        <div className="flex items-center gap-2">
+                          <Paperclip className="h-4 w-4" />
+                          <span>{file.name}</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <FileUp className="h-4 w-4" />
+                          <span>{humanFileSize(file.size)}</span>
+                        </div>
                       </div>
-                      <div className="flex items-center gap-2">
-                        <FileUp className="h-4 w-4" />
-                        <span>{humanFileSize(file.size)}</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              )}
+                    ))}
+                  </div>
+                );
+              })()}
             </div>
           )}
         </form>

@@ -20,6 +20,7 @@ import { z } from "zod";
 
 export const getBlogFormSchema = (isUpdate = false) =>
   z.object({
+    blogType: z.string().optional(),
     title: z.string().min(1),
     categoryRef: z.string(),
     subCategoryRef: z.string().optional(),

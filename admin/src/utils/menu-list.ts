@@ -37,7 +37,7 @@ export function getMenuList(pathname: string): Group[] {
         },
       ],
     },
-       {
+    {
       groupLabel: "Blog",
       menus: [
         {
@@ -48,12 +48,12 @@ export function getMenuList(pathname: string): Group[] {
           submenus: [
             {
               href: "/blog-category/category",
-              label: "Blog Category",
+              label: "Create Category",
               active: pathname === "/blog-category/category",
             },
             {
               href: "/blog-category/subcategory",
-              label: "Blog Subcategory",
+              label: "Create Subcategory",
               active: pathname === "/blog-category/subcategory",
             },
           ],
