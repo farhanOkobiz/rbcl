@@ -5,7 +5,6 @@ import { Card } from "@/components/ui/card";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -15,17 +14,13 @@ import { useForm, Controller } from "react-hook-form";
 import { useToast } from "@/components/ui/use-toast";
 import { zodResolver } from "@hookform/resolvers/zod";
 import React, { useState } from "react";
-import { Select as AntSelect } from "antd";
-
+import { Select as AntSelect, Upload } from "antd";
+import { UploadOutlined } from "@ant-design/icons";
 import { z } from "zod";
-
-import { FileUp, Paperclip, Plus, Trash } from "lucide-react";
+import { FileUp, Paperclip } from "lucide-react";
 import { humanFileSize, makeFormData } from "@/utils/helpers";
 import { createFormAction } from "./actions";
-import { Upload } from "antd";
-import { UploadOutlined } from "@ant-design/icons";
 import { Label } from "@/components/ui/label";
-
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { getBlogFormSchema } from "./form-schema";
@@ -38,11 +33,13 @@ import {
 } from "@/components/ui/select";
 
 const defaultValues = {
-  name: "",
   title: "",
   details: "",
   youtubeUrl: "",
   facebookUrl: "",
+  blogType: "facebook", // 👈 added
+  categoryRef: "",
+  subCategoryRef: "",
   image: [],
   tags: [],
   author: "",
@@ -52,28 +49,17 @@ const defaultValues = {
 type TBlogCategory = {
   _id: string;
   name: string;
-  image: string;
-  vectorImage: string;
-  slug: string;
-  status: boolean;
 };
 
 type TBlogSubCategory = {
   _id: string;
   name: string;
-  slug: string;
-  categoryRef?: string | { _id: string; name: string } | undefined;
+  categoryRef?: string | { _id: string; name: string };
 };
 
 type CreateBlogFormProps = {
-  blogCategoryData: {
-    result: TBlogCategory[];
-    pagination: any;
-  };
-  blogSubCategoryData: {
-    result: TBlogSubCategory[];
-    pagination: any;
-  };
+  blogCategoryData: { result: TBlogCategory[] };
+  blogSubCategoryData: { result: TBlogSubCategory[] };
 };
 
 export const CreateBlogForm: React.FC<CreateBlogFormProps> = ({
@@ -81,10 +67,10 @@ export const CreateBlogForm: React.FC<CreateBlogFormProps> = ({
   blogSubCategoryData,
 }) => {
   const { toast } = useToast();
+  const [thumbnailFileList, setThumbnailFileList] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [options, setOptions] = useState<{ value: string }[]>([]);
 
-  const [thumbnailFileList, setThumbnailFileList] = React.useState([]);
-
-  const [loading, setLoading] = React.useState(false);
   const blogFormSchema = getBlogFormSchema(false);
 
   const form = useForm<z.infer<typeof blogFormSchema>>({
@@ -92,58 +78,46 @@ export const CreateBlogForm: React.FC<CreateBlogFormProps> = ({
     defaultValues,
   });
 
-  const { control, register, watch, formState } = form;
+  const { watch, control, setValue, getValues } = form;
+
+  const selectedBlogType = watch("blogType");
   const selectedCategoryId = watch("categoryRef");
 
   const handleThumbnailFileChange = ({ fileList }: any) => {
     setThumbnailFileList(fileList);
-
     const rawFiles = fileList
       .map((file: any) => file.originFileObj)
       .filter(Boolean);
-
-    // Sync with react-hook-form
-    form.setValue("image", rawFiles);
+    setValue("image", rawFiles);
   };
 
-  // filtered subcategories
   const filteredSubCategories = React.useMemo(() => {
     if (!selectedCategoryId) return [];
-    
-  return blogSubCategoryData?.result.filter((subCat) => {
-    let catId: string;
-
-    if (!subCat.categoryRef) return false;
-
-    if (typeof subCat.categoryRef === "string") {
-      catId = subCat.categoryRef;
-    } else {
-      catId = subCat.categoryRef._id;
-    }
-
-      return catId === selectedCategoryId;
-    }) || [];
-
+    return (
+      blogSubCategoryData?.result.filter((subCat) => {
+        let catId: string;
+        if (!subCat.categoryRef) return false;
+        catId =
+          typeof subCat.categoryRef === "string"
+            ? subCat.categoryRef
+            : subCat.categoryRef._id;
+        return catId === selectedCategoryId;
+      }) || []
+    );
   }, [selectedCategoryId, blogSubCategoryData]);
 
   const onSubmit = async (values: z.infer<typeof blogFormSchema>) => {
     setLoading(true);
-
     const formData = makeFormData({
       ...values,
-      subCategoryRef: values.subCategoryRef || undefined,
       featured: values.featured ? "true" : "false",
+      subCategoryRef: values.subCategoryRef || undefined,
     });
 
     try {
       await createFormAction(formData);
-
       form.reset();
-      toast({
-        title: "Success",
-        description: "Product created successfully",
-      });
-
+      toast({ title: "Success", description: "Blog created successfully" });
       setThumbnailFileList([]);
     } catch (error: any) {
       toast({
@@ -156,45 +130,66 @@ export const CreateBlogForm: React.FC<CreateBlogFormProps> = ({
     }
   };
 
-  const [options, setOptions] = useState<{ value: string }[]>([]);
-
   return (
     <Card className="m-6 mt-1 p-4 rounded-lg">
-      <Label className="text-xl font-semibold mb-4">Create Blogs</Label>
+      <Label className="text-xl font-semibold mb-4">Create Blog</Label>
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
           className="grid grid-cols-3 gap-2 py-2"
         >
-          {/* Text Inputs */}
           <div className="col-span-2">
-            <FormField
-              control={form.control}
-              name="title"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>
-                    Blog Title <b className="text-[#52687f]">*</b>
-                  </FormLabel>
-                  <FormControl>
-                    <Input placeholder="Enter blog Title" {...field} />
-                  </FormControl>
-                  <FormDescription className="text-[#52687f] text-xs min-h-4">
-                    {form.formState.errors.title?.message}
-                  </FormDescription>
-                </FormItem>
-              )}
-            />
-
-            <div className="flex items-center gap-4 w-full">
+            <div className="flex gap-4 w-full">
+              {/* Blog Type */}
               <FormField
-                control={form.control}
+                control={control}
+                name="blogType"
+                render={({ field }) => (
+                  <FormItem className="mb-3 flex-1">
+                    <FormLabel>Blog Type</FormLabel>
+                    <FormControl>
+                      <Select
+                        value={field.value || ""}
+                        onValueChange={field.onChange}
+                      >
+                        <SelectTrigger>
+                          <SelectValue placeholder="Select Blog Type" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="facebook">
+                            Facebook Blog
+                          </SelectItem>
+                          <SelectItem value="youtube">YouTube Blog</SelectItem>
+                          <SelectItem value="article">Article Blog</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </FormControl>
+                  </FormItem>
+                )}
+              />
+
+              {/* Blog Title */}
+              <FormField
+                control={control}
+                name="title"
+                render={({ field }) => (
+                  <FormItem className="flex-1">
+                    <FormLabel>Blog Title</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Enter blog title" {...field} />
+                    </FormControl>
+                  </FormItem>
+                )}
+              />
+            </div>
+            {/* Category & Subcategory */}
+            <div className="flex gap-4 w-full">
+              <FormField
+                control={control}
                 name="categoryRef"
                 render={({ field }) => (
                   <FormItem className="flex-1">
-                    <FormLabel>
-                      Category<b className="text-[#52687f]">*</b>
-                    </FormLabel>
+                    <FormLabel>Category</FormLabel>
                     <FormControl>
                       <Select
                         value={field.value || ""}
@@ -212,14 +207,11 @@ export const CreateBlogForm: React.FC<CreateBlogFormProps> = ({
                         </SelectContent>
                       </Select>
                     </FormControl>
-                    <FormDescription className="text-[#52687f] text-xs min-h-4">
-                      {form.formState.errors.categoryRef?.message}
-                    </FormDescription>
                   </FormItem>
                 )}
               />
               <FormField
-                control={form.control}
+                control={control}
                 name="subCategoryRef"
                 render={({ field }) => (
                   <FormItem className="flex-1">
@@ -230,7 +222,7 @@ export const CreateBlogForm: React.FC<CreateBlogFormProps> = ({
                         onValueChange={field.onChange}
                       >
                         <SelectTrigger>
-                          <SelectValue placeholder="Select subcategory (Optional)" />
+                          <SelectValue placeholder="Select subcategory" />
                         </SelectTrigger>
                         <SelectContent>
                           {filteredSubCategories.map((item) => (
@@ -241,76 +233,69 @@ export const CreateBlogForm: React.FC<CreateBlogFormProps> = ({
                         </SelectContent>
                       </Select>
                     </FormControl>
-                    <FormDescription className="text-[#52687f] text-xs min-h-4">
-                      {form.formState.errors.subCategoryRef?.message}
-                    </FormDescription>
                   </FormItem>
                 )}
               />
             </div>
 
-            <FormField
-              control={form.control}
-              name="details"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Blog Description</FormLabel>
-                  <FormControl>
-                    {/* <Input placeholder="Enter Blog description" {...field} /> */}
-                    <ReactQuill {...field} />
-                  </FormControl>
-                  <FormDescription className="text-[#52687f] text-xs min-h-4">
-                    {form.formState.errors.details?.message}
-                  </FormDescription>
-                </FormItem>
-              )}
-            />
+            {/* Conditional Fields */}
+            {selectedBlogType === "facebook" && (
+              <FormField
+                control={control}
+                name="facebookUrl"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Facebook URL</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Enter Facebook URL" {...field} />
+                    </FormControl>
+                  </FormItem>
+                )}
+              />
+            )}
 
-            <FormField
-              control={form.control}
-              name="facebookUrl"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Facebook Link</FormLabel>
-                  <FormControl>
-                    <Input placeholder="Enter Facebook URL" {...field} />
-                  </FormControl>
-                  <FormDescription className="text-[#52687f] text-xs min-h-4">
-                    {form.formState.errors.facebookUrl?.message}
-                  </FormDescription>
-                </FormItem>
-              )}
-            />
+            {selectedBlogType === "youtube" && (
+              <FormField
+                control={control}
+                name="youtubeUrl"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>YouTube URL</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Enter YouTube URL" {...field} />
+                    </FormControl>
+                  </FormItem>
+                )}
+              />
+            )}
 
-            {/* YouTube Video Link */}
-            <FormField
-              control={form.control}
-              name="youtubeUrl"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>YouTube Video Link</FormLabel>
-                  <FormControl>
-                    <Input placeholder="Enter YouTube video URL" {...field} />
-                  </FormControl>
-                  <FormDescription className="text-[#52687f] text-xs min-h-4">
-                    {form.formState.errors.youtubeUrl?.message}
-                  </FormDescription>
-                </FormItem>
-              )}
-            />
+            {selectedBlogType === "article" && (
+              <>
+                <FormField
+                  control={control}
+                  name="details"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Blog Description</FormLabel>
+                      <FormControl>
+                        <ReactQuill {...field} />
+                      </FormControl>
+                    </FormItem>
+                  )}
+                />
+              </>
+            )}
 
-            <div className="flex gap-4 w-full">
+            {/* Tags & Author */}
+            <div className="flex gap-4 w-full mt-4">
               <Controller
-                control={form.control}
+                control={control}
                 name="tags"
                 render={({ field: { value, onChange } }) => (
                   <FormItem className="flex-1">
-                    <FormLabel>
-                      Add tags <b className="text-[#52687f]">*</b>
-                    </FormLabel>
+                    <FormLabel>Tags</FormLabel>
                     <FormControl>
                       <AntSelect
-                        className="h-10"
                         mode="tags"
                         style={{ width: "100%" }}
                         placeholder="Enter or select tags"
@@ -326,14 +311,11 @@ export const CreateBlogForm: React.FC<CreateBlogFormProps> = ({
                         }}
                       />
                     </FormControl>
-                    <FormDescription className="text-[#52687f] text-xs min-h-4">
-                      {form.formState.errors.tags?.message}
-                    </FormDescription>
                   </FormItem>
                 )}
               />
               <FormField
-                control={form.control}
+                control={control}
                 name="author"
                 render={({ field }) => (
                   <FormItem className="flex-1">
@@ -341,90 +323,79 @@ export const CreateBlogForm: React.FC<CreateBlogFormProps> = ({
                     <FormControl>
                       <Input placeholder="Enter author name" {...field} />
                     </FormControl>
-                    {/* <FormDescription className="text-[#52687f] text-xs min-h-4">
-                    {form.formState.errors.name?.message}
-                  </FormDescription> */}
                   </FormItem>
                 )}
               />
             </div>
+
+            {/* Featured */}
             <FormField
-              control={form.control}
+              control={control}
               name="featured"
               render={({ field }) => (
-                <FormItem className="flex items-center gap-2">
+                <FormItem className="flex items-center gap-2 mt-2">
                   <FormControl>
                     <input
                       type="checkbox"
                       checked={field.value}
                       onChange={(e) => field.onChange(e.target.checked)}
-                      className="w-4 h-4 mt-1"
+                      className="w-4 h-4"
                     />
                   </FormControl>
-                  <FormLabel className="text-sm">Mark as Featured</FormLabel>
-                  <FormDescription className="text-[#52687f] text-xs min-h-4">
-                    {form.formState.errors.featured?.message}
-                  </FormDescription>
+                  <FormLabel>Mark as Featured</FormLabel>
                 </FormItem>
               )}
             />
-            <Button type="submit" loading={loading} className="my-6">
-              Create
+
+            <Button type="submit" className="my-6" disabled={loading}>
+              {loading ? "Creating..." : "Create"}
             </Button>
           </div>
 
-          {/* Image */}
-          <div className="col-span-1 min-h-[500px] grid grid-cols-2">
-            <div className="">
-              <Label>Blog Image(1 File)</Label>
+          {/* Image Upload */}
+          {selectedBlogType === "article" && (
+            <div className="col-span-1">
+              <Label>Blog Image (1 File)</Label>
               <FormField
-                control={form.control}
+                control={control}
                 name="image"
-                render={({ field }) => (
-                  <div>
-                    <Upload
-                      listType="picture-card"
-                      beforeUpload={() => false}
-                      fileList={thumbnailFileList}
-                      onChange={handleThumbnailFileChange}
-                      multiple={false}
-                    >
-                      <div>
-                        <UploadOutlined />
-                        <div style={{ marginTop: 8 }}>Upload</div>
-                      </div>
-                    </Upload>
-                  </div>
+                render={() => (
+                  <Upload
+                    listType="picture-card"
+                    beforeUpload={() => false}
+                    fileList={thumbnailFileList}
+                    onChange={handleThumbnailFileChange}
+                    multiple={false}
+                  >
+                    <div>
+                      <UploadOutlined />
+                      <div style={{ marginTop: 8 }}>Upload</div>
+                    </div>
+                  </Upload>
                 )}
               />
 
-              <div className="mt-4">
-                {form.getValues("image") &&
-                  (form.getValues("image") ?? []).length > 0 &&
-                  (form.getValues("image") ?? []).map((file, i) => (
-                    <div className="border-dashed border-2 rounded-lg p-2 px-3">
-                      <div
-                        key={i}
-                        className="flex flex-col gap-2 text-xs text-gray-500 justify-center h-full"
-                      >
-                        <div className="flex items-center gap-2">
-                          <Paperclip className="h-4 w-4 stroke-current" />
-                          <span>{file.name}</span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <FileUp className="h-4 w-4 stroke-current" />
-                          <span>{humanFileSize(file.size)}</span>
-                        </div>
+              {getValues("image")?.length > 0 && (
+                <div className="mt-4">
+                  {getValues("image")?.map((file, i) => (
+                    <div
+                      key={i}
+                      className="border-dashed border-2 rounded-lg p-2 px-3 mb-2 text-xs text-gray-500"
+                    >
+                      <div className="flex items-center gap-2">
+                        <Paperclip className="h-4 w-4" />
+                        <span>{file.name}</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <FileUp className="h-4 w-4" />
+                        <span>{humanFileSize(file.size)}</span>
                       </div>
                     </div>
                   ))}
-              </div>
-
-              <div className="text-[#52687f] text-xs min-h-4">
-                {form.formState.errors.image?.message}
-              </div>
+                </div>
+              )}
             </div>
-          </div>
+          )}
         </form>
       </Form>
     </Card>
