@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import BlogCard from "../BlogCard/BlogCard";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { getAllLetestBlogs } from "@/services/blogs";
+import { getAllLatestBlogs } from "@/services/blogs";
 
 type Blog = {
   id: string;
@@ -22,7 +22,7 @@ const Blogs = () => {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const res = await getAllLetestBlogs();
+        const res = await getAllLatestBlogs();
         if (Array.isArray(res?.data)) setBlogs(res.data.slice(0, 4));
       } catch (error) {
         console.error("Failed to load blogs:", error);
@@ -39,7 +39,7 @@ const Blogs = () => {
       transition: {
         duration: 0.6,
         delay: i * 0.2,
-        ease: "easeInOut" as const
+        ease: "easeInOut" as const,
       },
     }),
   };

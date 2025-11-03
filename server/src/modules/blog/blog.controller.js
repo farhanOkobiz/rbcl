@@ -107,12 +107,12 @@ class BlogController {
     res.status(resDoc.statusCode).json(resDoc);
   });
 
-  getAllLetestBlog = catchError(async (req, res, next) => {
+  getAllLatestBlog = catchError(async (req, res, next) => {
     const payload = {
       tags: req.query.tags,
     };
 
-    const blogResult = await BlogService.getAllLetestBlog(payload);
+    const blogResult = await BlogService.getAllLatestBlog(payload);
     const resDoc = responseHandler(200, "Get All Letest Blogs", blogResult);
     res.status(resDoc.statusCode).json(resDoc);
   });

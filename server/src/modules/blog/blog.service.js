@@ -56,7 +56,6 @@ class BlogService extends BaseService {
         hasMore,
       },
     };
-    
   }
 
   async getAllBlogForHome() {
@@ -110,15 +109,27 @@ class BlogService extends BaseService {
     return await this.#repository.findAll(filter);
   }
 
-  async getAllLetestBlog(payload) {
+  async getAllLatestBlog(payload) {
     const { tagRef } = payload;
 
     const filter = {
-      $or: [
-        { facebookUrl: { $exists: false } },
-        { facebookUrl: "" },
-        { facebookUrl: null },
-        { facebookUrl: "undefined" },
+      $and: [
+        {
+          $or: [
+            { facebookUrl: { $exists: false } },
+            { facebookUrl: "" },
+            { facebookUrl: null },
+            { facebookUrl: "undefined" },
+          ],
+        },
+        {
+          $or: [
+            { youtubeUrl: { $exists: false } },
+            { youtubeUrl: "" },
+            { youtubeUrl: null },
+            { youtubeUrl: "undefined" },
+          ],
+        },
       ],
     };
 

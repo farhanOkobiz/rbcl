@@ -87,8 +87,8 @@ export const getAllFacebookBlogs = async () => {
   return res.json();
 };
 
-export const getAllLetestBlogs = async () => {
-  const res = await fetch(`${apiBaseUrl}/blog/letestBlogs`);
+export const getAllLatestBlogs = async () => {
+  const res = await fetch(`${apiBaseUrl}/blog/latestBlogs`);
   return res.json();
 };
 

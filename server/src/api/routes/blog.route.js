@@ -15,7 +15,7 @@ BlogRoute.get("/single/:slug", controller.getSingleBlog);
 BlogRoute.get("/allBlogForHome", controller.getAllBlogForHome);
 BlogRoute.get("/videoBlogs", controller.getAllVideoBlog);
 BlogRoute.get("/facebookBlogs", controller.getAllFacebookBlog);
-BlogRoute.get("/letestBlogs", controller.getAllLetestBlog);
+BlogRoute.get("/latestBlogs", controller.getAllLatestBlog);
 
 BlogRoute.route("/:id")
   // .get(controller.getSingleBlog)
