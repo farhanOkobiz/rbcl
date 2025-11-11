@@ -8,6 +8,14 @@ const nextConfig: NextConfig = {
         hostname: "rbcl-bd.com",
       },
       {
+        protocol: "https",
+        hostname: "server.rbcl-bd.com",
+      },
+      {
+        protocol: "http", 
+        hostname: "server.rbcl-bd.com",
+      },
+      {
         protocol: "http",
         hostname: "localhost",
       },

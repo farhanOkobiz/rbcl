@@ -5,6 +5,7 @@ import BlogCardForHome from "../BlogCardForHome/BlogCardForHome";
 import { getAllBlogForHome } from "@/services/blogs";
 
 type Blog = {
+  _id: string;
   id: string;
   title: string;
   details: string;
@@ -35,7 +36,7 @@ const BlogsForHome = async () => {
                   .slice(0, 4)
                   .map((blog: Blog) => (
                     <BlogCardForHome
-                      key={blog.id}
+                      key={blog._id}
                       title={blog.title}
                       details={blog.details}
                       image={blog.image}
