@@ -133,7 +133,7 @@ const NavBar: React.FC<NavBarProps> = ({ userCartProducts }) => {
                     />
                   </Link>
                 </div>
-                <p>Royel business company limited</p>
+                <p className="text-xl">Royel business company limited</p>
               </div>
             </div>
 

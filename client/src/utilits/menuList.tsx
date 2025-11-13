@@ -12,7 +12,7 @@ export const menuList = [
     link: "/blogs"
   },
   {
-    title: "Shop",
+    title: "Product/Service",
     link: "/shop",
     subMenu: true,
   },

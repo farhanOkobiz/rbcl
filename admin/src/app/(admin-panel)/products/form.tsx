@@ -366,7 +366,7 @@ export const CreateProductForm: React.FC = () => {
                   </FormItem>
                 )}
               />
-              <FormField
+              {/* <FormField
                 control={form.control}
                 name="gender"
                 render={({ field }) => (
@@ -396,7 +396,7 @@ export const CreateProductForm: React.FC = () => {
                     </FormItem>
                   </div>
                 )}
-              />
+              /> */}
               <FormField
                 control={form.control}
                 name="brandRef"

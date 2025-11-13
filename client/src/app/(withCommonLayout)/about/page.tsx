@@ -28,7 +28,7 @@ const page = async () => {
           {/* About Section */}
           <div className="relative bg-white rounded p-10 shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-300">
             <div className="absolute top-0 left-0 w-2 h-full bg-[#008080] rounded-l-3xl"></div>
-            <h1 className="text-4xl font-extrabold text-gray-800 mb-5">
+            <h1 className="text-4xl font-extrabold text-[#008080] mb-5">
               About <span className="text-[#008080]">Royal Business Community Ltd.</span>
             </h1>
             <div className="space-y-4 text-gray-700 text-lg leading-relaxed">

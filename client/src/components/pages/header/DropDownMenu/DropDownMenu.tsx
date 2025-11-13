@@ -8,7 +8,7 @@ type DropDownMenuProps = {
 
 const DropDownMenu: React.FC<DropDownMenuProps> = ({ menu }) => {
   return (
-    <div className="z-[999] relative bg-[#fff] w-full mt-1">
+    <div className="z-[999] relative bg-[#fff] text-[#008080] w-full mt-1 -ml-52 mt-5">
       <div className="w-full border-b rounded-b border-[#262626]/50 rounded flex flex-wrap pb-0 pl-1">
         {menu.map((item, index) => (
           <div key={index} className="w-[200px] ml-2 my-2">

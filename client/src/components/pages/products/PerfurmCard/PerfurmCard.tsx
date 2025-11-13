@@ -187,7 +187,7 @@ const PerfurmCard: React.FC<Product> = ({ product }) => {
               </div>
             </div>
           </Link>
-          <div className="w-full my-2 bg-[#52687f] border-transparent hover:bg-[#375472] duration-300 text-center flex items-center justify-center rounded cursor-pointer">
+          <div className="w-full my-2 bg-[#008080] border-transparent duration-300 text-center flex items-center justify-center rounded cursor-pointer">
             <Link
               href={`product/${slug}`}
               className=" focus:outline-none w-full border-transparent flex items-center justify-center gap-1 px-4 py-3 font-semibold text-[12px] cursor-pointer rounded text-[#fff] "
