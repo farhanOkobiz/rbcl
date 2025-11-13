@@ -52,27 +52,27 @@ const PerfurmCard: React.FC<Product> = ({ product }) => {
               {/* Lottie loader until both images loaded */}
               {thumbnailImage && backViewImage
                 ? (!imageLoaded.back || !imageLoaded.front) && (
-                    <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center bg-white z-10">
-                      <div className="w-24 h-24">
-                        <Lottie
-                          animationData={cardImageLoading}
-                          loop
-                          autoplay
-                        />
-                      </div>
+                  <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center bg-white z-10">
+                    <div className="w-24 h-24">
+                      <Lottie
+                        animationData={cardImageLoading}
+                        loop
+                        autoplay
+                      />
                     </div>
-                  )
+                  </div>
+                )
                 : !imageLoaded.front && (
-                    <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center bg-white z-10">
-                      <div className="w-24 h-24">
-                        <Lottie
-                          animationData={cardImageLoading}
-                          loop
-                          autoplay
-                        />
-                      </div>
+                  <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center bg-white z-10">
+                    <div className="w-24 h-24">
+                      <Lottie
+                        animationData={cardImageLoading}
+                        loop
+                        autoplay
+                      />
                     </div>
-                  )}
+                  </div>
+                )}
 
               {backViewImage && (
                 <Image
@@ -151,7 +151,7 @@ const PerfurmCard: React.FC<Product> = ({ product }) => {
                   )}
                 </div> */}
 
-                {Array.isArray(inventoryRef) ? (
+                {/* {Array.isArray(inventoryRef) ? (
                   <div className="inline-flex items-center justify-center gap-2 xl:text-base lg:text-[12px] text-base">
                     <p className="flex items-center gap-1">
                       <span>৳ {inventoryRef[0]?.price}</span>
@@ -170,12 +170,12 @@ const PerfurmCard: React.FC<Product> = ({ product }) => {
                     <p className="flex items-center gap-1">
                       <span>৳ {inventoryRef?.price}</span>
                     </p>
-                    {/* {inventoryRef?.mrpPrice && (
+                    {inventoryRef?.mrpPrice && (
                       <p className="line-through text-[red]">
                         <span>৳</span>{" "}
                         <span>{Number(inventoryRef?.mrpPrice).toFixed(2)}</span>
                       </p>
-                    )} */}
+                    )}
 
                     {inventoryRef.price !== inventoryRef.mrpPrice && (
                       <p className="text-red-600 line-through">
@@ -183,12 +183,20 @@ const PerfurmCard: React.FC<Product> = ({ product }) => {
                       </p>
                     )}
                   </div>
-                )}
+                )} */}
               </div>
             </div>
           </Link>
+          <div className="w-full my-2 bg-[#52687f] border-transparent hover:bg-[#375472] duration-300 text-center flex items-center justify-center rounded cursor-pointer">
+            <Link
+              href={`product/${slug}`}
+              className=" focus:outline-none w-full border-transparent flex items-center justify-center gap-1 px-4 py-3 font-semibold text-[12px] cursor-pointer rounded text-[#fff] "
+            >
+              View Details
+            </Link>
+          </div>
 
-          <div className="">
+          {/* <div className="">
             <ProductDialog
               name={name}
               productRef={_id}
@@ -198,7 +206,7 @@ const PerfurmCard: React.FC<Product> = ({ product }) => {
               }
               inventoryType={inventoryType}
             />
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

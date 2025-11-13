@@ -123,7 +123,7 @@ const ShopProductsCategories: React.FC<ShopProductsCategoriesProps> = ({
 
   return (
     <div className="px-4 pt-8 sticky top-0 h-screen overflow-y-scroll custom-scroll flex flex-col gap-4 pb-12">
-      <div>
+      {/* <div>
         <div className="space-y-2 border border-[#008080] rounded px-3 py-4 h-[220px]">
           <h2 className="pb-2 text-base font-semibold uppercase">
             Price range
@@ -165,7 +165,6 @@ const ShopProductsCategories: React.FC<ShopProductsCategoriesProps> = ({
             </div>
           </div>
 
-          {/* Slider */}
           <div className="py-2">
             <Range
               step={10}
@@ -218,7 +217,7 @@ const ShopProductsCategories: React.FC<ShopProductsCategoriesProps> = ({
             <span>৳{values[1]}</span>
           </div>
         </div>
-      </div>
+      </div> */}
 
       <div>
         <ul className="space-y-2 border border-[#008080] rounded px-3 py-4 h-[258px] overflow-y-scroll">
@@ -284,7 +283,7 @@ const ShopProductsCategories: React.FC<ShopProductsCategoriesProps> = ({
         </ul>
       </div>
 
-      <div>
+      {/* <div>
         <div className="space-y-2 border border-[#008080] rounded px-3 py-4 h-[250px] overflow-y-scroll">
           <h2 className="pb-2 text-base font-semibold uppercase">Brands</h2>
           <div>
@@ -305,8 +304,8 @@ const ShopProductsCategories: React.FC<ShopProductsCategoriesProps> = ({
             ))}
           </div>
         </div>
-      </div>
-
+      </div> */}
+{/* 
       <div>
         <div className="space-y-2 border border-[#008080] rounded px-3 py-4 h-[160px]">
           <h2 className="pb-2 text-base font-semibold uppercase">Genders</h2>
@@ -330,7 +329,7 @@ const ShopProductsCategories: React.FC<ShopProductsCategoriesProps> = ({
               ))}
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

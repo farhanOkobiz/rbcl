@@ -40,22 +40,30 @@ const ProductCard: React.FC<Props> = ({ product }) => {
             <div className="text-[12px] font-semibold flex-col bg-[#fff]  w-full  m-auto rounded-b-md shadow px-4 py-1 z-50 flex  gap-1 justify-center items-center">
               <h2 className="line-clamp-1">{name}</h2>
               <div className="flex gap-2">
-                <p className="flex items-center gap-1">
+                {/* <p className="flex items-center gap-1">
                   <span>৳</span>{" "}
                   <span>{Number(inventoryRef?.[0]?.price).toFixed(2)}</span>
-                </p>{" "}
+                </p>{" "} */}
                 {/* <p className="line-through text-[#262626]/60 flex items-center gap-1">
                 {inventoryRef?.[0]?.mrpPrice && (<span>৳</span> <span>{Number(mrpPrice).toFixed(2)}</span>)}
                   
                 </p> */}
-                {inventoryRef?.[0]?.mrpPrice && (
+                {/* {inventoryRef?.[0]?.mrpPrice && (
                   <p className="line-through text-[#262626]/60 flex items-center gap-1">
                     <span>৳</span>{" "}
                     <span>
                       {Number(inventoryRef?.[0]?.mrpPrice).toFixed(2)}
                     </span>
                   </p>
-                )}
+                )} */}
+              </div>
+              <div className="w-full my-2 bg-[#008080] border-transparent  duration-300 text-center flex items-center justify-center rounded cursor-pointer">
+                <Link
+                  href={`product/${slug}`}
+                  className=" focus:outline-none w-full border-transparent flex items-center justify-center gap-1 px-4 py-3 font-semibold text-[12px] cursor-pointer rounded text-[#fff] "
+                >
+                  View Details
+                </Link>
               </div>
             </div>
           </div>

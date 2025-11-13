@@ -8,6 +8,10 @@ const nextConfig = {
       },
       {
         protocol: "http",
+        hostname: "server.rbcl-bd.com", // <-- add this
+      },
+      {
+        protocol: "http",
         hostname: "localhost",
       },
     ],

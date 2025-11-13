@@ -74,9 +74,9 @@ const Footer: React.FC<FooterProps> = ({ userCartProducts }) => {
               We combine knowledge, trust, and convenience in every experience.
             </p>
             <div className=" text-md lg:text-lg flex flex-col space-y-1 ">
-              <div>Contact: +880 170000000</div>
-              <div>Whats app: +880 170000000</div>
-              <div>Address: Dhaka, Bangladesh</div>
+              {/* <div>Contact: +880 170000000</div>
+              <div>Whats app: +880 170000000</div> */}
+              <div>Dhaka, Bangladesh</div>
             </div>
           </div>
           <div>
@@ -170,7 +170,8 @@ const Footer: React.FC<FooterProps> = ({ userCartProducts }) => {
           </div>
         </div>
       </div>
-      <div className="bg-[#008080] Container flex justify-between gap-12   text-white text-center py-4 border-t">
+      <div className=" bg-[#008080] Container ">
+        <div className="max-w-[1280px] mx-auto flex justify-between gap-12   text-white text-center py-4 border-t">
         <div>Copyright © 2025 RBCL. All Right Reserved. </div>
         <div>
           Developed by
@@ -179,8 +180,8 @@ const Footer: React.FC<FooterProps> = ({ userCartProducts }) => {
           </a>
           .
         </div>
+        </div>
       </div>
-
       <DownFooter userCartProducts={userCartProducts} />
     </div>
   );

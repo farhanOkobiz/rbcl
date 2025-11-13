@@ -114,7 +114,7 @@ const NavBar: React.FC<NavBarProps> = ({ userCartProducts }) => {
   return (
     <>
       <div
-        className={`hidden lg:block w-full z-40 py-1  bg-[#008080] text-white transition-all duration-300 fixed top-0 ${
+        className={`hidden lg:block w-full z-40 py-2  bg-[#008080] text-white transition-all duration-300 fixed top-0 ${
           isScrolled ? "shadow" : " relative "
         }`}
       >
@@ -127,9 +127,9 @@ const NavBar: React.FC<NavBarProps> = ({ userCartProducts }) => {
                     <Image
                       src={logo || null}
                       alt="ROYEL BUSINESS COMPANY LIMITED | Best E-commerce platform in BD"
-                      width={65}
-                      height={65}
-                      className="w-full h-[80px]"
+                      width={75}
+                      height={75}
+                      className="w-full h-[90px]"
                     />
                   </Link>
                 </div>

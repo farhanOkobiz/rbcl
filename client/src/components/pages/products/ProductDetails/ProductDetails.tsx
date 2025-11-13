@@ -13,6 +13,7 @@ import { toast } from "react-toastify";
 import { getUser } from "@/services/auth";
 import { useRouter } from "next/navigation";
 import { useAnimation } from "framer-motion";
+import Link from "next/link";
 interface Props {
   product: TProduct;
 }
@@ -140,7 +141,7 @@ const ProductDetails: React.FC<Props> = ({ product }) => {
             {name}
           </h2>
 
-          <div className="flex gap-2 mt-2">
+          {/* <div className="flex gap-2 mt-2">
             <p className="flex items-center gap-1 font-semibold text-xl">
               <span>৳</span>{" "}
               <span>
@@ -159,7 +160,7 @@ const ProductDetails: React.FC<Props> = ({ product }) => {
                       : undefined;
                   }
 
-                  // Fall back to index 0 if no valid selection
+
                   const fallbackItem = Array.isArray(inventoryRef)
                     ? inventoryRef[0]
                     : undefined;
@@ -188,7 +189,7 @@ const ProductDetails: React.FC<Props> = ({ product }) => {
                       : undefined;
                   }
 
-                  // Fall back to index 0 if no valid selection
+          
                   const fallbackItem = Array.isArray(inventoryRef)
                     ? inventoryRef[0]
                     : undefined;
@@ -199,7 +200,7 @@ const ProductDetails: React.FC<Props> = ({ product }) => {
                 })()}
               </span>
             </p>
-          </div>
+          </div> */}
 
           <div className="mt-3">
             {(inventoryType === "levelInventory" ||
@@ -276,7 +277,7 @@ const ProductDetails: React.FC<Props> = ({ product }) => {
 
           <div className="border-b pb-4">
             <div className="mt-4 flex items-center gap-2 ">
-              <div className="flex items-center justify-between border rounded px-3 py-[7px] md:w-[25%] w-[30%]">
+              {/* <div className="flex items-center justify-between border rounded px-3 py-[7px] md:w-[25%] w-[30%]">
                 <p onClick={handleDecrement} className="cursor-pointer">
                   <FiMinus />
                 </p>
@@ -284,8 +285,8 @@ const ProductDetails: React.FC<Props> = ({ product }) => {
                 <p onClick={handleIncrement} className="cursor-pointer">
                   <FiPlus />
                 </p>
-              </div>
-              <div className="w-full cursor-pointer">
+              </div> */}
+              {/* <div className="w-full cursor-pointer">
                 <button
                   onClick={handleAddToCart}
                   className="bg-[#008080] hover:bg-[#CCD5AE] duration-300 flex items-center gap-1 px-6 py-2.5 font-semibold text-sm  rounded text-[#fff] cursor-pointer"
@@ -296,6 +297,17 @@ const ProductDetails: React.FC<Props> = ({ product }) => {
 
                   <span>{loading ? "Sending..." : "Add To Cart"}</span>
                 </button>
+              </div> */}
+                <div className="w-full cursor-pointer">
+                <Link
+                  href="/contact"
+                  className="w-[150px] bg-[#008080] duration-300 flex items-center gap-1 px-6 py-2.5 font-semibold text-sm rounded text-[#fff] cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  <span>
+                    <FiPlus />
+                  </span>
+                  <span>Get Quote</span>
+                </Link>
               </div>
             </div>
           </div>

@@ -23,130 +23,67 @@ const page = async () => {
       }}
     >
       <NavBar userCartProducts={userCartProducts?.data} />
-      <div className="Container mt-28 lg:mt-0">
-        <div className="max-w-[1280px] mx-auto py-10 md:py-16 px-4">
-          {/* Header Section */}
-          <div className="flex flex-col lg:flex-row items-center lg:items-center gap-8 lg:gap-12 mb-12">
-            <div className="flex-shrink-0">
-              <div className="relative group">
-                <div className="absolute -inset-1 bg-gradient-to-r from-[#008080] to-amber-400 rounded-xl blur opacity-25 group-hover:opacity-40 transition duration-300"></div>
-                <div className="relative border-2 border-[#008080]/30 rounded-xl p-3 bg-white shadow-lg hover:shadow-xl transition-all duration-300">
-                  <Image
-                    src={aboutImage}
-                    alt={companyName}
-                    width={140}
-                    height={140}
-                    className="rounded-lg object-cover"
-                  />
-                </div>
-              </div>
-            </div>
-
-            <div className="flex-1">
-              <div className="bg-gradient-to-br from-white/90 to-gray-50 p-6 lg:p-8 rounded-2xl shadow-sm border border-gray-100">
-                <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 leading-relaxed">
-                  About{" "}
-                  <span className="text-[#008080] font-extrabold uppercase">
-                    {companyName}
-                  </span>
-                </h1>
-                <p className="text-gray-600 mt-4 text-lg font-medium">
-                  {companyName} is a dynamic platform that combines{" "}
-                  <span className="text-[#008080] font-semibold">
-                    blogging and e-commerce
-                  </span>{" "}
-                  under one digital space. We empower creativity and commerce by
-                  connecting readers, writers, and shoppers through authentic
-                  content and quality products.
-                </p>
-              </div>
+      <div className="Container mt-24 lg:mt-0 bg-gradient-to-b from-gray-50 to-white">
+        <div className="max-w-[1270px] mx-auto py-16 space-y-12">
+          {/* About Section */}
+          <div className="relative bg-white rounded p-10 shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-300">
+            <div className="absolute top-0 left-0 w-2 h-full bg-[#008080] rounded-l-3xl"></div>
+            <h1 className="text-4xl font-extrabold text-gray-800 mb-5">
+              About <span className="text-[#008080]">Royal Business Community Ltd.</span>
+            </h1>
+            <div className="space-y-4 text-gray-700 text-lg leading-relaxed">
+              <p>
+                Royal Business Community Ltd. serves as a comprehensive online resource, dedicated
+                to helping users discover and comprehend our world from multiple angles. We bridge
+                the gap between curiosity and knowledge, covering a broad spectrum of topics—from
+                international business trends and cultural phenomena to global travel and cuisine.
+                Our platform is a one-stop destination for insights into our interconnected world.
+              </p>
+              <p>
+                We curate narratives, data, and facts from trusted channels, allowing our audience
+                to easily appreciate the planet's rich complexity. This platform is built for everyone:
+                professionals, tourists, academics, or anyone with a passion for global knowledge.
+              </p>
             </div>
           </div>
 
           {/* Mission Section */}
-          <div className="bg-white rounded-2xl p-8 lg:p-10 shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300 mb-8">
-            <h2 className="text-2xl font-bold text-gray-800 mb-3">
-              Our Mission
-            </h2>
+          <div className="bg-[#f9fdfd] rounded p-10 border border-[#d4f1f1] hover:shadow-md transition duration-300">
+            <h2 className="text-3xl font-semibold text-gray-800 mb-4">Our Mission</h2>
             <p className="text-gray-700 text-lg leading-relaxed">
-              Our mission is to create a trusted online space where{" "}
-              <span className="font-semibold text-[#008080]">
-                knowledge meets business
-              </span>
-              . Through our blog, we share insightful stories, reviews, and
-              guides; while our e-commerce platform brings{" "}
-              <span className="font-semibold">authentic, affordable</span> and{" "}
-              <span className="font-semibold">high-quality</span> products to
-              your doorstep.
+              Our mission is to capture the essence of our global tapestry by collecting and
+              distributing knowledge from every facet of life, including business, travel, culture,
+              and lifestyle. We are committed to making reliable, well-structured, and practical content
+              universally accessible, building a platform that truly amplifies the perspectives of the worldwide community.
             </p>
           </div>
 
           {/* Vision Section */}
-          <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl p-8 lg:p-10 border border-amber-100 hover:shadow-md transition-all duration-300 mb-8">
-            <h2 className="text-2xl font-bold text-gray-800 mb-3">
-              Our Vision
-            </h2>
+          <div className="bg-white rounded p-10 shadow-sm border border-gray-100 hover:shadow-md transition duration-300">
+            <h2 className="text-3xl font-semibold text-gray-800 mb-4">Our Vision</h2>
             <p className="text-gray-700 text-lg leading-relaxed">
-              We envision {companyName} as{" "}
-              <span className="text-[#008080] font-semibold">
-                Bangladesh’s leading digital hub
-              </span>{" "}
-              for lifestyle, learning, and shopping. Our goal is to inspire and
-              empower people through meaningful content and a seamless shopping
-              experience that reflects{" "}
-              <span className="italic font-medium">
-                trust, creativity, and convenience
-              </span>
-              .
+              We envision becoming the world's premier and most dependable online knowledge portal.
+              We strive to create a space where a diverse, global audience can explore, share,
+              and honor the experiences that make our world unique. Our goal is to spark exploration,
+              foster cross-cultural appreciation, and connect people by facilitating the free exchange of information.
             </p>
           </div>
 
-          {/* Values Section */}
-          <div className="bg-white rounded-2xl p-8 lg:p-10 shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300 mb-8">
-            <h2 className="text-2xl font-bold text-gray-800 mb-3">
-              Our Core Values
-            </h2>
-            <ul className="list-disc list-inside text-gray-700 text-lg leading-relaxed space-y-2">
-              <li>
-                <span className="text-[#008080] font-semibold">
-                  Innovation:
-                </span>{" "}
-                We continuously evolve to bring fresh ideas and better solutions
-                for our users and customers.
-              </li>
-              <li>
-                <span className="text-[#008080] font-semibold">Integrity:</span>{" "}
-                We value honesty, authenticity, and transparency in every
-                interaction.
-              </li>
-              <li>
-                <span className="text-[#008080] font-semibold">Quality:</span>{" "}
-                We ensure every product and piece of content meets our high
-                standards of excellence.
-              </li>
-              <li>
-                <span className="text-[#008080] font-semibold">Community:</span>{" "}
-                We believe in building a connected and informed community that
-                grows together.
-              </li>
-            </ul>
-          </div>
-
-          {/* Closing Section */}
-          <div className="text-center bg-white rounded-2xl p-10 lg:p-14 shadow-inner">
-            <p className="text-2xl md:text-3xl font-bold text-[#008080] mb-4">
-              {companyName}
-            </p>
-            <p className="text-gray-700 text-lg max-w-3xl mx-auto">
-              At {companyName}, we blend{" "}
-              <span className="text-[#008080] font-semibold">
-                creativity, commerce, and community
-              </span>{" "}
-              to make digital life more inspiring and rewarding.
+          {/* Operation Section */}
+          <div className="bg-[#fefefe] rounded p-10 border border-gray-200 hover:border-[#008080]/30 hover:shadow-md transition duration-300">
+            <h2 className="text-3xl font-semibold text-gray-800 mb-4">How Our Platform Operates</h2>
+            <p className="text-gray-700 text-lg leading-relaxed">
+              Royal Business Community Ltd. operates as a dynamic information ecosystem. Our in-house staff,
+              alongside a global network of contributors, source and fact-check data, narratives, and media
+              from all corners of the planet. Content is organized into key categories—such as business,
+              travel, culture, and lifestyle—for intuitive navigation. Every piece of content is reviewed
+              and kept current to maintain its integrity, and users are encouraged to contribute their insights,
+              making this a truly collaborative resource.
             </p>
           </div>
         </div>
       </div>
+
     </div>
   );
 };

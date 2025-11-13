@@ -1,8 +1,8 @@
 export const menuList = [
-  {
-    title: "Home",
-    link: "/",
-  },
+  // {
+  //   title: "Home",
+  //   link: "/",
+  // },
   {
     title: "About",
     link: "/about",
