@@ -33,7 +33,7 @@ const BlogsForHome = async () => {
               </div>
               {Array.isArray(allBlogs?.data) &&
                 allBlogs.data
-                  .slice(0, 4)
+                  .slice(0, 8)
                   .map((blog: Blog) => (
                     <BlogCardForHome
                       key={blog._id}

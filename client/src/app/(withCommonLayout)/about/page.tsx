@@ -29,11 +29,11 @@ const page = async () => {
           <div className="relative bg-white rounded p-10 shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-300">
             <div className="absolute top-0 left-0 w-2 h-full bg-[#008080] rounded-l-3xl"></div>
             <h1 className="text-4xl font-extrabold text-[#008080] mb-5">
-              About <span className="text-[#008080]">Royal Business Community Ltd.</span>
+              About <span className="text-[#008080] uppercase">Royal Business Company Ltd.</span>
             </h1>
             <div className="space-y-4 text-gray-700 text-lg leading-relaxed">
               <p>
-                Royal Business Community Ltd. serves as a comprehensive online resource, dedicated
+                ROYAL BUSINESS COMPANY LTD. serves as a comprehensive online resource, dedicated
                 to helping users discover and comprehend our world from multiple angles. We bridge
                 the gap between curiosity and knowledge, covering a broad spectrum of topics—from
                 international business trends and cultural phenomena to global travel and cuisine.
@@ -73,7 +73,7 @@ const page = async () => {
           <div className="bg-[#fefefe] rounded p-10 border border-gray-200 hover:border-[#008080]/30 hover:shadow-md transition duration-300">
             <h2 className="text-3xl font-semibold text-gray-800 mb-4">How Our Platform Operates</h2>
             <p className="text-gray-700 text-lg leading-relaxed">
-              Royal Business Community Ltd. operates as a dynamic information ecosystem. Our in-house staff,
+              ROYAL BUSINESS COMPANY LTD. operates as a dynamic information ecosystem. Our in-house staff,
               alongside a global network of contributors, source and fact-check data, narratives, and media
               from all corners of the planet. Content is organized into key categories—such as business,
               travel, culture, and lifestyle—for intuitive navigation. Every piece of content is reviewed

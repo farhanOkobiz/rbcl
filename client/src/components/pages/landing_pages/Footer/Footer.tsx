@@ -116,7 +116,7 @@ const Footer: React.FC<FooterProps> = ({ userCartProducts }) => {
             <div className="">
               <div className="flex lg:justify-center lg:items-center gap-2 mt-4">
                 <a
-                  href="#"
+                  href="https://www.facebook.com/share/14KyXKfHmES/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-2 py-2 bg-[#2563EB] rounded text-[#fff] border border-[#fff]/0 hover:scale-95 hover:border-[#fff] hover:border duration-300"

@@ -2,6 +2,7 @@ import { apiBaseUrl } from "@/config/config";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { BsArrowRight } from "react-icons/bs";
 
 export type BlogCardProps = {
   title: string;
@@ -39,11 +40,19 @@ const BlogCardForHome: React.FC<BlogCardProps> = ({
           </h2>
         </Link>
         <Link href={`blogs/${slug}`}>
-          <p className="mt-2  cursor-pointer">
+          <p className="mt-2 cursor-pointer line-clamp-11">
             <span dangerouslySetInnerHTML={{ __html: details }} />
           </p>
         </Link>
       </div>
+      <Link href={`blogs/${slug}`}>
+        <div className="flex items-center gap-1 m-4 font-semibold cursor-pointer  text-xl">
+          <span>Read More</span>
+          <span className="mt-1">
+            <BsArrowRight />
+          </span>
+        </div>
+      </Link>
     </div>
   );
 };
