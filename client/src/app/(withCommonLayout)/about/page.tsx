@@ -12,7 +12,7 @@ const page = async () => {
   const userRef = user?.id;
   const coupon = "";
   const userCartProducts = await getCartProducts(userRef, coupon);
-  const companyName = "Royel Business Company Limited";
+  const companyName = "Royal Business Company Limited";
 
   return (
     <div

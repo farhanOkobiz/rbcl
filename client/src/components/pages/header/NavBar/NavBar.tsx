@@ -126,14 +126,14 @@ const NavBar: React.FC<NavBarProps> = ({ userCartProducts }) => {
                   <Link href="/">
                     <Image
                       src={logo || null}
-                      alt="ROYEL BUSINESS COMPANY LIMITED | Best E-commerce platform in BD"
+                      alt="ROYAL BUSINESS COMPANY LIMITED | Best E-commerce platform in BD"
                       width={75}
                       height={75}
                       className="w-full h-[90px]"
                     />
                   </Link>
                 </div>
-                <p className="text-xl uppercase">Royel business company limited</p>
+                <p className="text-xl uppercase">Royal business company limited</p>
               </div>
             </div>
 
@@ -237,7 +237,7 @@ const NavBar: React.FC<NavBarProps> = ({ userCartProducts }) => {
                 <Link href="/">
                   <Image
                     src={logo || null}
-                    alt="ROYEL BUSINESS COMPANY LIMITED"
+                    alt="ROYAL BUSINESS COMPANY LIMITED"
                     width={100}
                     height={80}
                     className="w-full h-full"

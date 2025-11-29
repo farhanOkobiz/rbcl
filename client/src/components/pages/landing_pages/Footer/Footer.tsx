@@ -63,7 +63,7 @@ const Footer: React.FC<FooterProps> = ({ userCartProducts }) => {
             <p className="text-sm leading-relaxed mb-[20px]">
               Welcome to{" "}
               <span className="font-semibold">
-                Royel Business Company Limited
+                Royal Business Company Limited
               </span>{" "}
               –
               <br className="hidden md:block" />

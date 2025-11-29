@@ -6,7 +6,7 @@ import NavBar from "@/components/pages/header/NavBar/NavBar";
 import CartClient from "@/components/pages/cartClient/cartClient";
 
 export const metadata: Metadata = {
-  title: "ROYEL BUSINESS COMPANY LIMITED | cart",
+  title: "ROYAL BUSINESS COMPANY LIMITED | cart",
   description: "Best E-commerce platform in BD",
 };
 

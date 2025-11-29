@@ -21,11 +21,18 @@ const VideoBlogs = async () => {
     }
 
     return (
-      <div className=" md:mt-7 lg:mt-4">
-        <div className="grid grid-cols-1">
+      <div className="mt-6">
+        <div className="flex md:items-center md:flex-row flex-col md:justify-between md:gap-0 gap-2">
+          <div className="flex flex-col gap-2">
+            <h2 className="lg:text-2xl text-xl font-semibold uppercase text-white">
+              Video Blogs
+            </h2>
+          </div>
+        </div>
+        <div className="grid grid-cols-1 mt-4">
           {Array.isArray(allVideoBlogs?.data) &&
             allVideoBlogs.data
-              .slice(0, 4)
+              .slice(0, 9)
               .map((blog: Blog) => (
                 <VideoBlogCard
                   key={blog.id}

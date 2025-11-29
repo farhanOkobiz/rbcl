@@ -23,7 +23,7 @@ const VideoBlogCard: React.FC<VideoBlogCardProps> = ({ title, youtubeUrl }) => {
   const embedUrl = videoId ? `https://www.youtube.com/embed/${videoId}` : "";
 
   return (
-    <div className="border mb-8 rounded border-white">
+    <div className="border mb-4 rounded border-white">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}

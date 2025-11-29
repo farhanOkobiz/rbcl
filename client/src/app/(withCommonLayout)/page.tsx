@@ -24,7 +24,7 @@ import T1 from "../../assets/texture/t8.jpg";
 export const metadata: Metadata = {
   title: "RBCL",
   description:
-    "Shop online at RBCL – Bangladesh's best perfumes e-commerce platform. Discover premium perfumes for men and women unisex at ROYEL BUSINESS COMPANY LIMITED. Shop 100% authentic branded product in Bangladesh with fast delivery and great prices.",
+    "Royal Business Company Limited is a reliable and modern service provider committed to delivering high-quality solutions. With a skilled team and a customer-focused approach, the company offers professional business services, strategic support, and tailored solutions to help clients grow. Royal Business Company Limited stands out for its efficiency, trust, and dedication to customer success.",
 };
 
 const page = async () => {

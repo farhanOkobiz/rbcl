@@ -40,7 +40,7 @@ const BlogCardForHome: React.FC<BlogCardProps> = ({
           </h2>
         </Link>
         <Link href={`blogs/${slug}`}>
-          <p className="mt-2 cursor-pointer line-clamp-11">
+          <p className="mt-2 cursor-pointer line-clamp-6">
             <span dangerouslySetInnerHTML={{ __html: details }} />
           </p>
         </Link>
